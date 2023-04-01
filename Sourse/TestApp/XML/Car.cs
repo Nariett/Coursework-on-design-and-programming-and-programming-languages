@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace XML
+{
+    public enum CarType
+    {
+        Sedan,
+        SUV,
+        Coupe,
+        Hatchback,
+        Convertible,
+        PickupTruck,
+        Van
+    }
+    public enum FuelType
+    {
+        Gasoline,
+        Diesel,
+        Electric
+    }
+    [Serializable]
+    public class Car
+    {
+        public string Name { get; set; }
+        public int Year { get; set; }
+        public CarType TypeCar { get; set; }
+        public int MaxSpeed { get; set; }
+        public int SeatingCapacity { get; set; }
+        public FuelType Fuel { get; set; }
+        public double FuelConsumption { get; set; }
+        public double EnginePower { get; set; }
+        public double EngineSize { get; set; }
+        public double TankSize { get; set; }
+        public Car() { }
+        public Car(string name, int year, CarType typeCar, int maxSpeed, int seatingCapacity, FuelType fuel, double fuelConsumption, double enginePower, double engineSize, double tankSize)
+        {
+            Name = name;
+            Year = year;
+            TypeCar = typeCar;
+            MaxSpeed = maxSpeed;
+            SeatingCapacity = seatingCapacity;
+            Fuel = fuel;
+            FuelConsumption = fuelConsumption;
+            EnginePower = enginePower;
+            EngineSize = engineSize;
+            TankSize = tankSize;
+        }
+    }
+}

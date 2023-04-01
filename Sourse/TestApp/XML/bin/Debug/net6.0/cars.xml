@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cars>
+  <Car>
+    <name>Toyota Camry</name>
+    <year>2022</year>
+    <typeCar>Sedan</typeCar>
+    <maxSpeed>180</maxSpeed>
+    <seatingCapacity>5</seatingCapacity>
+    <fuel>Gasoline</fuel>
+    <fuelConsumption>7,5</fuelConsumption>
+    <enginePower>203</enginePower>
+    <engineSize>2,5</engineSize>
+    <tankSize>60</tankSize>
+    <tankSize>60</tankSize>
+  </Car>
+  <car>
+    <name>BMW X5</name>
+    <year>2022</year>
+    <typeCar>SUV</typeCar>
+    <maxSpeed>250</maxSpeed>
+    <seatingCapacity>5</seatingCapacity>
+    <fuel>Diesel</fuel>
+    <fuelConsumption>6,5</fuelConsumption>
+    <enginePower>340</enginePower>
+    <engineSize>3,0</engineSize>
+    <tankSize>80</tankSize>
+  </car>
+</Cars>

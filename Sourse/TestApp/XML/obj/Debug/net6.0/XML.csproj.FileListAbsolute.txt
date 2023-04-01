@@ -1,0 +1,15 @@
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\bin\Debug\net6.0\XML.exe
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\bin\Debug\net6.0\XML.deps.json
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\bin\Debug\net6.0\XML.runtimeconfig.json
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\bin\Debug\net6.0\XML.dll
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\bin\Debug\net6.0\XML.pdb
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.csproj.AssemblyReference.cache
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.AssemblyInfoInputs.cache
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.AssemblyInfo.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.csproj.CoreCompileInputs.cache
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.dll
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\refint\XML.dll
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.pdb
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\XML.genruntimeconfig.cache
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\TestApp\XML\obj\Debug\net6.0\ref\XML.dll
