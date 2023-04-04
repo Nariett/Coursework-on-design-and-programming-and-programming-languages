@@ -1,0 +1,172 @@
+<routes>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Брест</PointB>
+    <kilometer>346</kilometer>
+  </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Гомель</PointB>
+    <kilometer>305</kilometer>
+  </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Витебск</PointB>
+    <kilometer>267</kilometer>
+  </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Могилев</PointB>
+    <kilometer>198</kilometer>
+  </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Гродно</PointB>
+    <kilometer>268</kilometer>
+  </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Барановичи</PointB>
+    <kilometer>142</kilometer>
+  </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Жлобин</PointB>
+    <kilometer>182</kilometer>
+  </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Орша</PointB>
+    <kilometer>165</kilometer>
+  </route>
+  <route>
+    <PointA>Брест</PointA>
+    <PointB>Гомель</PointB>
+    <kilometer>392</kilometer>
+  </route>
+  <route>
+    <PointA>Брест</PointA>
+    <PointB>Витебск</PointB>
+    <kilometer>556</kilometer>
+  </route>
+  <route>
+    <PointA>Брест</PointA>
+    <PointB>Могилев</PointB>
+    <kilometer>469</kilometer>
+  </route>
+  <route>
+    <PointA>Брест</PointA>
+    <PointB>Гродно</PointB>
+    <kilometer>204</kilometer>
+  </route>
+  <route>
+    <PointA>Брест</PointA>
+    <PointB>Барановичи</PointB>
+    <kilometer>88</kilometer>
+  </route>
+  <route>
+    <PointA>Брест</PointA>
+    <PointB>Жлобин</PointB>
+    <kilometer>351</kilometer>
+  </route>
+  <route>
+    <PointA>Брест</PointA>
+    <PointB>Орша</PointB>
+    <kilometer>288</kilometer>
+  </route>
+  <route>
+    <PointA>Гомель</PointA>
+    <PointB>Витебск</PointB>
+    <kilometer>466</kilometer>
+  </route>
+
+  <route>
+    <PointA>Гомель</PointA>
+    <PointB>Могилев</PointB>
+    <kilometer>184</kilometer>
+  </route>
+  <route>
+    <PointA>Гомель</PointA>
+    <PointB>Гродно</PointB>
+    <kilometer>594</kilometer>
+  </route>
+  <route>
+    <PointA>Гомель</PointA>
+    <PointB>Барановичи</PointB>
+    <kilometer>409</kilometer>
+  </route>
+   <route>
+    <PointA>Гомель</PointA>
+    <PointB>Жлобин</PointB>
+    <kilometer>104</kilometer>
+  </route>
+ <route>
+    <PointA>Гомель</PointA>
+    <PointB>Орша</PointB>
+    <kilometer>246</kilometer>
+  </route>
+<route>
+    <PointA>Витебск</PointA>
+    <PointB>Могилев</PointB>
+    <kilometer>160</kilometer>
+  </route>
+<route>
+    <PointA>Витебск</PointA>
+    <PointB>Гродно</PointB>
+    <kilometer>534</kilometer>
+  </route>
+<route>
+    <PointA>Витебск</PointA>
+    <PointB>Барановичи</PointB>
+    <kilometer>534</kilometer>
+  </route>
+<route>
+    <PointA>Витебск</PointA>
+    <PointB>Жлобин</PointB>
+    <kilometer>293</kilometer>
+  </route>
+<route>
+    <PointA>Витебск</PointA>
+    <PointB>Орша</PointB>
+    <kilometer>80</kilometer>
+  </route>
+<route>
+    <PointA>Могилев</PointA>
+    <PointB>Гродно</PointB>
+    <kilometer>480</kilometer>
+  </route>
+<route>
+    <PointA>Могилев</PointA>
+    <PointB>Барановичи</PointB>
+    <kilometer>332</kilometer>
+  </route>
+<route>
+    <PointA>Могилев</PointA>
+    <PointB>Жлобин</PointB>
+    <kilometer>140</kilometer>
+  </route>
+<route>
+    <PointA>Могилев</PointA>
+    <PointB>Орша</PointB>
+    <kilometer>79</kilometer>
+  </route>
+<route>
+    <PointA>Гродно</PointA>
+    <PointB>Барановичи</PointB>
+    <kilometer>197</kilometer>
+  </route>
+<route>
+    <PointA>Гродно</PointA>
+    <PointB>Жлобин</PointB>
+    <kilometer>499</kilometer>
+  </route>
+</routes>
+
+
+
+
+
+
+
+
+	

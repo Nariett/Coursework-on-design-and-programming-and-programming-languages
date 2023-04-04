@@ -1,0 +1,6 @@
+<users>
+  <user>
+    <login>Admin</login>
+    <password>AdminTop</password>
+   </user>
+</users>
