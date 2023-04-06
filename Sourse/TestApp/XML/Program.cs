@@ -10,27 +10,29 @@ namespace XML
         public static List<Car> AllCars = new List<Car>();
         static void Main(string[] args)
         {
-            Console.WriteLine("Выберите действие:\n1 - Создать XML файл\n2 - Читать данные из XML файла\n3 - Добавить данные в XML файл\n4 - удалить выбранный файл из XML файла");
-            int select = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Выберите действие:\n1 - Создать XML файл\n2 - Читать данные из XML файла\n3 - Добавить данные в XML файл\n4 - удалить выбранный файл из XML файла");
+            //int select = Convert.ToInt32(Console.ReadLine());
             while (true)
             {
+                Console.WriteLine("Выберите действие:\n1 - Создать XML файл\n2 - Читать данные из XML файла\n3 - Добавить данные в XML файл\n4 - удалить выбранный файл из XML файла");
+                int select = Convert.ToInt32(Console.ReadLine());
                 switch (select)
                 {
                     case 1:
                         {
-                            Car myCar = new Car
-                            {
-                                Name = "Toyota Camry",
-                                Year = 2022,
-                                TypeCar = CarType.Sedan,
-                                MaxSpeed = 180,
-                                SeatingCapacity = 5,
-                                Fuel = FuelType.Gasoline,
-                                FuelConsumption = 7.5,
-                                EnginePower = 203,
-                                EngineSize = 2.5,
-                                TankSize = 60
-                            };
+                            Car myCar = new Car("Toyota Camry",
+                                                2022,
+                                                CarType.Sedan,
+                                                130,
+                                                5,
+                                                FuelType.Gasoline,
+                                                FuelOctan.AI92,
+                                                8.5,
+                                                10.2,
+                                                5.8,
+                                                203,
+                                                2.5,
+                                                60);
                             XDocument xdoc = new XDocument();
                             XElement car = new XElement("Car");
                             XElement carName = new XElement("name", myCar.Name);
@@ -39,7 +41,10 @@ namespace XML
                             XElement carMaxSpeed = new XElement("maxSpeed", myCar.MaxSpeed);
                             XElement carSeatingCapacity = new XElement("seatingCapacity", myCar.SeatingCapacity);
                             XElement carFuel = new XElement("fuel", myCar.Fuel);
-                            XElement carFuelConsumption = new XElement("fuelConsumption", myCar.FuelConsumption.ToString());//используется для добавления double в строку
+                            XElement carFuelOctan = new XElement("fuelOctan", myCar.FuelOctan);
+                            XElement carFuelConsumptionGeneral = new XElement("fuelConsumptionGeneral", myCar.FuelConsumptionGeneral.ToString());//используется для добавления double в строку
+                            XElement carFuelConsumptionCity = new XElement("fuelConsumptionCity", myCar.FuelConsumptionCity.ToString());
+                            XElement carFuelConsumptionHighway= new XElement("fuelConsumptionHighway", myCar.FuelConsumptionHighway.ToString());
                             XElement carEnginePower = new XElement("enginePower", myCar.EnginePower.ToString());
                             XElement carEngineSize = new XElement("engineSize", myCar.EngineSize.ToString());
                             XElement carTankSize = new XElement("tankSize", myCar.TankSize.ToString());
@@ -49,7 +54,10 @@ namespace XML
                             car.Add(carMaxSpeed);
                             car.Add(carSeatingCapacity);
                             car.Add(carFuel);
-                            car.Add(carFuelConsumption);
+                            car.Add(carFuelOctan);
+                            car.Add(carFuelConsumptionGeneral);
+                            car.Add(carFuelConsumptionCity);
+                            car.Add(carFuelConsumptionHighway);
                             car.Add(carEnginePower);
                             car.Add(carEngineSize);
                             car.Add(carTankSize);
@@ -104,10 +112,25 @@ namespace XML
                                         car.Fuel = (FuelType)Enum.Parse(typeof(FuelType), childnode.InnerText);
                                         Console.WriteLine("Тип топлива: {0}", car.Fuel);
                                     }
-                                    if (childnode.Name == "fuelConsumption")
+                                    if (childnode.Name == "fuelOctan")
                                     {
-                                        car.FuelConsumption = Convert.ToDouble(car.FuelConsumption);
-                                        Console.WriteLine("Расход топлива: {0}", car.FuelConsumption);
+                                        car.FuelOctan = (FuelOctan)Enum.Parse(typeof(FuelOctan), childnode.InnerText);
+                                        Console.WriteLine("Октановое числов топлива: {0}", car.FuelOctan);
+                                    }
+                                    if (childnode.Name == "fuelConsumptionGeneral")
+                                    {
+                                        car.FuelConsumptionGeneral = Convert.ToDouble(childnode.InnerText);
+                                        Console.WriteLine("Смешанный расход топлива: {0}", car.FuelConsumptionGeneral);
+                                    }
+                                    if (childnode.Name == "fuelConsumptionCity")
+                                    {
+                                        car.FuelConsumptionCity = Convert.ToDouble(childnode.InnerText);
+                                        Console.WriteLine("Расход топлива в городе: {0}", car.FuelConsumptionCity);
+                                    }
+                                    if (childnode.Name == "fuelConsumptionHighway")
+                                    {
+                                        car.FuelConsumptionHighway = Convert.ToDouble(childnode.InnerText);
+                                        Console.WriteLine("Расход топлива за городом: {0}", car.FuelConsumptionHighway);
                                     }
                                     if (childnode.Name == "enginePower")
                                     {
@@ -142,7 +165,10 @@ namespace XML
                             XmlElement carMaxSpeed = xDoc.CreateElement("maxSpeed");
                             XmlElement carSeatingCapacity = xDoc.CreateElement("seatingCapacity");
                             XmlElement carFuel = xDoc.CreateElement("fuel");
-                            XmlElement carFuelConsumption = xDoc.CreateElement("fuelConsumption");
+                            XmlElement carFuelOctan = xDoc.CreateElement("fuelOctan");
+                            XmlElement carFuelConsumptionGeneral = xDoc.CreateElement("fuelConsumptionGeneral");
+                            XmlElement carFuelConsumptionCity = xDoc.CreateElement("fuelConsumptionCity");
+                            XmlElement carFuelConsumptionHighway = xDoc.CreateElement("fuelConsumptionHighway");
                             XmlElement carEnginePower = xDoc.CreateElement("enginePower");
                             XmlElement carEngineSize = xDoc.CreateElement("engineSize");
                             XmlElement carTankSize = xDoc.CreateElement("tankSize");
@@ -157,9 +183,15 @@ namespace XML
                             Console.Write("Введите количество мест в автомобиле: ");
                             XmlText seatingCapacityText = xDoc.CreateTextNode(Console.ReadLine());
                             Console.Write("Введите тип топлива (Gasoline/Diesel/Electric):");
-                            XmlText fuelText = xDoc.CreateTextNode(Console.ReadLine()); ;
-                            Console.Write("Введите расход топлива на 100 км: ");
-                            XmlText fuelConsumptionText = xDoc.CreateTextNode(FixStr(Console.ReadLine()));
+                            XmlText fuelText = xDoc.CreateTextNode(Console.ReadLine());
+                            Console.Write("Введите октановое число топлива(AI87/AI92/AI95/DT/Electric):");
+                            XmlText fuelOctanText = xDoc.CreateTextNode(Console.ReadLine());
+                            Console.Write("Введите средний расход топлива на 100 км: ");
+                            XmlText fuelConsumptionGeneralText = xDoc.CreateTextNode(FixStr(Console.ReadLine()));
+                            Console.Write("Введите расход в городе топлива на 100 км: ");
+                            XmlText fuelConsumptionCityText = xDoc.CreateTextNode(FixStr(Console.ReadLine()));
+                            Console.Write("Введите расход за городом на 100 км: ");
+                            XmlText fuelConsumptionHighwayText = xDoc.CreateTextNode(FixStr(Console.ReadLine()));
                             Console.Write("Введите мощность двигателя автомобиля: ");
                             XmlText enginePowerText = xDoc.CreateTextNode(FixStr(Console.ReadLine()));
                             Console.Write("Введите объем двигателя автомобиля: ");
@@ -172,7 +204,10 @@ namespace XML
                             carMaxSpeed.AppendChild(maxSpeedText);
                             carSeatingCapacity.AppendChild(seatingCapacityText);
                             carFuel.AppendChild(fuelText);
-                            carFuelConsumption.AppendChild(fuelConsumptionText);
+                            carFuelOctan.AppendChild(fuelOctanText);
+                            carFuelConsumptionGeneral.AppendChild(fuelConsumptionGeneralText);
+                            carFuelConsumptionCity.AppendChild(fuelConsumptionCityText);
+                            carFuelConsumptionHighway.AppendChild(fuelConsumptionHighwayText);
                             carEnginePower.AppendChild(enginePowerText);
                             carEngineSize.AppendChild(engineSizeText);
                             carTankSize.AppendChild(tankSizeText);
@@ -182,7 +217,9 @@ namespace XML
                             car.AppendChild(carMaxSpeed);
                             car.AppendChild(carSeatingCapacity);
                             car.AppendChild(carFuel);
-                            car.AppendChild(carFuelConsumption);
+                            car.AppendChild(carFuelConsumptionGeneral);
+                            car.AppendChild(carFuelConsumptionCity);
+                            car.AppendChild(carFuelConsumptionHighway);
                             car.AppendChild(carEnginePower);
                             car.AppendChild(carEngineSize);
                             car.AppendChild(carTankSize);
