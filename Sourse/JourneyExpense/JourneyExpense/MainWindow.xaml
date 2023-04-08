@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="110*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="79*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="textBoxDistance" TextWrapping="Wrap" FontSize="15" Grid.Column="2" Grid.Row="1" Margin="10,11,10,0" Height="27" VerticalAlignment="Top"/>
+        <Label Content="Расстояние" Grid.Column="1" Grid.Row="1" Margin="10,11,10,0" Height="27" VerticalAlignment="Top" FontSize="15"/>
+        <TextBox x:Name="textBoxAverSpeed" TextWrapping="Wrap" FontSize="15" Height="27" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Margin="10,11,10,0"/>
+        <Label Content="Средняя скорость" FontSize="15" Grid.Column="1" Grid.Row="2" Margin="10,11,10,0" Height="34" VerticalAlignment="Top"/>
+        <Label Content="Время в пути" FontSize="15" Grid.Column="1" Grid.Row="3" Margin="10,8,10,0" Height="33" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxTime" TextWrapping="Wrap" FontSize="15" Grid.Column="2" Grid.Row="3" Margin="11,11,10,0" Height="27" VerticalAlignment="Top"/>
+        <Label Content="Тип топлива" VerticalAlignment="Bottom" FontSize="15" Grid.Column="1" Grid.Row="4" Height="27" Margin="10,0,10,11"/>
+        <ComboBox x:Name="comboBoxFuelType" Grid.Column="2" Grid.Row="4" VerticalAlignment="Top" Margin="10,11,10,0" Height="27"/>
+        <Label Content="Расход топлива на 100 км" FontSize="13" Grid.Column="1" Grid.Row="5" Margin="10,0,10,0" Height="27" VerticalAlignment="Center"/>
+        <TextBox x:Name="textBoxConsumption" TextWrapping="Wrap" FontSize="15" Grid.Column="2" Grid.Row="5" Margin="11,11,10,0" Height="27" VerticalAlignment="Top"/>
+        <Label Grid.Column="3" Content="Км" Margin="28,11,28,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" Height="27"/>
+        <Label Grid.Column="3" Content="Км/Ч" Grid.Row="2" VerticalAlignment="Top" FontSize="15" Height="27" Margin="19,11,18,0"/>
+        <Label Grid.Column="3" Content="Часов" Grid.Row="3" VerticalAlignment="Top" FontSize="15" Height="27" Margin="17,11,17,0"/>
+        <Label Grid.Column="3" Content="Литр/Км" Grid.Row="5" VerticalAlignment="Top" FontSize="15" Height="29" Margin="5,10,5,0"/>
+        <Label Content="Вид потребления топлива" VerticalAlignment="Top" FontSize="13" Grid.Column="1" Grid.Row="6" Height="27" Margin="10,11,10,0"/>
+        <ComboBox x:Name="comboBoxConsumption" Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" Margin="10,11,10,0" Height="27"/>
 
     </Grid>
 </Window>

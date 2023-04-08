@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.AccessControl;
 using System.Windows;
 using System.Xml;
 
@@ -14,12 +13,12 @@ namespace JourneyExpense
         public AuthForm()
         {
             InitializeComponent();
-            ReadUser();
         }
         private List<User> AllUsers = new List<User>();
         private bool access = false;
         private void AuthButtonClick(object sender, RoutedEventArgs e)
         {
+            ReadUser();
             for (int i = 0; i < AllUsers.Count; i++)
             {
                 if (AllUsers[i].login == textBoxLogin.Text && AllUsers[i].password == textBoxPassword.Text)
@@ -33,12 +32,7 @@ namespace JourneyExpense
             {
                 MainWindow mainForm = new MainWindow();
                 mainForm.ShowDialog();
-            }
-            else { MessageBox.Show("Ошибка ввода данных"); }
-            
-            
-
-
+            }else { MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль."); }
         }
 
         private void RegButtonClick(object sender, RoutedEventArgs e)
@@ -48,37 +42,43 @@ namespace JourneyExpense
         }
         public void ReadUser()
         {
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load("User.xml");
-            XmlElement xRoot = xDoc.DocumentElement;
-
-            foreach (XmlNode xnode in xRoot)
+            try
             {
-                User user = new User();
-                foreach (XmlNode childnode in xnode.ChildNodes)
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load("User.xml");
+                XmlElement xRoot = xDoc.DocumentElement;
+                foreach (XmlNode xnode in xRoot)
                 {
+                    User user = new User();
+                    foreach (XmlNode childnode in xnode.ChildNodes)
+                    {
+                        if (childnode.Name == "login")
+                        {
+                            user.login = childnode.InnerText;
+                        }
+                        if (childnode.Name == "password")
+                        {
+                            user.password = childnode.InnerText;
+                        }
 
-                    if (childnode.Name == "login")
-                    {
-                        user.login = childnode.InnerText;
+                        if (childnode.Name == "name")
+                        {
+                            user.name = childnode.InnerText;
+                        }
+                        if (childnode.Name == "surname")
+                        {
+                            user.surname = childnode.InnerText;
+                        }
                     }
-                    if (childnode.Name == "password")
-                    {
-                        user.password = childnode.InnerText;
-                    }
-
-                    if (childnode.Name == "name")
-                    {
-                        user.name = childnode.InnerText;
-                    }
-                    if (childnode.Name == "surname")
-                    {
-                        user.surname = childnode.InnerText;
-                    }
+                    AllUsers.Add(user);
+                    Console.WriteLine("Все элементы отображены");
                 }
-                AllUsers.Add(user);
-                Console.WriteLine("Все элементы отображены");
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Создайте аккаут чтобы зайти");
+            }
+
         }
     }
 }

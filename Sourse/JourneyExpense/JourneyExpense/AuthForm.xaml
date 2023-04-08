@@ -22,9 +22,11 @@
             <ColumnDefinition Width="23*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="AuthButton" Content="Sign in" Margin="47,15,58,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="20" Grid.Row="3" Grid.Column="1" Click="AuthButtonClick"/>
-        <TextBox x:Name="textBoxLogin" Grid.ColumnSpan="2" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Grid.Column="1" Margin="0,50,0,0" Grid.RowSpan="2" FontSize="20"/>
+        <TextBox x:Name="textBoxLogin" Grid.ColumnSpan="2" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Grid.Column="1" FontSize="20"/>
         <Button x:Name="RegButton" Grid.Column="1" Content="Sign up" Margin="47,40,58,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2" Click="RegButtonClick"/>
         <TextBox x:Name="textBoxPassword" Grid.ColumnSpan="2" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Grid.Column="1" Margin="0,30,0,0" Grid.RowSpan="2" FontSize="20"/>
+        <Label Grid.Column="1" Content="Login" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="18" Margin="55,67,55,0" Height="35" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="Password" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Height="32" VerticalAlignment="Top" FontSize="18" Margin="52,48,58,0" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
