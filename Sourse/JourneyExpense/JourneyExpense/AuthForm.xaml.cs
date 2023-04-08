@@ -1,18 +1,7 @@
-﻿using Microsoft.VisualBasic.FileIO;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.AccessControl;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Xml;
 
 namespace JourneyExpense
@@ -25,14 +14,31 @@ namespace JourneyExpense
         public AuthForm()
         {
             InitializeComponent();
-            //ReadUser();
+            ReadUser();
         }
         private List<User> AllUsers = new List<User>();
+        private bool access = false;
         private void AuthButtonClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Вы прошли аутентификаицю");
-            MainWindow MainForm= new MainWindow();
-            MainForm.Show();
+            for (int i = 0; i < AllUsers.Count; i++)
+            {
+                if (AllUsers[i].login == textBoxLogin.Text && AllUsers[i].password == textBoxPassword.Text)
+                {
+                    access = true;
+                    break;
+                }
+                else { access = false; }
+            }
+            if (access)
+            {
+                MainWindow mainForm = new MainWindow();
+                mainForm.ShowDialog();
+            }
+            else { MessageBox.Show("Ошибка ввода данных"); }
+            
+            
+
+
         }
 
         private void RegButtonClick(object sender, RoutedEventArgs e)
@@ -65,7 +71,7 @@ namespace JourneyExpense
                     {
                         user.name = childnode.InnerText;
                     }
-                    if (childnode.Name == "maxSpeed")
+                    if (childnode.Name == "surname")
                     {
                         user.surname = childnode.InnerText;
                     }

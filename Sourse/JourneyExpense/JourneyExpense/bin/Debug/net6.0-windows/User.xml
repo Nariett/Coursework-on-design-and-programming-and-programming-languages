@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user>
+    <login>Cre7po</login>
+    <password>1234567890</password>
+    <name>Иван</name>
+    <surname>Тараскевич</surname>
+  </user>
+  <user>
+    <login>Samsik</login>
+    <password>123123</password>
+    <name>Sasha</name>
+    <surname>Samoilov</surname>
+  </user>
+</users>
