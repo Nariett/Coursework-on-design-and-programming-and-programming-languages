@@ -23,3 +23,5 @@ C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\ref\JourneyExpense.dll
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\RegForm.g.cs
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\RegForm.baml
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AdminForm.g.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AdminForm.baml

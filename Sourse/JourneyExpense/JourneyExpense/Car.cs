@@ -39,12 +39,12 @@ namespace JourneyExpense
         public int MaxSpeed { get; set; }
         public int SeatingCapacity { get; set; }
         public string Fuel { get; set; }
-        public string FuelOctan { get; set; }
+        public string? FuelOctan { get; set; }
         public double FuelConsumptionGeneral { get; set; }
-        public double FuelConsumptionCity { get; set; }
-        public double FuelConsumptionHighway { get; set; }
+        public double? FuelConsumptionCity { get; set; }
+        public double? FuelConsumptionHighway { get; set; }
         public double EnginePower { get; set; }
-        public double EngineSize { get; set; }
+        public double? EngineSize { get; set; }
         public double TankSize { get; set; }
         public Car() { }
         public Car(string name, int year, string typeCar, int maxSpeed, int seatingCapacity, string fuel, string fuelOctan, double fuelConsumptionGeneral, double fuelConsumptionCity, double fuelConsumptionHighway, double enginePower, double engineSize, double tankSize)

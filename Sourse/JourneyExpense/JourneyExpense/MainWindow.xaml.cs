@@ -15,7 +15,7 @@ namespace JourneyExpense
             InitializeComponent();
             initComboBox();
         }
-        public List<string> carBodyClasses = new List<string>{ "Седан", "Хэтчбек", "Универсал", "Купе", "Кабриолет", "Внедорожник", "Кроссовер", "Минивэн" };
+        public List<string> carBodyClasses = new List<string> { "Седан", "Хэтчбек", "Универсал", "Купе", "Кабриолет", "Внедорожник", "Кроссовер", "Минивэн" };
         public static Dictionary<string, string> TypeFuel = new Dictionary<string, string>()
         {
             {"АИ-92","AI92"},
@@ -51,16 +51,26 @@ namespace JourneyExpense
             if (item == "Электричество")
             {
                 LabelConsumption.Content = "Вт-ч";
-            }else { LabelConsumption.Content = "Литр"; }
+            }
+            else { LabelConsumption.Content = "Литр"; }
 
         }
 
         private void ButtonCalculate_Click(object sender, RoutedEventArgs e)
         {
-            double dictance = Convert.ToDouble(this.textBoxDistance.Text);
-            double averageSpeed = Convert.ToDouble(this.textBoxAverSpeed.Text);
-            double result = dictance / averageSpeed;
-            this.textBoxTime.Text = result.ToString();
+            try
+            {
+                double dictance = Convert.ToDouble(this.textBoxDistance.Text);
+                double averageSpeed = Convert.ToDouble(this.textBoxAverSpeed.Text);
+                double result = dictance / averageSpeed;
+                this.textBoxTime.Text = result.ToString();
+            }
+            catch(Exception ex )
+            {
+                MessageBox.Show("Заполните все поля корректными значениями");
+            }
+
+
         }
     }
 }

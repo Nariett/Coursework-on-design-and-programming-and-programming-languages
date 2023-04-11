@@ -15,20 +15,28 @@ namespace JourneyExpense
             InitializeComponent();
         }
         private List<User> AllUsers = new List<User>();
-        private bool access = false;
+        private bool Access = false;
+        private string AdminLog = "Admin";
+        private string AdminPass = "Admin";
         private void AuthButtonClick(object sender, RoutedEventArgs e)
         {
             ReadUser();
+            if(AdminAccess())
+            {
+                AdminForm adminForm= new AdminForm();
+                adminForm.Show();
+                return;
+            }
             for (int i = 0; i < AllUsers.Count; i++)
             {
                 if (AllUsers[i].login == textBoxLogin.Text && AllUsers[i].password == textBoxPassword.Text)
                 {
-                    access = true;
+                    Access = true;
                     break;
                 }
-                else { access = false; }
+                else { Access = false; }
             }
-            if (access)
+            if (Access)
             {
                 MainWindow mainForm = new MainWindow();
                 mainForm.ShowDialog();
@@ -39,6 +47,14 @@ namespace JourneyExpense
         {
             RegForm RegForm = new RegForm();
             RegForm.Show();
+        }
+        public bool AdminAccess()
+        {
+            if (textBoxLogin.Text == AdminLog && textBoxPassword.Text == AdminPass)
+            {
+                return true;
+            }
+            else return false;
         }
         public void ReadUser()
         {
