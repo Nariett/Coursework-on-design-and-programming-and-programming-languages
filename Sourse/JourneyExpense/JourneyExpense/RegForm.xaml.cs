@@ -20,7 +20,7 @@ namespace JourneyExpense
         {
             try
             {
-                if (textBoxLogin.Text != " " && textBoxPassword.Text != " " && textBoxName.Text != " " && textBoxPassword.Text != " ")
+                if (textBoxLogin.Text != " " && textBoxPassword.Text != " " && textBoxName.Text != " " && textBoxPassword.Text != " " )
                 {
                     XmlDocument xDoc = new XmlDocument();
                     xDoc.Load("User.xml"); 
@@ -71,5 +71,6 @@ namespace JourneyExpense
                 MessageBox.Show($"Неизвестная ошибка {ex.Message}");
             }
         }
+        //public bool validUser()
     }
 }

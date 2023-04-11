@@ -12,4 +12,10 @@
     <name>Sasha</name>
     <surname>Samoilov</surname>
   </user>
+  <user>
+    <login>1</login>
+    <password>1</password>
+    <name>1</name>
+    <surname>1</surname>
+  </user>
 </users>
