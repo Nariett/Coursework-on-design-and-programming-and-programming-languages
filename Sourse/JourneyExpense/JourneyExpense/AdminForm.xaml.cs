@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace JourneyExpense
 {
@@ -70,7 +71,7 @@ namespace JourneyExpense
                 return false;
             }
         }
-        private bool LogicCheck()
+        /*private bool LogicCheck()
         {
             string selectedItem = comboBoxCarType.SelectedItem.ToString();
             int year, seatingCapacity,maxSpeed;
@@ -126,18 +127,54 @@ namespace JourneyExpense
                 }
             }
             return false;
+        }*/
+        private bool LogicCheck()
+        {
+            string selectedItem = comboBoxCarType.SelectedItem.ToString();
+            int year, speed, place,power, minSeats = 2, maxSeats = 5;
+            bool IsYear, IsSpeed, IsSeats;
+            IsYear = SetIntTextBox(textBoxYear, 1980, 2024, out year);
+            IsSpeed = SetIntTextBox(textBoxMaxSpeed, 0, 500, out speed);
+            IsSeats = SetIntTextBox(textBoxPlace, 0, 11, out place);
+            if (selectedItem == "Фургон")
+            {
+                minSeats = 2;
+                maxSeats = 10;
+            }
+            else if (selectedItem == "Универсал" || selectedItem == "Внедорожник" || selectedItem == "Кроссовер" || selectedItem == "Минивэн")
+            {
+                minSeats = 5;
+                maxSeats = 8;
+            }
+
+            if (place >= minSeats && place <= maxSeats)
+            {
+                textBoxPlace.BorderBrush = Brushes.Gray;
+                if (IsYear && IsSpeed)
+                {
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                MessageBox.Show($"Ошибка количества мест. Требуется от {minSeats} до {maxSeats} мест для автомобиля типа {selectedItem}");
+                textBoxPlace.BorderBrush = Brushes.Red;
+                return false;
+            }
+
         }
         private bool СonsumptionСheck()
         {
             string selectedItem = comboBoxFuelType.SelectedItem.ToString();
             double ConsumptionGeneral, ConsumptionCity, ConsumptionHighway, enginePower, engineSize, tankSize;
-            bool isNumericOne = double.TryParse(textBoxFuelConsumptionGeneral.Text, out ConsumptionGeneral);
-            bool isNumericTwo = double.TryParse(textBoxFuelConsumptionCity.Text, out ConsumptionCity);
-            bool isNumericThree = double.TryParse(textBoxFuelConsumptionHighway.Text, out ConsumptionHighway);
-            bool isNumericFour = double.TryParse(textBoxPower.Text, out enginePower);
-            bool isNumericFive = double.TryParse(textBoxSizeEngine.Text, out engineSize);
-            bool isNumericSix = double.TryParse(textBoxSizeTank.Text, out tankSize);
-           
+            bool isNumericOne = double.TryParse(FixStr(textBoxFuelConsumptionGeneral.Text), out ConsumptionGeneral);
+            bool isNumericTwo = double.TryParse(FixStr(textBoxFuelConsumptionCity.Text), out ConsumptionCity);
+            bool isNumericThree = double.TryParse(FixStr(textBoxFuelConsumptionHighway.Text), out ConsumptionHighway);
+            bool isNumericFour = double.TryParse(FixStr(textBoxPower.Text), out enginePower);
+            bool isNumericFive = double.TryParse(FixStr(textBoxSizeEngine.Text), out engineSize);
+            bool isNumericSix = double.TryParse(FixStr(textBoxSizeTank.Text), out tankSize);
+
 
             if (selectedItem == "Бензин" || selectedItem == "Дизельное топливо")
             {
@@ -211,6 +248,32 @@ namespace JourneyExpense
             else
             {
                 MessageBox.Show("Плохо чувак");
+            }
+        }
+        private string FixStr(string input)
+        {
+            return input.Replace('.', ',');
+        }
+        private bool SetIntTextBox(TextBox text, int min, int max, out int value)
+        {
+            bool isNumeric = int.TryParse(text.Text, out value);
+            if (isNumeric)
+            {
+                if (value > min && value < max)
+                {
+                    text.BorderBrush = Brushes.Gray;
+                    return true;
+                }
+                else
+                {
+                    text.BorderBrush = Brushes.Red;
+                    return false;
+                }
+            }
+            else
+            {
+                text.BorderBrush = Brushes.Red;
+                return false;
             }
         }
     }
