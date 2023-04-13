@@ -58,7 +58,7 @@ namespace JourneyExpense
         }
         private bool ValidValue()
         {
-            if (textBoxName.Text != "" && textBoxYear.Text != "" && textBoxMaxSpeed.Text != "" && comboBoxCarType.SelectedIndex != -1 && textBoxPlace.Text != "" && textBoxPower.Text != "" && textBoxSizeTank.Text != "" && comboBoxFuelType.SelectedIndex != -1 && ValidFuel())
+            if (textBoxName.Text != "" && textBoxYear.Text != "" && textBoxMaxSpeed.Text != "" && /*SetValueComboBox(comboBoxCarType,LabelTypeCar)*/comboBoxCarType.SelectedIndex != -1 && textBoxPlace.Text != "" && textBoxPower.Text != "" && textBoxSizeTank.Text != "" && comboBoxFuelType.SelectedIndex != -1 && ValidFuel())
             {
                 if (СonsumptionСheck() && LogicCheck())
                 {
@@ -130,7 +130,7 @@ namespace JourneyExpense
         }*/
         private bool LogicCheck()
         {
-            string selectedItem = comboBoxCarType.SelectedItem.ToString();
+            string? selectedItem = comboBoxCarType.SelectedItem.ToString();
             int year, speed, place,power, minSeats = 2, maxSeats = 5;
             bool IsYear, IsSpeed, IsSeats;
             IsYear = SetIntTextBox(textBoxYear, 1980, 2024, out year);
@@ -152,8 +152,10 @@ namespace JourneyExpense
                 textBoxPlace.BorderBrush = Brushes.Gray;
                 if (IsYear && IsSpeed)
                 {
+                    comboBoxCarType.BorderBrush = Brushes.Gray;
                     return true;
                 }
+                MessageBox.Show("Требуется целочисленное число ");
                 return false;
             }
             else
@@ -182,7 +184,8 @@ namespace JourneyExpense
                 {
                     if ((ConsumptionGeneral > 0 && ConsumptionGeneral < 100) && (ConsumptionCity > 0 && ConsumptionCity < 100) && (ConsumptionHighway > 0 && ConsumptionHighway < 100) && enginePower > 0 && enginePower < 500 && engineSize > 0 && tankSize > 0)
                     {
-                        MessageBox.Show("Потребление в норме");
+                        //MessageBox.Show("Потребление в норме");
+                        textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Gray;
                         return true;
                     }
                     else
@@ -202,12 +205,13 @@ namespace JourneyExpense
                 {
                     if ((ConsumptionGeneral > 0 && ConsumptionGeneral < 100) && enginePower > 0 && enginePower < 500 && tankSize > 0)
                     {
-                        MessageBox.Show("Потребление в норме");
+                        //MessageBox.Show("Потребление в норме");
+                        textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Gray;
                         return true;
                     }
                     else
                     {
-                        MessageBox.Show("Ошибка 2");
+                        textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Red;
                         return false;
                     }
                 }
@@ -253,6 +257,20 @@ namespace JourneyExpense
         private string FixStr(string input)
         {
             return input.Replace('.', ',');
+        }
+        private bool SetValueComboBox(ComboBox combo,Label label)
+        {
+            if(comboBoxCarType.SelectedIndex == -1)
+            {
+                MessageBox.Show($"Не выбрано поле в {LabelTypeCar.Content}");
+                combo.BorderBrush = Brushes.Red;
+                return false;
+            }
+            else
+            {
+                combo.BorderBrush = Brushes.Gray;
+                return true;
+            }
         }
         private bool SetIntTextBox(TextBox text, int min, int max, out int value)
         {
