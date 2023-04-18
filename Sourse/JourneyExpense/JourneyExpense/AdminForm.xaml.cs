@@ -58,18 +58,11 @@ namespace JourneyExpense
         }
         private bool ValidValue()
         {
-            if (textBoxName.Text != "" && textBoxYear.Text != "" && textBoxMaxSpeed.Text != "" && /*SetValueComboBox(comboBoxCarType,LabelTypeCar)*/comboBoxCarType.SelectedIndex != -1 && textBoxPlace.Text != "" && textBoxPower.Text != "" && textBoxSizeTank.Text != "" && comboBoxFuelType.SelectedIndex != -1 && ValidFuel())
+            if (TextBoxValid(textBoxName) & ValidFuel() & СonsumptionСheck() & LogicCheck())
             {
-                if (СonsumptionСheck() && LogicCheck())
-                {
-                    return true;
-                }
-                return false;
+                return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         /*private bool LogicCheck()
         {
@@ -130,12 +123,12 @@ namespace JourneyExpense
         }*/
         private bool LogicCheck()
         {
-            string? selectedItem = comboBoxCarType.SelectedItem.ToString();
-            int year, speed, place,power, minSeats = 2, maxSeats = 5;
+            string selectedItem = IsValidComboBox(comboBoxCarType);
+            int year, speed, place, minSeats = 2, maxSeats = 5;
             bool IsYear, IsSpeed, IsSeats;
-            IsYear = SetIntTextBox(textBoxYear, 1980, 2024, out year);
-            IsSpeed = SetIntTextBox(textBoxMaxSpeed, 0, 500, out speed);
-            IsSeats = SetIntTextBox(textBoxPlace, 0, 11, out place);
+            IsYear = IsValidIntInput(textBoxYear, 1980, 2024, out year);
+            IsSpeed = IsValidIntInput(textBoxMaxSpeed, 0, 500, out speed);
+            IsSeats = IsValidIntInput(textBoxPlace, 0, 11, out place);
             if (selectedItem == "Фургон")
             {
                 minSeats = 2;
@@ -150,16 +143,20 @@ namespace JourneyExpense
             if (place >= minSeats && place <= maxSeats)
             {
                 textBoxPlace.BorderBrush = Brushes.Gray;
-                if (IsYear && IsSpeed)
+                if (IsYear && IsSpeed && IsSeats)
                 {
                     comboBoxCarType.BorderBrush = Brushes.Gray;
                     return true;
                 }
-                MessageBox.Show("Требуется целочисленное число ");
                 return false;
             }
             else
             {
+                if (selectedItem == "Ошибка")
+                {
+                    textBoxPlace.BorderBrush = Brushes.Red;
+                    return false;
+                }
                 MessageBox.Show($"Ошибка количества мест. Требуется от {minSeats} до {maxSeats} мест для автомобиля типа {selectedItem}");
                 textBoxPlace.BorderBrush = Brushes.Red;
                 return false;
@@ -168,70 +165,42 @@ namespace JourneyExpense
         }
         private bool СonsumptionСheck()
         {
-            string selectedItem = comboBoxFuelType.SelectedItem.ToString();
+            string selectedItem = IsValidComboBox(comboBoxFuelType);
             double ConsumptionGeneral, ConsumptionCity, ConsumptionHighway, enginePower, engineSize, tankSize;
-            bool isNumericOne = double.TryParse(FixStr(textBoxFuelConsumptionGeneral.Text), out ConsumptionGeneral);
-            bool isNumericTwo = double.TryParse(FixStr(textBoxFuelConsumptionCity.Text), out ConsumptionCity);
-            bool isNumericThree = double.TryParse(FixStr(textBoxFuelConsumptionHighway.Text), out ConsumptionHighway);
-            bool isNumericFour = double.TryParse(FixStr(textBoxPower.Text), out enginePower);
-            bool isNumericFive = double.TryParse(FixStr(textBoxSizeEngine.Text), out engineSize);
-            bool isNumericSix = double.TryParse(FixStr(textBoxSizeTank.Text), out tankSize);
-
-
+            bool isNumericOne = IsValidDoubleInput(textBoxFuelConsumptionGeneral, 0, 100, out ConsumptionGeneral);
+            bool isNumericTwo = IsValidDoubleInput(textBoxFuelConsumptionCity, 0, 100, out ConsumptionCity);
+            bool isNumericThree = IsValidDoubleInput(textBoxFuelConsumptionHighway, 0, 100, out ConsumptionHighway);
+            bool isNumericFour = IsValidDoubleInput(textBoxPower, 0, 100, out enginePower);
+            bool isNumericFive = IsValidDoubleInput(textBoxSizeEngine, 0, 9, out engineSize);
+            bool isNumericSix = IsValidDoubleInput(textBoxSizeTank, 0, 600, out tankSize);
             if (selectedItem == "Бензин" || selectedItem == "Дизельное топливо")
             {
                 if (isNumericOne && isNumericTwo && isNumericThree && isNumericFour && isNumericFive && isNumericSix)
                 {
-                    if ((ConsumptionGeneral > 0 && ConsumptionGeneral < 100) && (ConsumptionCity > 0 && ConsumptionCity < 100) && (ConsumptionHighway > 0 && ConsumptionHighway < 100) && enginePower > 0 && enginePower < 500 && engineSize > 0 && tankSize > 0)
-                    {
-                        //MessageBox.Show("Потребление в норме");
-                        textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Gray;
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ошибка 1");
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
+                    textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Gray;
+                    return true;
                 }
             }
             else if (selectedItem == "Электричество")
             {
                 if (isNumericOne && isNumericFour && isNumericSix)
                 {
-                    if ((ConsumptionGeneral > 0 && ConsumptionGeneral < 100) && enginePower > 0 && enginePower < 500 && tankSize > 0)
-                    {
-                        //MessageBox.Show("Потребление в норме");
-                        textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Gray;
-                        return true;
-                    }
-                    else
-                    {
-                        textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Red;
-                        return false;
-                    }
+                    textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Gray;
+                    return true;
                 }
-                else
-                {
-                    return false;
-                }
+                textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Red;
             }
             return false;
         }
         private bool ValidFuel()
         {
-            string selectedItem = comboBoxFuelType.SelectedItem.ToString();
+            string selectedItem = IsValidComboBox(comboBoxFuelType);
             if (selectedItem == "Бензин" || selectedItem == "Дизельное топливо")
             {
                 if (comboBoxFuelType.SelectedIndex != -1 && textBoxFuelConsumptionGeneral.Text != "" && textBoxFuelConsumptionCity.Text != "" && textBoxFuelConsumptionHighway.Text != "" && textBoxSizeEngine.Text != "")
                 {
                     return true;
                 }
-                else { return false; }
             }
             else
             {
@@ -239,28 +208,28 @@ namespace JourneyExpense
                 {
                     return true;
                 }
-                else { return false; }
             }
+            return false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (ValidValue())
             {
-                MessageBox.Show("Круто чувак");
+                MessageBox.Show("Корректные данные");
             }
             else
             {
-                MessageBox.Show("Плохо чувак");
+                MessageBox.Show("Некорректные данные");
             }
         }
         private string FixStr(string input)
         {
             return input.Replace('.', ',');
         }
-        private bool SetValueComboBox(ComboBox combo,Label label)
+        private bool SetValueComboBox(ComboBox combo, Label label)//to do
         {
-            if(comboBoxCarType.SelectedIndex == -1)
+            if (comboBoxCarType.SelectedIndex == -1)
             {
                 MessageBox.Show($"Не выбрано поле в {LabelTypeCar.Content}");
                 combo.BorderBrush = Brushes.Red;
@@ -272,8 +241,14 @@ namespace JourneyExpense
                 return true;
             }
         }
-        private bool SetIntTextBox(TextBox text, int min, int max, out int value)
+        private bool IsValidIntInput(TextBox text, int min, int max, out int value)
         {
+            if (text.Text == "")
+            {
+                value = 0;
+                text.BorderBrush = Brushes.Red;
+                return false;
+            }
             bool isNumeric = int.TryParse(text.Text, out value);
             if (isNumeric)
             {
@@ -292,6 +267,59 @@ namespace JourneyExpense
             {
                 text.BorderBrush = Brushes.Red;
                 return false;
+            }
+        }
+        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)
+        {
+            if (box.Text == "")
+            {
+                value = 0;
+                box.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            bool isNumeric = double.TryParse(FixStr(box.Text), out value);
+            if (isNumeric)
+            {
+                if (value > min && value < max)
+                {
+                    box.BorderBrush = Brushes.Gray;
+                    return true;
+                }
+                else
+                {
+                    box.BorderBrush = Brushes.Red;
+                    return false;
+                }
+            }
+            else
+            {
+                box.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+        private string IsValidComboBox(ComboBox box)
+        {
+            if (box.SelectedIndex == -1)
+            {
+                return "Ошибка";
+            }
+            else
+            {
+                return box.SelectedItem.ToString();
+            }
+        }
+        private bool TextBoxValid(TextBox text)
+        {
+            if (text.Text == "")
+            {
+                text.BorderBrush = Brushes.Red;
+                return false;
+            }
+            else
+            {
+                text.BorderBrush = Brushes.Gray;
+                return true;
             }
         }
     }

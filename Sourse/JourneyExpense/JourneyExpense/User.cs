@@ -20,5 +20,6 @@ namespace JourneyExpense
             this.name = name;
             this.surname = surname;
         }
+        ///add read func
     }
 }
