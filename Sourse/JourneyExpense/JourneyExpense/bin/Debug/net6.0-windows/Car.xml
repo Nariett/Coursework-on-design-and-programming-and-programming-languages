@@ -16,4 +16,19 @@
     <tankSize>60</tankSize>
     <tankSize>60</tankSize>
   </Car>
+  <car>
+    <name>rtr</name>
+    <year>2000</year>
+    <typeCar>Седан</typeCar>
+    <maxSpeed>2</maxSpeed>
+    <seatingCapacity>123</seatingCapacity>
+    <fuel>Дизельное топливо</fuel>
+    <fuelOctan>ДТ</fuelOctan>
+    <fuelConsumptionGeneral>1.2</fuelConsumptionGeneral>
+    <fuelConsumptionCity>1.2</fuelConsumptionCity>
+    <fuelConsumptionHighway>1.2</fuelConsumptionHighway>
+    <enginePower>1</enginePower>
+    <engineSize>2.2</engineSize>
+    <tankSize>100</tankSize>
+  </car>
 </Cars>

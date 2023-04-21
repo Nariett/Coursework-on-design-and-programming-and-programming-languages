@@ -13,25 +13,19 @@ namespace JourneyExpense
         public MainWindow()
         {
             InitializeComponent();
-            initComboBox();
+            InitComboBox();
+
         }
-        public List<string> carBodyClasses = new List<string> { "Седан", "Хэтчбек", "Универсал", "Купе", "Кабриолет", "Внедорожник", "Кроссовер", "Минивэн" };
-        public static Dictionary<string, string> TypeFuel = new Dictionary<string, string>()
+        private List<string> Fuel = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
+        private List<string> TypeConsuption = new List<string> { "Городской", "По трассе", "Смешанный" };
+        public void InitRoutes()
         {
-            {"АИ-92","AI92"},
-            {"АИ-95","AI95"},
-            {"АИ-98","AI98"},
-            {"ДТ","DT"},
-            {"Электричество","Electric"}
-        };
-        public static List<string> Fuel = new List<string>();
-        public static List<string> TypeConsuption = new List<string> { "Городской", "По трассе", "Смешанный" };
-        public void initComboBox()
+
+        }
+        public void InitComboBox()
         {
-            foreach (var pair in TypeFuel)
+            foreach (var item in Fuel)
             {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = pair.Key;
                 comboBoxFuelType.Items.Add(item);
             }
             foreach (var item in TypeConsuption)
@@ -39,21 +33,33 @@ namespace JourneyExpense
                 comboBoxConsumption.Items.Add(item);
             }
         }
-        public void initDictionary()
-        {
-
-        }
 
         private void comboBoxFuelType_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectItem = comboBoxFuelType.SelectedItem as ComboBoxItem;
-            string item = selectItem.Content.ToString();
-            if (item == "Электричество")
+            comboBoxFuelOctan.Visibility = Visibility.Visible;
+            comboBoxFuelOctan.IsReadOnly = false;
+            string selectedItem = comboBoxFuelType.SelectedItem.ToString();
+            if (selectedItem == "Бензин")
             {
-                LabelConsumption.Content = "Вт-ч";
+                comboBoxFuelOctan.ItemsSource = new List<string> { "АИ-92", "АИ-95", "АИ-98" };
+                comboBoxFuelOctan.SelectedItem = "АИ-92";
+                LabelConsumption.Content = "Литр";
             }
-            else { LabelConsumption.Content = "Литр"; }
-
+            else if (selectedItem == "Дизельное топливо")
+            {
+                comboBoxFuelOctan.ItemsSource = new List<string> { "ДТ" };
+                comboBoxFuelOctan.SelectedItem = "ДТ";
+                comboBoxFuelType.IsReadOnly = true;
+                LabelConsumption.Content = "Литр";
+            }
+            else if (selectedItem == "Электричество")
+            {
+                comboBoxFuelOctan.Visibility = Visibility.Hidden;
+                LabelConsumption.Content = "Вт-ч";
+                comboBoxFuelOctan.ItemsSource = null;
+                comboBoxFuelOctan.SelectedItem = null;
+                comboBoxFuelOctan.IsReadOnly = true;
+            }
         }
 
         private void ButtonCalculate_Click(object sender, RoutedEventArgs e)
@@ -69,8 +75,6 @@ namespace JourneyExpense
             {
                 MessageBox.Show("Заполните все поля корректными значениями");
             }
-
-
         }
     }
 }
