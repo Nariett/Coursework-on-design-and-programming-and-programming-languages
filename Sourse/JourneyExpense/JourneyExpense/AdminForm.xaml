@@ -8,8 +8,8 @@
         Title="AdminForm" Height="450" Width="800">
     <Grid>
         <Button x:Name="AddCarButton" Content="Добавить автомобиль" Margin="10,10,655,0" VerticalAlignment="Top" Height="39" Click="AddCarButton_Click"/>
-        <Button x:Name="AddRoutesButton" Content="Добавить маршрут" Margin="332,10,332,0" VerticalAlignment="Top" Height="39" Click="AddCarButton_Click"/>
-        <Button x:Name="EditFuelButton" Content="Изменить цену" Margin="654,10,10,0" VerticalAlignment="Top" Height="39" Click="AddCarButton_Click"/>
+        <Button x:Name="AddRoutesButton" Content="Добавить маршрут" Margin="332,10,332,0" VerticalAlignment="Top" Height="39" Click="AddRoutesButton_Click"/>
+        <Button x:Name="EditFuelButton" Content="Изменить цену" Margin="654,10,10,0" VerticalAlignment="Top" Height="39" Click="EditFuelButton_Click"/>
 
     </Grid>
 </Window>

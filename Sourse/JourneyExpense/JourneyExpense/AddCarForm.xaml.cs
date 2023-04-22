@@ -251,7 +251,7 @@ namespace JourneyExpense
         }
         private string FixStr(string input)
         {
-            return input.Replace('.', ',');
+            return input.Replace(',', '.');/////////////////////////////////
         }
         private bool SetValueComboBox(ComboBox combo, Label label)//to do
         {

@@ -8,8 +8,8 @@
     <seatingCapacity>5</seatingCapacity>
     <fuel>Бензин</fuel>
     <fuelOctan>АИ-92</fuelOctan>
-    <fuelConsumptionGeneral>8,5</fuelConsumptionGeneral>
-    <fuelConsumptionCity>10,2</fuelConsumptionCity>
+    <fuelConsumptionGeneral>8</fuelConsumptionGeneral>
+    <fuelConsumptionCity>10,0</fuelConsumptionCity>
     <fuelConsumptionHighway>5,8</fuelConsumptionHighway>
     <enginePower>203</enginePower>
     <engineSize>2,5</engineSize>
@@ -24,11 +24,11 @@
     <seatingCapacity>123</seatingCapacity>
     <fuel>Дизельное топливо</fuel>
     <fuelOctan>ДТ</fuelOctan>
-    <fuelConsumptionGeneral>1.2</fuelConsumptionGeneral>
-    <fuelConsumptionCity>1.2</fuelConsumptionCity>
-    <fuelConsumptionHighway>1.2</fuelConsumptionHighway>
+    <fuelConsumptionGeneral>1,2</fuelConsumptionGeneral>
+    <fuelConsumptionCity>1,2</fuelConsumptionCity>
+    <fuelConsumptionHighway>1,2</fuelConsumptionHighway>
     <enginePower>1</enginePower>
-    <engineSize>2.2</engineSize>
+    <engineSize>2,2</engineSize>
     <tankSize>100</tankSize>
   </car>
 </Cars>
