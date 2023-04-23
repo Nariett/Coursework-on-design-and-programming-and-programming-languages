@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices.ActiveDirectory;
+using System.Dynamic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
@@ -18,13 +19,14 @@ namespace JourneyExpense
             InitList();
             InitComboBox();
         }
-        private List<string> Fuel = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
+        private bool isMessageBoxShown = false;
+        private List<string> FuelList = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
         private List<string> TypeConsuption = new List<string> { "Городской", "По трассе", "Смешанный" };
-        private List<Car> AllCars = new List<Car>();
-        private List<Fuel> FuelPrice = new List<Fuel>();
+        private List<Car> CarList = new List<Car>();
+        private List<Fuel> PriceList = new List<Fuel>();
         public void InitList()
         {
-            AllCars.Clear();
+            CarList.Clear();
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load("Car.xml");
             XmlElement xRoot = xDoc.DocumentElement;
@@ -78,18 +80,14 @@ namespace JourneyExpense
                     {
                         car.EnginePower = Convert.ToDouble(childnode.InnerText);
                     }
-                    if (childnode.Name == "engineSize")
-                    {
-                        car.EngineSize = Convert.ToDouble(childnode.InnerText);
-                    }
                     if (childnode.Name == "tankSize")
                     {
                         car.TankSize = Convert.ToDouble(childnode.InnerText);
                     }
                 }
-                AllCars.Add(car);
+                CarList.Add(car);
             }
-            FuelPrice.Clear();
+            PriceList.Clear();
             XmlDocument xDocTwo = new XmlDocument();
             xDocTwo.Load("Fuel.xml");
             XmlElement xRootTwo = xDocTwo.DocumentElement;
@@ -112,12 +110,12 @@ namespace JourneyExpense
                         fuel.price = Convert.ToDouble(childnode.InnerText);
                     }
                 }
-                FuelPrice.Add(fuel);
+                PriceList.Add(fuel);
             }
         }
         public void InitComboBox()
         {
-            foreach (var item in Fuel)
+            foreach (var item in FuelList)
             {
                 comboBoxFuelType.Items.Add(item);
             }
@@ -125,7 +123,7 @@ namespace JourneyExpense
             {
                 comboBoxConsumption.Items.Add(item);
             }
-            foreach (var item in AllCars)
+            foreach (var item in CarList)
             {
                 comboBoxCar.Items.Add(item.Name);
             }
@@ -210,7 +208,7 @@ namespace JourneyExpense
         }
         public void fuelPrice(string name)
         {
-            foreach (var item in FuelPrice)
+            foreach (var item in PriceList)
             {
                 if (item.octaneNumber == name)
                 {
@@ -221,7 +219,7 @@ namespace JourneyExpense
         }
         public void consumptionCar(string text, string type)
         {
-            foreach(var item in AllCars)
+            foreach(var item in CarList)
             {
                 if(item.Name == text)
                 {
@@ -249,6 +247,29 @@ namespace JourneyExpense
             if (comboBoxConsumption.SelectedIndex != -1 && comboBoxCar.SelectedIndex != -1)
             {
                 consumptionCar(comboBoxCar.SelectedItem.ToString(), comboBoxConsumption.SelectedItem.ToString());
+                isMessageBoxShown = false;
+            }
+            else
+            {
+                if (!isMessageBoxShown)
+                {
+                    MessageBox.Show("Выберите автомобиль и повторите повторно или не используйте данное поле");
+                    isMessageBoxShown = true;
+                }
+                comboBoxConsumption.SelectedIndex = -1;
+            }
+        }
+        private void comboBoxCar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach(var item in CarList)
+            {
+                if(item.Name == comboBoxCar.SelectedItem.ToString())
+                {
+                    textBoxConsumption.Text = item.FuelConsumptionGeneral.ToString();
+                    comboBoxConsumption.SelectedIndex = 2;
+                    comboBoxFuelType.SelectedIndex = FuelList.IndexOf(item.Fuel);
+                    comboBoxFuelOctan.SelectedIndex = comboBoxFuelOctan.Items.IndexOf(item.FuelOctan);//проверить
+                }
             }
         }
     }

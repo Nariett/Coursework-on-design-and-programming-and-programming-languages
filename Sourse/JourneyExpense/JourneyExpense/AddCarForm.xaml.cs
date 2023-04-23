@@ -30,7 +30,6 @@ namespace JourneyExpense
             textBoxFuelConsumptionCity.Visibility = Visibility.Visible;
             textBoxFuelConsumptionHighway.Visibility = Visibility.Visible;
             comboBoxFuelType.IsReadOnly = false;
-            textBoxSizeEngine.IsReadOnly = false;
             string selectedItem = comboBoxFuelType.SelectedItem.ToString();
             if (selectedItem == "Бензин")
             {
@@ -54,7 +53,6 @@ namespace JourneyExpense
                 tank.Content = "Объем батареи";
                 textBoxFuelConsumptionCity.Clear();
                 textBoxFuelConsumptionHighway.Clear();
-                textBoxSizeEngine.IsReadOnly = true;
             }
         }
         private bool ValidValue()
@@ -170,12 +168,11 @@ namespace JourneyExpense
             bool isNumericOne = IsValidDoubleInput(textBoxFuelConsumptionGeneral, 0, 100, out ConsumptionGeneral);
             bool isNumericTwo = IsValidDoubleInput(textBoxFuelConsumptionCity, 0, 100, out ConsumptionCity);
             bool isNumericThree = IsValidDoubleInput(textBoxFuelConsumptionHighway, 0, 100, out ConsumptionHighway);
-            bool isNumericFour = IsValidDoubleInput(textBoxPower, 0, 100, out enginePower);
-            bool isNumericFive = IsValidDoubleInput(textBoxSizeEngine, 0, 9, out engineSize);
+            bool isNumericFour = IsValidDoubleInput(textBoxPower, 0, 2000, out enginePower);
             bool isNumericSix = IsValidDoubleInput(textBoxSizeTank, 0, 600, out tankSize);
             if (selectedItem == "Бензин" || selectedItem == "Дизельное топливо")
             {
-                if (isNumericOne && isNumericTwo && isNumericThree && isNumericFour && isNumericFive && isNumericSix)
+                if (isNumericOne && isNumericTwo && isNumericThree && isNumericFour && isNumericSix)
                 {
                     textBoxFuelConsumptionGeneral.BorderBrush = Brushes.Gray;
                     return true;
@@ -197,7 +194,7 @@ namespace JourneyExpense
             string selectedItem = IsValidComboBox(comboBoxFuelType);
             if (selectedItem == "Бензин" || selectedItem == "Дизельное топливо")
             {
-                if (comboBoxFuelType.SelectedIndex != -1 && textBoxFuelConsumptionGeneral.Text != "" && textBoxFuelConsumptionCity.Text != "" && textBoxFuelConsumptionHighway.Text != "" && textBoxSizeEngine.Text != "")
+                if (comboBoxFuelType.SelectedIndex != -1 && textBoxFuelConsumptionGeneral.Text != "" && textBoxFuelConsumptionCity.Text != "" && textBoxFuelConsumptionHighway.Text != "")
                 {
                     return true;
                 }
@@ -222,14 +219,21 @@ namespace JourneyExpense
                 int place = Convert.ToInt32(this.textBoxPlace.Text);
                 int maxSpeed = Convert.ToInt32(this.textBoxMaxSpeed.Text);
                 string typeFuel = this.comboBoxFuelType.SelectedItem.ToString();
-                string typeOctan = this.comboBoxOctan.SelectedItem.ToString();
                 double fuelConsumptionGeneral = DoubleNull(textBoxFuelConsumptionGeneral);
                 double fuelConsumptionCity = DoubleNull(textBoxFuelConsumptionCity);
                 double fuelConsumptionHighway = DoubleNull(textBoxFuelConsumptionHighway);
                 double enginePower = Convert.ToDouble(FixStr(this.textBoxPower.Text));
-                double engineSize = Convert.ToDouble(FixStr(this.textBoxSizeEngine.Text));
                 double tankSize = Convert.ToDouble(FixStr(this.textBoxSizeTank.Text));
-                Car car = new Car(name, year, typeCar, place, maxSpeed, typeFuel, typeOctan, fuelConsumptionGeneral, fuelConsumptionCity, fuelConsumptionHighway, enginePower, engineSize, tankSize);
+                Car car;
+                if (typeFuel == "Электричество")
+                {
+                    car = new Car(name, year, typeCar, place, maxSpeed, typeFuel, "Медл.", fuelConsumptionGeneral, fuelConsumptionGeneral, fuelConsumptionGeneral, enginePower, tankSize);
+                }
+                else
+                {
+                    string typeOctan = comboBoxOctan.SelectedItem.ToString();
+                    car = new Car(name, year, typeCar, place, maxSpeed, typeFuel, typeOctan, fuelConsumptionGeneral, fuelConsumptionCity, fuelConsumptionHighway, enginePower, tankSize);
+                }
                 car.AddCarInXML();
                 MessageBox.Show($"Автомобиль: {name} был добавлен в систему");
             }
@@ -251,7 +255,7 @@ namespace JourneyExpense
         }
         private string FixStr(string input)
         {
-            return input.Replace(',', '.');/////////////////////////////////
+            return input.Replace('.', ',');/////////////////////////////////
         }
         private bool SetValueComboBox(ComboBox combo, Label label)//to do
         {

@@ -31,4 +31,18 @@
     <engineSize>2,2</engineSize>
     <tankSize>100</tankSize>
   </car>
+  <car>
+    <name>Tesla Model S</name>
+    <year>2021</year>
+    <typeCar>Лифтбек</typeCar>
+    <maxSpeed>5</maxSpeed>
+    <seatingCapacity>322</seatingCapacity>
+    <fuel>Электричество</fuel>
+    <fuelOctan>Медл.</fuelOctan>
+    <fuelConsumptionGeneral>14,4</fuelConsumptionGeneral>
+    <fuelConsumptionCity>14,4</fuelConsumptionCity>
+    <fuelConsumptionHighway>14,4</fuelConsumptionHighway>
+    <enginePower>1022</enginePower>
+    <tankSize>54</tankSize>
+  </car>
 </Cars>
