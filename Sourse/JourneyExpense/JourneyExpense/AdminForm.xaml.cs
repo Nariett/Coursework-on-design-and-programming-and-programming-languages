@@ -25,7 +25,8 @@ namespace JourneyExpense
 
         private void AddRoutesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AddRoutesForm routesForm = new AddRoutesForm();
+            routesForm.Show();
         }
     }
 }

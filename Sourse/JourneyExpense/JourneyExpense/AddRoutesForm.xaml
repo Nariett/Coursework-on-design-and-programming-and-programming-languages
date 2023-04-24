@@ -1,0 +1,39 @@
+﻿<Window x:Class="JourneyExpense.AddRoutesForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JourneyExpense"
+        mc:Ignorable="d"
+        Title="AddRoutesForm" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="16*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="36*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="textBoxPointA" TextWrapping="Wrap" FontSize="15" Grid.Column="2" Grid.Row="1" Margin="10,11,10,0" Height="27" VerticalAlignment="Top"/>
+        <Label Content="Точка отправления" Grid.Column="1" Grid.Row="1" Margin="10,10,10,0" Height="29" VerticalAlignment="Top" FontSize="15"/>
+        <TextBox x:Name="textBoxPointB" TextWrapping="Wrap" FontSize="15" Grid.Column="2" Grid.Row="2" Margin="10,11,10,0" Height="27" VerticalAlignment="Top"/>
+        <Label Content="Точка назначения" Grid.Column="1" Grid.Row="2" Margin="10,10,10,0" Height="29" VerticalAlignment="Top" FontSize="15"/>
+        <TextBox x:Name="textBoxDistance" TextWrapping="Wrap" FontSize="15" Grid.Column="2" Grid.Row="3" Margin="10,11,10,0" Height="27" VerticalAlignment="Top"/>
+        <Label Content="Расстояние" Grid.Column="1" Grid.Row="3" Margin="10,10,10,0" Height="29" VerticalAlignment="Top" FontSize="15"/>
+        <Button x:Name="ButtonCalculate" Grid.Column="1" Content="Добавить маршрут" Grid.Row="4" Margin="10,10,10,12" Click="ButtonCalculate_Click"  />
+
+    </Grid>
+
+</Window>

@@ -10,6 +10,9 @@
     <Compile Update="AddCarForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddRoutesForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AdminForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddCarForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddRoutesForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminForm.xaml">

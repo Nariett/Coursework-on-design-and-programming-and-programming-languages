@@ -20,8 +20,8 @@
     <name>rtr</name>
     <year>2000</year>
     <typeCar>Седан</typeCar>
-    <maxSpeed>2</maxSpeed>
-    <seatingCapacity>123</seatingCapacity>
+    <maxSpeed>123</maxSpeed>
+    <seatingCapacity>2</seatingCapacity>
     <fuel>Дизельное топливо</fuel>
     <fuelOctan>ДТ</fuelOctan>
     <fuelConsumptionGeneral>1,2</fuelConsumptionGeneral>
@@ -35,8 +35,8 @@
     <name>Tesla Model S</name>
     <year>2021</year>
     <typeCar>Лифтбек</typeCar>
-    <maxSpeed>5</maxSpeed>
-    <seatingCapacity>322</seatingCapacity>
+    <maxSpeed>322</maxSpeed>
+    <seatingCapacity>5</seatingCapacity>
     <fuel>Электричество</fuel>
     <fuelOctan>Медл.</fuelOctan>
     <fuelConsumptionGeneral>14,4</fuelConsumptionGeneral>

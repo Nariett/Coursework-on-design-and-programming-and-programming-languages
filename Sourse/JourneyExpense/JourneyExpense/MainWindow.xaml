@@ -57,6 +57,10 @@
         <ComboBox x:Name="comboBoxPointTwo" Grid.Column="5" Grid.Row="3" VerticalAlignment="Top" Margin="18,10,18,0" Height="27"/>
         <Label Content="Цена топлива" Grid.Column="4" Grid.Row="4" Margin="10,10,10,0" Height="29" VerticalAlignment="Top" FontSize="15"/>
         <TextBox x:Name="textBoxFuelPrice" TextWrapping="Wrap" FontSize="15" Grid.Column="5" Grid.Row="4" Margin="18,10,18,0" Height="27" VerticalAlignment="Top" IsReadOnly="True"/>
+        <Menu Grid.ColumnSpan="6">
+            <MenuItem Header="Очистить" Height="29" Width="80" Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="Помощь" Height="29" Width="80"></MenuItem>
+        </Menu>
 
     </Grid>
 </Window>

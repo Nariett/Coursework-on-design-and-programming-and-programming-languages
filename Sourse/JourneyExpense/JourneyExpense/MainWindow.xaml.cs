@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.DirectoryServices.ActiveDirectory;
-using System.Dynamic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
@@ -131,28 +129,30 @@ namespace JourneyExpense
 
         private void comboBoxFuelType_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-
-            string selectedItem = comboBoxFuelType.SelectedItem.ToString();
-            if (selectedItem == "Бензин")
+            if (comboBoxFuelType.SelectedIndex != -1)
             {
-                comboBoxFuelOctan.ToolTip = "Октановое число";
-                comboBoxFuelOctan.ItemsSource = new List<string> { "АИ-92", "АИ-95", "АИ-98" };
-                comboBoxFuelOctan.SelectedItem = "АИ-92";
-                LabelConsumption.Content = "Литр";
-            }
-            else if (selectedItem == "Дизельное топливо")
-            {
-                comboBoxFuelOctan.ToolTip = "Октановое число";
-                comboBoxFuelOctan.ItemsSource = new List<string> { "ДТ", "ДТ-ЭКО" };
-                comboBoxFuelOctan.SelectedItem = "ДТ";
-                LabelConsumption.Content = "Литр";
-            }
-            else if (selectedItem == "Электричество")
-            {
-                comboBoxFuelOctan.ToolTip = "Вид зарядки";
-                comboBoxFuelOctan.ItemsSource = new List<string> { "Быстр.", "Медл." };
-                comboBoxFuelOctan.SelectedItem = "Медл.";
-                LabelConsumption.Content = "Вт-ч";
+                string selectedItem = comboBoxFuelType.SelectedItem.ToString();
+                if (selectedItem == "Бензин")
+                {
+                    comboBoxFuelOctan.ToolTip = "Октановое число";
+                    comboBoxFuelOctan.ItemsSource = new List<string> { "АИ-92", "АИ-95", "АИ-98" };
+                    comboBoxFuelOctan.SelectedItem = "АИ-92";
+                    LabelConsumption.Content = "Литр";
+                }
+                else if (selectedItem == "Дизельное топливо")
+                {
+                    comboBoxFuelOctan.ToolTip = "Октановое число";
+                    comboBoxFuelOctan.ItemsSource = new List<string> { "ДТ", "ДТ-ЭКО" };
+                    comboBoxFuelOctan.SelectedItem = "ДТ";
+                    LabelConsumption.Content = "Литр";
+                }
+                else if (selectedItem == "Электричество")
+                {
+                    comboBoxFuelOctan.ToolTip = "Вид зарядки";
+                    comboBoxFuelOctan.ItemsSource = new List<string> { "Быстр.", "Медл." };
+                    comboBoxFuelOctan.SelectedItem = "Медл.";
+                    LabelConsumption.Content = "Вт-ч";
+                }
             }
         }
 
@@ -219,9 +219,9 @@ namespace JourneyExpense
         }
         public void consumptionCar(string text, string type)
         {
-            foreach(var item in CarList)
+            foreach (var item in CarList)
             {
-                if(item.Name == text)
+                if (item.Name == text)
                 {
                     if (type == "Городской")
                     {
@@ -261,16 +261,40 @@ namespace JourneyExpense
         }
         private void comboBoxCar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach(var item in CarList)
+            if (comboBoxCar.SelectedIndex != -1)
             {
-                if(item.Name == comboBoxCar.SelectedItem.ToString())
+                foreach (var item in CarList)
                 {
-                    textBoxConsumption.Text = item.FuelConsumptionGeneral.ToString();
-                    comboBoxConsumption.SelectedIndex = 2;
-                    comboBoxFuelType.SelectedIndex = FuelList.IndexOf(item.Fuel);
-                    comboBoxFuelOctan.SelectedIndex = comboBoxFuelOctan.Items.IndexOf(item.FuelOctan);//проверить
+                    if (item.Name == comboBoxCar.SelectedItem.ToString())
+                    {
+                        textBoxConsumption.Text = item.FuelConsumptionGeneral.ToString();
+                        comboBoxConsumption.SelectedIndex = 2;
+                        comboBoxFuelType.SelectedIndex = FuelList.IndexOf(item.Fuel);
+                        comboBoxFuelOctan.SelectedIndex = comboBoxFuelOctan.Items.IndexOf(item.FuelOctan);//проверить
+                        comboBoxFuelType.IsEnabled = false;
+                    }
                 }
             }
+            else
+            {
+                comboBoxFuelType.IsEnabled = true;
+            }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            isMessageBoxShown = true;
+            textBoxDistance.Text = "";
+            textBoxAverSpeed.Text = "";
+            textBoxTime.Text = "";
+            textBoxConsumption.Text = "";
+            textBoxPrice.Text = "";
+            textBoxFuelPrice.Text = "";
+            comboBoxFuelType.SelectedIndex = -1;
+            comboBoxFuelOctan.SelectedIndex = -1;
+            comboBoxCar.SelectedIndex = -1;
+            comboBoxConsumption.SelectedIndex = -1;
+            
         }
     }
 }

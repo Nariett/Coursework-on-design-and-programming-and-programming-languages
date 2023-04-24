@@ -29,3 +29,5 @@ C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AddCarForm.baml
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\FuelForm.g.cs
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\FuelForm.baml
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AddRoutesForm.g.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AddRoutesForm.baml

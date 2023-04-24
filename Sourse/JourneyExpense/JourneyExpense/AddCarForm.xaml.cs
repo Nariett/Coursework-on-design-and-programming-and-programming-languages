@@ -227,15 +227,21 @@ namespace JourneyExpense
                 Car car;
                 if (typeFuel == "Электричество")
                 {
-                    car = new Car(name, year, typeCar, place, maxSpeed, typeFuel, "Медл.", fuelConsumptionGeneral, fuelConsumptionGeneral, fuelConsumptionGeneral, enginePower, tankSize);
+                    car = new Car(name, year, typeCar, maxSpeed, place, typeFuel, "Медл.", fuelConsumptionGeneral, fuelConsumptionGeneral, fuelConsumptionGeneral, enginePower, tankSize);
                 }
                 else
                 {
                     string typeOctan = comboBoxOctan.SelectedItem.ToString();
-                    car = new Car(name, year, typeCar, place, maxSpeed, typeFuel, typeOctan, fuelConsumptionGeneral, fuelConsumptionCity, fuelConsumptionHighway, enginePower, tankSize);
+                    car = new Car(name, year, typeCar,  maxSpeed, place, typeFuel, typeOctan, fuelConsumptionGeneral, fuelConsumptionCity, fuelConsumptionHighway, enginePower, tankSize);
                 }
-                car.AddCarInXML();
-                MessageBox.Show($"Автомобиль: {name} был добавлен в систему");
+                if (car.AddCarInXML())
+                {
+                    MessageBox.Show($"Автомобиль: {name} был добавлен в систему.");
+                }
+                else
+                {
+                    MessageBox.Show($"Автомобиль: {name} не был добавлен в систему. Автомобиль уже находится в системе.");
+                }
             }
             else
             {

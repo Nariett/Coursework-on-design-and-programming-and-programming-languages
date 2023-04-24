@@ -1,31 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO.Packaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Transactions;
 
 namespace JourneyExpense
 {
     class UserRoutes
     {
-        public string user { get; set; }
-        public string car { get; set; }
-        public string pointA { get; set; }
-        public string pointB { get; set; }
-        public double distance { get; set; }
-        public double price { get; set; }
-        public DateTime date { get; set; }
+        public string User { get; set; }
+        public string Car { get; set; }
+        public string PointA { get; set; }
+        public string PointB { get; set; }
+        public double Distance { get; set; }
+        public double Price { get; set; }
+        public DateTime Date { get; set; }
+        public double UsedFuel { get; set; }
         public UserRoutes() { }
-        public UserRoutes(string user,string car, string pointA, string pointB, double distance, double price, DateTime date)
+        public UserRoutes(string user,string car, string pointA, string pointB, double distance, double price, DateTime date, double usedfuel)
         {
-            this.user = user;
-            this.car = car;
-            this.pointA = pointA;
-            this.pointB = pointB;
-            this.distance = distance;
-            this.price = price;
-            this.date = date;
+            this.User = user;
+            this.Car = car;
+            this.PointA = pointA;
+            this.PointB = pointB;
+            this.Distance = distance;
+            this.Price = price;
+            this.Date = date;
+            this.UsedFuel = usedfuel;
         }
     }
 }
