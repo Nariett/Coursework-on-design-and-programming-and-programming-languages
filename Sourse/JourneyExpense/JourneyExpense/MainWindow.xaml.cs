@@ -125,6 +125,8 @@ namespace JourneyExpense
             {
                 comboBoxCar.Items.Add(item.Name);
             }
+            comboBoxConsumption.IsEnabled = false;
+
         }
 
         private void comboBoxFuelType_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -275,10 +277,12 @@ namespace JourneyExpense
                         comboBoxFuelType.IsEnabled = false;
                     }
                 }
+                comboBoxConsumption.IsEnabled = true;
             }
             else
             {
                 comboBoxFuelType.IsEnabled = true;
+                comboBoxConsumption.IsEnabled = false;
             }
         }
 
