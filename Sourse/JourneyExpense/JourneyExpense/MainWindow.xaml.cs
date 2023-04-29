@@ -164,6 +164,7 @@ namespace JourneyExpense
                 double averageSpeed = Convert.ToDouble(this.textBoxAverSpeed.Text);
                 double result = dictance / averageSpeed;
                 this.textBoxTime.Text = Math.Round(result, 2).ToString();
+                this.textBoxPrice.Text = Math.Round(Convert.ToDouble(this.textBoxConsumption.Text) * Convert.ToDouble(this.textBoxFuelPrice.Text),2).ToString();
             }
             catch (Exception ex)
             {
