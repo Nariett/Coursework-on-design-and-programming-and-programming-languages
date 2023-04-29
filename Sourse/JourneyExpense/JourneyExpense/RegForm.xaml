@@ -24,11 +24,11 @@
             <ColumnDefinition Width="9*"/>
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="2" Content="Login" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="18" Grid.Row="1" Margin="0,1,0,0" Height="35" VerticalAlignment="Top"/>
-        <Label Grid.Column="2" Content="Password" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Height="32" VerticalAlignment="Top" FontSize="18" Margin="0,1,0,0"/>
-        <Label Grid.Column="2" Content="Name" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Height="32" FontSize="18" Margin="0,1,0,0"/>
-        <Label Grid.Column="2" Content="Surname" Grid.Row="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="18" Margin="0,1,0,0" Height="31" VerticalAlignment="Top"/>
-        <Button Grid.Column="1" Content="Sign Up" Grid.Row="5" Grid.ColumnSpan="4" Height="28" VerticalAlignment="Top" Margin="0,15,0,0" FontSize="18" Click="Button_Click"/>
+        <Label Grid.Column="2" Content="Логин" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="18" Grid.Row="1" Margin="0,1,0,0" Height="35" VerticalAlignment="Top"/>
+        <Label Grid.Column="2" Content="Пароль" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Height="32" VerticalAlignment="Top" FontSize="18" Margin="0,1,0,0"/>
+        <Label Grid.Column="2" Content="Имя" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Height="32" FontSize="18" Margin="0,1,0,0"/>
+        <Label Grid.Column="2" Content="Фамилия" Grid.Row="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="18" Margin="0,1,0,0" Height="31" VerticalAlignment="Top"/>
+        <Button Grid.Column="1" Content="Зарегистрироваться" Grid.Row="5" Grid.ColumnSpan="4" Height="28" VerticalAlignment="Top" Margin="0,15,0,0" FontSize="18" Click="Button_Click"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" TextWrapping="Wrap" Margin="0,40,0,1" FontSize="20"/>
         <TextBox x:Name="textBoxSurname" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="4" TextWrapping="Wrap" Margin="0,38,0,1" FontSize="15"/>
         <TextBox x:Name="textBoxPassword" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" TextWrapping="Wrap" Margin="0,40,0,1" FontSize="15"/>
