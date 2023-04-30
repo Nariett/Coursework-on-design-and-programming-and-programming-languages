@@ -19,10 +19,10 @@
     <Compile Update="AuthForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="FuelForm.xaml.cs">
+    <Compile Update="RegForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RegForm.xaml.cs">
+    <Compile Update="UpdatePriceForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -39,13 +39,13 @@
     <Page Update="AuthForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="FuelForm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RegForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdatePriceForm.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
