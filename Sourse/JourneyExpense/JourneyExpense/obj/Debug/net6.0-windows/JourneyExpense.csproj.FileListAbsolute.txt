@@ -31,3 +31,5 @@ C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AddRoutesForm.baml
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UpdatePriceForm.g.cs
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UpdatePriceForm.baml
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AddFuelForm.g.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AddFuelForm.baml

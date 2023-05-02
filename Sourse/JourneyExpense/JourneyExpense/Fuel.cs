@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Documents;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace JourneyExpense
 {
@@ -46,6 +47,36 @@ namespace JourneyExpense
             }
             return Fuel;
         }
-
+        public bool AddFuelInXML()
+        {
+            bool permission = true;
+            foreach (var item in ReadFuelInXML())
+            {
+                if (item.octaneNumber == octaneNumber)
+                {
+                    permission = false;
+                }
+            }
+            if (permission)
+            {
+                XElement root = XElement.Load("Fuel.xml");
+                XElement routesElement = new XElement("fuel",
+                    new XElement("name", this.name),
+                    new XElement("octaneNumber", this.octaneNumber),
+                    new XElement("price", FixStr(this.price))
+                );
+                root.Add(routesElement);
+                root.Save("Fuel.xml");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public string FixStr(double x)
+        {
+            return x.ToString().Replace('.', ',');
+        }
     }
 }

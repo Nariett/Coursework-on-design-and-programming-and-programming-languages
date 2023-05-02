@@ -123,9 +123,9 @@ namespace JourneyExpense
                     new XElement("seatingCapacity", this.SeatingCapacity),
                     new XElement("fuel", this.Fuel),
                     new XElement("fuelOctan", this.FuelOctan),
-                    new XElement("fuelConsumptionGeneral", fixDouble(this.FuelConsumptionGeneral)),
-                    new XElement("fuelConsumptionCity", fixDouble(this.FuelConsumptionCity)),
-                    new XElement("fuelConsumptionHighway", fixDouble(this.FuelConsumptionHighway)),
+                    new XElement("fuelConsumptionGeneral", FixStr(this.FuelConsumptionGeneral)),
+                    new XElement("fuelConsumptionCity", FixStr(this.FuelConsumptionCity)),
+                    new XElement("fuelConsumptionHighway", FixStr(this.FuelConsumptionHighway)),
                     new XElement("enginePower", this.EnginePower),
                     new XElement("tankSize", this.TankSize)
                 );
@@ -138,7 +138,7 @@ namespace JourneyExpense
                 return false;
             }
         }
-        public string fixDouble(double x)
+        public string FixStr(double x)
         {
             return x.ToString().Replace('.', ',');
         }

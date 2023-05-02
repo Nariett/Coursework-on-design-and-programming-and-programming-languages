@@ -29,6 +29,12 @@ namespace JourneyExpense
             AddRoutesForm routesForm = new AddRoutesForm();
             routesForm.Show();
         }
+
+        private void AddFuelButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddFuelForm fuelForm = new AddFuelForm();
+            fuelForm.Show();
+        }
     }
 }
 
