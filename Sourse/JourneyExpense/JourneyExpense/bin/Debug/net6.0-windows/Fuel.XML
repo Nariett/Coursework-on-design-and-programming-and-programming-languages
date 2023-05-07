@@ -26,6 +26,11 @@
     <price>3,58</price>
   </fuel>
   <fuel>
+    <name>Дизельное топливо</name>
+    <octaneNumber>ДТ-ЕВРО</octaneNumber>
+    <price>2,37</price>
+  </fuel>
+  <fuel>
     <name>Электричество</name>
     <octaneNumber>Быстр.</octaneNumber>
     <price>0,45</price>

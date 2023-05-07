@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Xml;
 
 namespace JourneyExpense
 {
@@ -24,23 +25,42 @@ namespace JourneyExpense
             comboBoxFuelType.ItemsSource = Fuel;
             comboBoxCarType.ItemsSource = CarType;
         }
+        private static List<string> GetFuelList(string type)
+        {
+            List<string> Fuel = new List<string>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load("Fuel.xml");
 
+            XmlNodeList fuelNodes = doc.GetElementsByTagName("fuel");
+
+            foreach (XmlNode fuelNode in fuelNodes)
+            {
+                XmlNode nameNode = fuelNode.SelectSingleNode("name");
+                if (nameNode.InnerText == type)
+                {
+                    XmlNode octaneNode = fuelNode.SelectSingleNode("octaneNumber");
+                    Fuel.Add(octaneNode.InnerText);
+                }
+            }
+            return Fuel;
+
+        }
         private void comboBoxFuelType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            comboBoxOctan.Visibility = Visibility.Visible;
+            OctanLabel.Visibility = Visibility.Visible;
             textBoxFuelConsumptionCity.Visibility = Visibility.Visible;
             textBoxFuelConsumptionHighway.Visibility = Visibility.Visible;
             comboBoxFuelType.IsReadOnly = false;
             string selectedItem = comboBoxFuelType.SelectedItem.ToString();
             if (selectedItem == "Бензин")
             {
-                comboBoxOctan.ItemsSource = new List<string> { "АИ-92", "АИ-95", "АИ-98" };
-                comboBoxOctan.SelectedItem = "АИ-92";
+                comboBoxOctan.ItemsSource = GetFuelList("Бензин");
                 tank.Content = "Объем бака";
             }
             else if (selectedItem == "Дизельное топливо")
             {
-                comboBoxOctan.ItemsSource = new List<string> { "ДТ" };
-                comboBoxOctan.SelectedItem = "ДТ";
+                comboBoxOctan.ItemsSource = GetFuelList("Дизельное топливо");
                 comboBoxFuelType.IsReadOnly = true;
                 tank.Content = "Объем бака";
             }
@@ -48,12 +68,15 @@ namespace JourneyExpense
             {
                 comboBoxOctan.ItemsSource = null;
                 comboBoxOctan.SelectedItem = null;
+                comboBoxOctan.Visibility = Visibility.Hidden;
+                OctanLabel.Visibility = Visibility.Hidden;
                 textBoxFuelConsumptionCity.Visibility = Visibility.Hidden;
                 textBoxFuelConsumptionHighway.Visibility = Visibility.Hidden;
-                tank.Content = "Объем батареи";
                 textBoxFuelConsumptionCity.Clear();
                 textBoxFuelConsumptionHighway.Clear();
+                tank.Content = "Объем батареи";
             }
+            comboBoxOctan.SelectedIndex = 1;
         }
         private bool ValidValue()
         {
@@ -63,63 +86,6 @@ namespace JourneyExpense
             }
             return false;
         }
-        /*private bool LogicCheck()
-        {
-            string selectedItem = comboBoxCarType.SelectedItem.ToString();
-            int year, seatingCapacity,maxSpeed;
-            bool isNumericOne = int.TryParse(textBoxYear.Text, out year);
-            bool isNumericTwo = int.TryParse(textBoxPlace.Text, out seatingCapacity);
-            bool isNumericThree = int.TryParse(textBoxMaxSpeed.Text, out maxSpeed);
-            if (isNumericOne && isNumericTwo && isNumericThree)
-            {
-                if(maxSpeed < 0  && maxSpeed > 500)
-                {
-                    return false;
-                }    
-                if (year < 1950)
-                {
-                    return false;
-                }
-                if (selectedItem == "Седан" || selectedItem == "Купе" || selectedItem == "Кабриолет" || selectedItem == "Лифтбек" || selectedItem == "Фургон" || selectedItem == "Пикап")
-                {
-                    if (selectedItem == "Фургон")
-                    {
-                        if (seatingCapacity >= 2 && seatingCapacity <= 9)
-                        {
-
-                            return true;
-                        }
-                        else 
-                        {
-                            MessageBox.Show("Ошибка Фургон");
-                            return false;
-                        }
-                    }
-                    if (seatingCapacity >= 2 && seatingCapacity <= 5)
-                    {
-                        return true;
-                    }
-                    else 
-                    {
-                        MessageBox.Show("Ошибка 2 5");
-                        return false;
-                    }
-                }
-                else if (selectedItem == "Универсал" || selectedItem == "Внедорожник" || selectedItem == "Кроссовер" || selectedItem == "Минивэн")
-                {
-                    if (seatingCapacity >= 5 && seatingCapacity <= 8)
-                    {
-                        return true;
-                    }
-                    else 
-                    {
-                        MessageBox.Show("Ошибка 5 8");
-                        return false; 
-                    }
-                }
-            }
-            return false;
-        }*/
         private bool LogicCheck()
         {
             string selectedItem = IsValidComboBox(comboBoxCarType);
@@ -261,21 +227,7 @@ namespace JourneyExpense
         }
         private string FixStr(string input)
         {
-            return input.Replace('.', ',');/////////////////////////////////
-        }
-        private bool SetValueComboBox(ComboBox combo, Label label)//to do
-        {
-            if (comboBoxCarType.SelectedIndex == -1)
-            {
-                MessageBox.Show($"Не выбрано поле в {LabelTypeCar.Content}");
-                combo.BorderBrush = Brushes.Red;
-                return false;
-            }
-            else
-            {
-                combo.BorderBrush = Brushes.Gray;
-                return true;
-            }
+            return input.Replace('.', ',');
         }
         private bool IsValidIntInput(TextBox text, int min, int max, out int value)
         {
@@ -283,7 +235,6 @@ namespace JourneyExpense
             {
                 value = 0;
                 text.BorderBrush = Brushes.Red;
-                //text.ToolTip = $"Введите значение в диапазоне от {min} - {max}";
                 return false;
             }
             bool isNumeric = int.TryParse(text.Text, out value);
@@ -297,7 +248,6 @@ namespace JourneyExpense
                 else
                 {
                     text.BorderBrush = Brushes.Red;
-                    //text.ToolTip = $"Введите значение в диапазоне от {min} - {max}";
                     return false;
                 }
             }

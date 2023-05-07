@@ -19,7 +19,7 @@ namespace JourneyExpense
             Distance = distance;
         }
 
-        public List<Route> ReadRousteInXML()
+        public static List<Route> ReadRousteInXML()
         {
             List<Route> Route = new List<Route>();
             XmlDocument xDoc = new XmlDocument();

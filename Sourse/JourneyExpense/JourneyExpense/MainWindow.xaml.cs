@@ -22,6 +22,9 @@ namespace JourneyExpense
         private List<string> TypeConsuption = new List<string> { "Городской", "По трассе", "Смешанный" };
         private List<Car> CarList = new List<Car>();
         private List<Fuel> PriceList = new List<Fuel>();
+        private List<string> PointA = new List<string>();
+        private List<string> PointB = new List<string>();
+
         public void InitList()
         {
             CarList.Clear();
@@ -41,7 +44,6 @@ namespace JourneyExpense
                     {
                         car.Year = Convert.ToInt32(childnode.InnerText);
                     }
-
                     if (childnode.Name == "typeCar")
                     {
                         car.TypeCar = childnode.InnerText;
@@ -102,13 +104,18 @@ namespace JourneyExpense
                     {
                         fuel.octaneNumber = childnode.InnerText;
                     }
-
                     if (childnode.Name == "price")
                     {
                         fuel.price = Convert.ToDouble(childnode.InnerText);
                     }
                 }
                 PriceList.Add(fuel);
+            }
+            List<Route> AllRoute = Route.ReadRousteInXML();
+            foreach(var item in AllRoute)
+            {
+                PointA.Add(item.PointA);
+                PointB.Add(item.PointB);
             }
         }
         public void InitComboBox()
@@ -126,7 +133,14 @@ namespace JourneyExpense
                 comboBoxCar.Items.Add(item.Name);
             }
             comboBoxConsumption.IsEnabled = false;
-
+            foreach (var item in PointA)
+            {
+                comboBoxPointOne.Items.Add(item);
+            }
+            foreach (var item in PointB)
+            {
+                comboBoxPointTwo.Items.Add(item);
+            }
         }
 
         private void comboBoxFuelType_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -137,24 +151,22 @@ namespace JourneyExpense
                 if (selectedItem == "Бензин")
                 {
                     comboBoxFuelOctan.ToolTip = "Октановое число";
-                    comboBoxFuelOctan.ItemsSource = new List<string> { "АИ-92", "АИ-95", "АИ-98" };
-                    comboBoxFuelOctan.SelectedItem = "АИ-92";
+                    comboBoxFuelOctan.ItemsSource = GetFuelList("Бензин");
                     LabelConsumption.Content = "Литр";
                 }
                 else if (selectedItem == "Дизельное топливо")
                 {
                     comboBoxFuelOctan.ToolTip = "Октановое число";
-                    comboBoxFuelOctan.ItemsSource = new List<string> { "ДТ", "ДТ-ЭКО" };
-                    comboBoxFuelOctan.SelectedItem = "ДТ";
+                    comboBoxFuelOctan.ItemsSource = GetFuelList("Дизельное топливо");
                     LabelConsumption.Content = "Литр";
                 }
                 else if (selectedItem == "Электричество")
                 {
                     comboBoxFuelOctan.ToolTip = "Вид зарядки";
-                    comboBoxFuelOctan.ItemsSource = new List<string> { "Быстр.", "Медл." };
-                    comboBoxFuelOctan.SelectedItem = "Медл.";
+                    comboBoxFuelOctan.ItemsSource = GetFuelList("Электричество");
                     LabelConsumption.Content = "Вт-ч";
                 }
+                comboBoxFuelOctan.SelectedIndex = 1;
             }
         }
 
@@ -179,37 +191,10 @@ namespace JourneyExpense
             if (comboBoxFuelOctan.SelectedIndex != -1)
             {
                 string selectedItem = comboBoxFuelOctan.SelectedItem.ToString();
-                if (selectedItem == "АИ-92")
-                {
-                    fuelPrice("АИ-92");
-                }
-                else if (selectedItem == "АИ-95")
-                {
-                    fuelPrice("АИ-95");
-                }
-                else if (selectedItem == "АИ-98")
-                {
-                    fuelPrice("АИ-98");
-                }
-                else if (selectedItem == "ДТ")
-                {
-                    fuelPrice("ДТ");
-                }
-                else if (selectedItem == "ДТ-ЭКО")
-                {
-                    fuelPrice("ДТ-ЭКО");
-                }
-                else if (selectedItem == "Быстр.")
-                {
-                    fuelPrice("Быстр.");
-                }
-                else if (selectedItem == "Медл.")
-                {
-                    fuelPrice("Медл.");
-                }
+                FuelPrice(selectedItem);
             }
         }
-        public void fuelPrice(string name)
+        public void FuelPrice(string name)
         {
             foreach (var item in PriceList)
             {
@@ -220,7 +205,7 @@ namespace JourneyExpense
                 }
             }
         }
-        public void consumptionCar(string text, string type)
+        public void ConsumptionCar(string text, string type)
         {
             foreach (var item in CarList)
             {
@@ -249,7 +234,7 @@ namespace JourneyExpense
         {
             if (comboBoxConsumption.SelectedIndex != -1 && comboBoxCar.SelectedIndex != -1)
             {
-                consumptionCar(comboBoxCar.SelectedItem.ToString(), comboBoxConsumption.SelectedItem.ToString());
+                ConsumptionCar(comboBoxCar.SelectedItem.ToString(), comboBoxConsumption.SelectedItem.ToString());
                 isMessageBoxShown = false;
             }
             else
@@ -262,6 +247,7 @@ namespace JourneyExpense
                 comboBoxConsumption.SelectedIndex = -1;
             }
         }
+
         private void comboBoxCar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxCar.SelectedIndex != -1)
@@ -289,17 +275,34 @@ namespace JourneyExpense
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             isMessageBoxShown = true;
-            textBoxDistance.Text = "";
-            textBoxAverSpeed.Text = "";
-            textBoxTime.Text = "";
-            textBoxConsumption.Text = "";
-            textBoxPrice.Text = "";
-            textBoxFuelPrice.Text = "";
+            textBoxDistance.Clear();
+            textBoxAverSpeed.Clear();
+            textBoxTime.Clear();
+            textBoxConsumption.Clear();
+            textBoxPrice.Clear();
+            textBoxFuelPrice.Clear();
             comboBoxFuelType.SelectedIndex = -1;
             comboBoxFuelOctan.SelectedIndex = -1;
             comboBoxCar.SelectedIndex = -1;
             comboBoxConsumption.SelectedIndex = -1;
-            
+
+        }
+        private static List<string> GetFuelList(string type)
+        {
+            List<string> Fuel = new List<string>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load("Fuel.xml");
+            XmlNodeList fuelNodes = doc.GetElementsByTagName("fuel");
+            foreach (XmlNode fuelNode in fuelNodes)
+            {
+                XmlNode nameNode = fuelNode.SelectSingleNode("name");
+                if (nameNode.InnerText == type)
+                {
+                    XmlNode octaneNode = fuelNode.SelectSingleNode("octaneNumber");
+                    Fuel.Add(octaneNode.InnerText);
+                }
+            }
+            return Fuel;
         }
     }
 }
