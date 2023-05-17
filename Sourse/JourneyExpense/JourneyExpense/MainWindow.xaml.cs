@@ -18,10 +18,12 @@ namespace JourneyExpense
             InitComboBox();
         }
         private bool isMessageBoxShown = false;
+        private bool isMessageBoxShowPoint = false;
         private List<string> FuelList = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
         private List<string> TypeConsuption = new List<string> { "Городской", "По трассе", "Смешанный" };
         private List<Car> CarList = new List<Car>();
         private List<Fuel> PriceList = new List<Fuel>();
+        private List<Route> AllRoutes = new List<Route>();
         private List<string> PointA = new List<string>();
         private List<string> PointB = new List<string>();
 
@@ -111,11 +113,25 @@ namespace JourneyExpense
                 }
                 PriceList.Add(fuel);
             }
-            List<Route> AllRoute = Route.ReadRousteInXML();
-            foreach(var item in AllRoute)
+            AllRoutes = Route.ReadRousteInXML();
+            foreach (var item in AllRoutes)
             {
-                PointA.Add(item.PointA);
-                PointB.Add(item.PointB);
+                if (!PointA.Contains(item.PointA))
+                {
+                    PointA.Add(item.PointA);
+                }
+                if (!PointA.Contains(item.PointB))
+                {
+                    PointA.Add(item.PointB);
+                }
+                if (!PointB.Contains(item.PointA))
+                {
+                    PointB.Add(item.PointA);
+                }
+                if (!PointB.Contains(item.PointB))
+                {
+                    PointB.Add(item.PointB);
+                }
             }
         }
         public void InitComboBox()
@@ -178,7 +194,7 @@ namespace JourneyExpense
                 double averageSpeed = Convert.ToDouble(this.textBoxAverSpeed.Text);
                 double result = dictance / averageSpeed;
                 this.textBoxTime.Text = Math.Round(result, 2).ToString();
-                this.textBoxPrice.Text = Math.Round(Convert.ToDouble(this.textBoxConsumption.Text) * Convert.ToDouble(this.textBoxFuelPrice.Text),2).ToString();
+                this.textBoxPrice.Text = Math.Round(Convert.ToDouble(this.textBoxConsumption.Text) * Convert.ToDouble(this.textBoxFuelPrice.Text), 2).ToString();
             }
             catch (Exception ex)
             {
@@ -304,5 +320,37 @@ namespace JourneyExpense
             }
             return Fuel;
         }
+
+        private void comboBoxPointTwo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboBoxPointOne.SelectedIndex != -1 && comboBoxPointTwo.SelectedIndex != -1)
+            {
+                string A = comboBoxPointOne.SelectedItem.ToString();
+                string B = comboBoxPointTwo.SelectedItem.ToString();
+                if (A != B)
+                {
+                    foreach (var item in AllRoutes)
+                    {
+                        if (item.PointA == A && item.PointB == B || item.PointA == B && item.PointB == A)
+                        {
+                            this.textBoxDistance.Text = item.Distance.ToString();
+                            isMessageBoxShowPoint = false;
+                            break;
+                        }
+                        else if (!isMessageBoxShowPoint)
+                        {
+                            MessageBox.Show("Маршрут не найден. Выберите существующий маршрут.");
+                            isMessageBoxShowPoint = true;
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите корректное место назначения");
+            }
+        }
     }
 }
+
