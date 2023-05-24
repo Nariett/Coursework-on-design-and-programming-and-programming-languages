@@ -301,6 +301,8 @@ namespace JourneyExpense
             comboBoxFuelOctan.SelectedIndex = -1;
             comboBoxCar.SelectedIndex = -1;
             comboBoxConsumption.SelectedIndex = -1;
+            comboBoxPointOne.SelectedIndex = -1;
+            comboBoxPointTwo.SelectedIndex = -1;
 
         }
         private static List<string> GetFuelList(string type)
@@ -323,7 +325,7 @@ namespace JourneyExpense
 
         private void comboBoxPointTwo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBoxPointOne.SelectedIndex != -1 && comboBoxPointTwo.SelectedIndex != -1)
+            if (comboBoxPointOne.SelectedIndex != -1 && comboBoxPointTwo.SelectedIndex != -1 && comboBoxPointOne.SelectedItem != comboBoxPointTwo.SelectedItem)
             {
                 string A = comboBoxPointOne.SelectedItem.ToString();
                 string B = comboBoxPointTwo.SelectedItem.ToString();
@@ -346,10 +348,14 @@ namespace JourneyExpense
 
                 }
             }
-            else
+            else if (comboBoxPointOne.SelectedIndex != -1 || comboBoxPointTwo.SelectedIndex != -1)
             {
                 MessageBox.Show("Выберите корректное место назначения");
             }
+        }
+        private void ValidValue()
+        {
+
         }
     }
 }
