@@ -1,0 +1,12 @@
+<UsersRoutes>
+  <route>
+	<User>1</User>
+	<Car>Honda</Car>
+	<PointA>Гродно</PointA>
+    <PointB>Жлобин</PointB>
+	<Distance>666</Distance>
+	<Price>66</Price>
+	<Date>11.12.2023</Date>
+	<UsedFuel>15</UsedFuel>
+  </route>
+</UsersRoutes>	

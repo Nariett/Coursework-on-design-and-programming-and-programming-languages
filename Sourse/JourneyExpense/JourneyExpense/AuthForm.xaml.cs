@@ -38,7 +38,7 @@ namespace JourneyExpense
             }
             if (Access)
             {
-                MainWindow mainForm = new MainWindow();
+                MainWindow mainForm = new MainWindow(textBoxLogin.Text);
                 mainForm.ShowDialog();
             }else { MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль."); }
         }

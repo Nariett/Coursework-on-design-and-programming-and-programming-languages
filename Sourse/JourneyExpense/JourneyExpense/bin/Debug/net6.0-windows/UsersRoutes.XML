@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UsersRoutes>
+  <route>
+    <User>1</User>
+    <Car>Honda</Car>
+    <PointA>Гродно</PointA>
+    <PointB>Жлобин</PointB>
+    <Distance>666</Distance>
+    <Price>66</Price>
+    <Date>11.12.2023</Date>
+    <UsedFuel>15</UsedFuel>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Toyota Camry</Car>
+    <PointA>Минск</PointA>
+    <PointB>Брест</PointB>
+    <Distance>351</Distance>
+    <Price>64,86</Price>
+    <Date>24.05.2023</Date>
+    <UsedFuel>44</UsedFuel>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Tesla Model S</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>100</Distance>
+    <Price>5,04</Price>
+    <Date>24.05.2023</Date>
+    <UsedFuel>7</UsedFuel>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>1111</Distance>
+    <Price>555,5</Price>
+    <Date>24.05.2023</Date>
+    <UsedFuel>111</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+</UsersRoutes>

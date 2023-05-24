@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Xml;
 
 namespace JourneyExpense
@@ -11,12 +12,14 @@ namespace JourneyExpense
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(string userName)
         {
             InitializeComponent();
             InitList();
             InitComboBox();
+            UserName = userName;
         }
+        private string UserName;
         private bool isMessageBoxShown = false;
         private bool isMessageBoxShowPoint = false;
         private List<string> FuelList = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
@@ -185,18 +188,43 @@ namespace JourneyExpense
                 comboBoxFuelOctan.SelectedIndex = 1;
             }
         }
-
+        private string SetValue(ComboBox comboBox)
+        {
+            if(comboBox.SelectedIndex != -1)
+            {
+                return comboBox.SelectedItem.ToString();
+            }
+            else { return "Неизвестно"; }
+        }
         private void ButtonCalculate_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if(ValidValue())
             {
+                string car = SetValue(comboBoxCar);
+                string PointA = SetValue(comboBoxPointOne);
+                string PointB = SetValue(comboBoxPointTwo);
                 double dictance = Convert.ToDouble(this.textBoxDistance.Text);
+                double fuelPrice = Convert.ToDouble(this.textBoxFuelPrice.Text);
+                double consimption = Convert.ToDouble(this.textBoxConsumption.Text);
                 double averageSpeed = Convert.ToDouble(this.textBoxAverSpeed.Text);
+                double usedFuel = Math.Round(dictance/consimption);
                 double result = dictance / averageSpeed;
+                double fullPrice = Math.Round((dictance / 100) * fuelPrice * consimption, 2);
+                this.textBoxUsedFuel.Text = usedFuel.ToString();
                 this.textBoxTime.Text = Math.Round(result, 2).ToString();
-                this.textBoxPrice.Text = Math.Round(Convert.ToDouble(this.textBoxConsumption.Text) * Convert.ToDouble(this.textBoxFuelPrice.Text), 2).ToString();
+                this.textBoxPrice.Text = fullPrice.ToString();
+                UsersRoutes route = new UsersRoutes(UserName, car, PointA, PointB, dictance, fullPrice, usedFuel,averageSpeed);
+                if(route.AddRoutesInXML())
+                {
+                    MessageBox.Show("Поездка оформлена");
+                }
+                else
+                {
+                    MessageBox.Show("Поездка не оформлена");
+                }
+
             }
-            catch (Exception ex)
+            else
             {
                 MessageBox.Show("Заполните все поля корректными значениями");
             }
@@ -208,6 +236,11 @@ namespace JourneyExpense
             {
                 string selectedItem = comboBoxFuelOctan.SelectedItem.ToString();
                 FuelPrice(selectedItem);
+                textBoxFuelPrice.IsReadOnly = true;
+            }
+            else
+            {
+                textBoxFuelPrice.IsReadOnly = false;
             }
         }
         public void FuelPrice(string name)
@@ -297,6 +330,7 @@ namespace JourneyExpense
             textBoxConsumption.Clear();
             textBoxPrice.Clear();
             textBoxFuelPrice.Clear();
+            textBoxUsedFuel.Clear();
             comboBoxFuelType.SelectedIndex = -1;
             comboBoxFuelOctan.SelectedIndex = -1;
             comboBoxCar.SelectedIndex = -1;
@@ -353,9 +387,59 @@ namespace JourneyExpense
                 MessageBox.Show("Выберите корректное место назначения");
             }
         }
-        private void ValidValue()
+        private bool ValidValue()
         {
+            double distance , averageSpeed, consumption,fuelPrice;
+            if (IsValidDoubleInput(textBoxDistance, 0, 10000, out distance) &
+                IsValidDoubleInput(textBoxAverSpeed, 0, 400, out averageSpeed) &
+                IsValidDoubleInput(textBoxConsumption, 0, 100, out consumption) &
+                IsValidDoubleInput(textBoxFuelPrice, 0, 1000, out fuelPrice))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)
+        {
+            if (box.Text == "")
+            {
+                value = 0;
+                box.BorderBrush = Brushes.Red;
+                return false;
+            }
 
+            bool isNumeric = double.TryParse(FixStr(box.Text), out value);
+            if (isNumeric)
+            {
+                if (value > min && value < max)
+                {
+                    box.BorderBrush = Brushes.Gray;
+                    return true;
+                }
+                else
+                {
+                    box.BorderBrush = Brushes.Red;
+                    return false;
+                }
+            }
+            else
+            {
+                box.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+        private string FixStr(string input)
+        {
+            return input.Replace('.', ',');
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            StaticForm staticForm = new StaticForm();
+            staticForm.Show();
         }
     }
 }

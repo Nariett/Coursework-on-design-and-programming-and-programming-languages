@@ -160,13 +160,4 @@
     <PointB>Жлобин</PointB>
     <kilometer>499</kilometer>
   </route>
-</routes>
-
-
-
-
-
-
-
-
-	
+</routes>	
