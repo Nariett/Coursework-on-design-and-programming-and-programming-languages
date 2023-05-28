@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.ConstrainedExecution;
 using System.Transactions;
 using System.Windows.Markup;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace JourneyExpense
@@ -26,7 +30,7 @@ namespace JourneyExpense
             this.Distance = distance;
             this.Price = price;
             DateTime data = DateTime.Now;
-            this.Date = $"{data.Day:00}.{data.Month:00}.{data.Year}";
+            this.Date = data.ToString("dd.MM.yyyy");
             this.UsedFuel = usedfuel;
             this.AverageSpeed = averageSpeed;
         }
@@ -49,6 +53,58 @@ namespace JourneyExpense
             root.Save("UsersRoutes.xml");
             return true;
 
+        }
+        public static List<UsersRoutes> ReadUsersRoutesInXML()
+        {
+            List<UsersRoutes> Route = new List<UsersRoutes>();
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load("UsersRoutes.xml");
+            XmlElement xRoot = xDoc.DocumentElement;
+            foreach (XmlNode xnode in xRoot)
+            {
+                UsersRoutes route = new UsersRoutes();
+                foreach (XmlNode childnode in xnode.ChildNodes)
+                {
+                    if(childnode.Name == "User")
+                    {
+                        route.User = childnode.InnerText;
+                    }
+                    if (childnode.Name == "Car")
+                    {
+                        route.Car = childnode.InnerText;
+                    }
+                    if (childnode.Name == "PointA")
+                    {
+                        route.PointA = childnode.InnerText;
+                    }
+                    if (childnode.Name == "PointB")
+                    {
+                        route.PointB = childnode.InnerText;
+                    }
+                    if (childnode.Name == "Distance")
+                    {
+                        route.Distance = Convert.ToDouble(childnode.InnerText);
+                    }
+                    if (childnode.Name == "Price")
+                    {
+                        route.Price = Convert.ToDouble(childnode.InnerText);
+                    }
+                    if (childnode.Name == "Date")
+                    {
+                        route.Date = childnode.InnerText;
+                    }
+                    if (childnode.Name == "UsedFuel")
+                    {
+                        route.UsedFuel = Convert.ToDouble(childnode.InnerText);
+                    }
+                    if (childnode.Name == "AverageSpeed")
+                    {
+                        route.AverageSpeed = Convert.ToDouble(childnode.InnerText);
+                    }
+                }
+                Route.Add(route);
+            }
+            return Route;
         }
         public string FixStr(double x)
         {

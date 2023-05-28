@@ -18,4 +18,10 @@
     <name>1</name>
     <surname>1</surname>
   </user>
+  <user>
+    <login>2</login>
+    <password>2</password>
+    <name>Саша</name>
+    <surname>Самойлов</surname>
+  </user>
 </users>

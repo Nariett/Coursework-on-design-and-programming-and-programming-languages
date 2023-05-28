@@ -41,4 +41,48 @@
     <UsedFuel>111</UsedFuel>
     <AverageSpeed>100</AverageSpeed>
   </route>
+  <route>
+    <User>Саша</User>
+    <Car>Tesla Model S</Car>
+    <PointA>Минск</PointA>
+    <PointB>Гомель</PointB>
+    <Distance>314</Distance>
+    <Price>10</Price>
+    <Date>28.01.2023</Date>
+    <UsedFuel>22</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>Саша</User>
+    <Car>Tesla Model S</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>100</Distance>
+    <Price>30</Price>
+    <Date>28.02.2023</Date>
+    <UsedFuel>7</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>Саша</User>
+    <Car>Tesla Model S</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>500</Distance>
+    <Price>30</Price>
+    <Date>28.03.2023</Date>
+    <UsedFuel>35</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>Саша</User>
+    <Car>Tesla Model S</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>100</Distance>
+    <Price>40</Price>
+    <Date>28.04.2023</Date>
+    <UsedFuel>7</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
 </UsersRoutes>

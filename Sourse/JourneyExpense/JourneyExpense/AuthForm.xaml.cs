@@ -21,26 +21,33 @@ namespace JourneyExpense
         private void AuthButtonClick(object sender, RoutedEventArgs e)
         {
             ReadUser();
-            if(AdminAccess())
+            string login = textBoxLogin.Text;
+            string password = textBoxPassword.Text;
+            string userName = "";
+            if (AdminAccess())
             {
                 AdminForm adminForm= new AdminForm();
                 adminForm.Show();
                 return;
             }
-            for (int i = 0; i < AllUsers.Count; i++)
+            foreach (var user in AllUsers)
             {
-                if (AllUsers[i].login == textBoxLogin.Text && AllUsers[i].password == textBoxPassword.Text)
+                if (user.login == login && user.password == password)
                 {
+                    userName = user.name;
                     Access = true;
                     break;
                 }
-                else { Access = false; }
             }
             if (Access)
             {
-                MainWindow mainForm = new MainWindow(textBoxLogin.Text);
+                MainWindow mainForm = new MainWindow(userName);
                 mainForm.ShowDialog();
-            }else { MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль."); }
+            }
+            else 
+            {
+                MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль."); 
+            }
         }
 
         private void RegButtonClick(object sender, RoutedEventArgs e)

@@ -438,8 +438,8 @@ namespace JourneyExpense
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            StaticForm staticForm = new StaticForm();
-            staticForm.Show();
+            GraphForm z = new GraphForm(UserName);
+            z.Show();
         }
     }
 }
