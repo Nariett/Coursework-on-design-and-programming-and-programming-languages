@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JourneyExpense"
         mc:Ignorable="d"
-        Title="GraphForm" Height="450" Width="810">
-    <Grid HorizontalAlignment="Center" Width="810">
+        Title="Диаграмма расходов пользователя" 
+        Height="480" MinHeight="480"
+        Width="840" MinWidth="840">
+    <Grid HorizontalAlignment="Center" Width="820">
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="192*"/>
@@ -16,15 +18,17 @@
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="119*"/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="canvasGraph" Grid.Column="1" Margin="0,0,10,0" Height="380" VerticalAlignment="Center" Grid.Row="1" Width="600">
-        </Canvas>
-        <Label Content="Диаграмма расходов" HorizontalAlignment="Left" Margin="40,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="С" HorizontalAlignment="Left" Margin="10,41,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <DatePicker x:Name="DataPickerFirstData" HorizontalAlignment="Left" Margin="40,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"/>
-        <Label Content="По" HorizontalAlignment="Left" Margin="10,88,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <DatePicker x:Name="DataPickerSecondData" HorizontalAlignment="Left" Margin="40,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"/>
-        <Button x:Name="ButtonShow" Content="Показать расход" HorizontalAlignment="Center" Margin="0,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="172" Click="ButtonShow_Click"/>
-        <Label x:Name="TotalPrice" Content="" HorizontalAlignment="Left" Margin="18,174,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Canvas x:Name="canvasGraph" Grid.Column="1" Margin="10,30,0,0" Height="380" VerticalAlignment="Top" Width="600" Grid.RowSpan="2"/>
+        <Label Content="Диаграмма расходов" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="С" HorizontalAlignment="Left" Margin="6,41,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DataPickerFirstData" HorizontalAlignment="Center" Margin="0,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"/>
+        <Label Content="По" HorizontalAlignment="Left" Margin="6,88,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DataPickerSecondData" HorizontalAlignment="Center" Margin="0,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="ButtonShow" Content="Показать расход за период" HorizontalAlignment="Left" Margin="10,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="172" Click="ButtonShow_Click"/>
+        <Label x:Name="TotalPrice" HorizontalAlignment="Left" Margin="10,224,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonCreateView" Content="Создать отчет" Margin="10,361,0,0" Grid.Row="1" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="172"/>
+        <Button x:Name="ButtonClear" Content="Очистить график" HorizontalAlignment="Left" Margin="10,194,0,0" Grid.Row="1" VerticalAlignment="Top" Width="172" Height="25" Click="ButtonClear_Click"/>
+        <Button x:Name="ButtonShowAll" Content="Показать все поездки" HorizontalAlignment="Left" Margin="10,164,0,0" Grid.Row="1" VerticalAlignment="Top" Width="172" Height="25" Click="ButtonShowAll_Click"/>
 
     </Grid>
 </Window>

@@ -14,6 +14,7 @@ namespace JourneyExpense
         {
             InitializeComponent();
         }
+
         private List<User> AllUsers = new List<User>();
         private bool Access = false;
         private string AdminLog = "Admin";
@@ -46,7 +47,7 @@ namespace JourneyExpense
             }
             else 
             {
-                MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль."); 
+                MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль.","Ошибка"); 
             }
         }
 
@@ -55,6 +56,7 @@ namespace JourneyExpense
             RegForm RegForm = new RegForm();
             RegForm.Show();
         }
+
         public bool AdminAccess()
         {
             if (textBoxLogin.Text == AdminLog && textBoxPassword.Text == AdminPass)
@@ -63,6 +65,7 @@ namespace JourneyExpense
             }
             else return false;
         }
+
         public void ReadUser()
         {
             try
@@ -94,14 +97,12 @@ namespace JourneyExpense
                         }
                     }
                     AllUsers.Add(user);
-                    Console.WriteLine("Все элементы отображены");
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Создайте аккаут чтобы зайти");
+                MessageBox.Show("Создайте аккаут чтобы зайти", "Ошибка");
             }
-
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

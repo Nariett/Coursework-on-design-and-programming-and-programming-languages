@@ -6,7 +6,7 @@
     <PointA>Гродно</PointA>
     <PointB>Жлобин</PointB>
     <Distance>666</Distance>
-    <Price>66</Price>
+    <Price>75</Price>
     <Date>11.12.2023</Date>
     <UsedFuel>15</UsedFuel>
   </route>
@@ -36,7 +36,7 @@
     <PointA>Неизвестно</PointA>
     <PointB>Неизвестно</PointB>
     <Distance>1111</Distance>
-    <Price>555,5</Price>
+    <Price>750</Price>
     <Date>24.05.2023</Date>
     <UsedFuel>111</UsedFuel>
     <AverageSpeed>100</AverageSpeed>
@@ -84,5 +84,82 @@
     <Date>28.04.2023</Date>
     <UsedFuel>7</UsedFuel>
     <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>Саша</User>
+    <Car>Toyota Camry</Car>
+    <PointA>Минск</PointA>
+    <PointB>Гомель</PointB>
+    <Distance>314</Distance>
+    <Price>58,03</Price>
+    <Date>30.05.2023</Date>
+    <UsedFuel>39</UsedFuel>
+    <AverageSpeed>150</AverageSpeed>
+  </route>
+  <route>
+    <User>Саша</User>
+    <Car>Toyota Camry</Car>
+    <PointA>Гомель</PointA>
+    <PointB>Брест</PointB>
+    <Distance>537</Distance>
+    <Price>99,24</Price>
+    <Date>31.05.2023</Date>
+    <UsedFuel>67</UsedFuel>
+    <AverageSpeed>150</AverageSpeed>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>200</Distance>
+    <Price>23,9</Price>
+    <Date>01.05.2023</Date>
+    <UsedFuel>40</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>200</Distance>
+    <Price>23,9</Price>
+    <Date>31.05.2023</Date>
+    <UsedFuel>40</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>500</Distance>
+    <Price>59,75</Price>
+    <Date>19.04.2023</Date>
+    <UsedFuel>100</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>100</Distance>
+    <Price>11,95</Price>
+    <Date>01.07.2022</Date>
+    <UsedFuel>20</UsedFuel>
+    <AverageSpeed>50</AverageSpeed>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Минск</PointA>
+    <PointB>Орша</PointB>
+    <Distance>220</Distance>
+    <Price>34,18</Price>
+    <Date>11.05.2023</Date>
+    <UsedFuel>34</UsedFuel>
+    <AverageSpeed>141</AverageSpeed>
   </route>
 </UsersRoutes>

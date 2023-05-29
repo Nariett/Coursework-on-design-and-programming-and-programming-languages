@@ -21,7 +21,7 @@ namespace JourneyExpense
         public double UsedFuel { get; set; }
         public double AverageSpeed { get; set; }
         public UsersRoutes() { }
-        public UsersRoutes(string user, string car, string pointA, string pointB, double distance, double price, double usedfuel, double averageSpeed)
+        public UsersRoutes(string user, string car, string pointA, string pointB, double distance, double price,string date, double usedfuel, double averageSpeed)
         {
             this.User = user;
             this.Car = car;
@@ -29,8 +29,7 @@ namespace JourneyExpense
             this.PointB = pointB;
             this.Distance = distance;
             this.Price = price;
-            DateTime data = DateTime.Now;
-            this.Date = data.ToString("dd.MM.yyyy");
+            this.Date = date;
             this.UsedFuel = usedfuel;
             this.AverageSpeed = averageSpeed;
         }

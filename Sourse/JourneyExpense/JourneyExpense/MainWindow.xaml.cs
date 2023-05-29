@@ -190,7 +190,7 @@ namespace JourneyExpense
         }
         private string SetValue(ComboBox comboBox)
         {
-            if(comboBox.SelectedIndex != -1)
+            if (comboBox.SelectedIndex != -1)
             {
                 return comboBox.SelectedItem.ToString();
             }
@@ -198,7 +198,7 @@ namespace JourneyExpense
         }
         private void ButtonCalculate_Click(object sender, RoutedEventArgs e)
         {
-            if(ValidValue())
+            if (ValidValue())
             {
                 string car = SetValue(comboBoxCar);
                 string PointA = SetValue(comboBoxPointOne);
@@ -207,14 +207,20 @@ namespace JourneyExpense
                 double fuelPrice = Convert.ToDouble(this.textBoxFuelPrice.Text);
                 double consimption = Convert.ToDouble(this.textBoxConsumption.Text);
                 double averageSpeed = Convert.ToDouble(this.textBoxAverSpeed.Text);
-                double usedFuel = Math.Round(dictance/consimption);
+                if(averageSpeed > 140 && car == "Неизвестно")
+                {
+                    consimption += 1.5;
+                }
+                double usedFuel = Math.Round(dictance / consimption);
                 double result = dictance / averageSpeed;
                 double fullPrice = Math.Round((dictance / 100) * fuelPrice * consimption, 2);
+                DateTime dateOne = DataPickerFirstData.SelectedDate.Value;
+                string date = dateOne.ToString("dd.MM.yyyy");
                 this.textBoxUsedFuel.Text = usedFuel.ToString();
                 this.textBoxTime.Text = Math.Round(result, 2).ToString();
                 this.textBoxPrice.Text = fullPrice.ToString();
-                UsersRoutes route = new UsersRoutes(UserName, car, PointA, PointB, dictance, fullPrice, usedFuel,averageSpeed);
-                if(route.AddRoutesInXML())
+                UsersRoutes route = new UsersRoutes(UserName, car, PointA, PointB, dictance, fullPrice, date, usedFuel, averageSpeed);
+                if (route.AddRoutesInXML())
                 {
                     MessageBox.Show("Поездка оформлена");
                 }
@@ -367,19 +373,13 @@ namespace JourneyExpense
                 {
                     foreach (var item in AllRoutes)
                     {
-                        if (item.PointA == A && item.PointB == B || item.PointA == B && item.PointB == A)
+                        if ((item.PointA == A && item.PointB == B) || (item.PointA == B && item.PointB == A))
                         {
                             this.textBoxDistance.Text = item.Distance.ToString();
                             isMessageBoxShowPoint = false;
                             break;
                         }
-                        else if (!isMessageBoxShowPoint)
-                        {
-                            MessageBox.Show("Маршрут не найден. Выберите существующий маршрут.");
-                            isMessageBoxShowPoint = true;
-                        }
                     }
-
                 }
             }
             else if (comboBoxPointOne.SelectedIndex != -1 || comboBoxPointTwo.SelectedIndex != -1)
@@ -389,11 +389,12 @@ namespace JourneyExpense
         }
         private bool ValidValue()
         {
-            double distance , averageSpeed, consumption,fuelPrice;
+            double distance, averageSpeed, consumption, fuelPrice;
             if (IsValidDoubleInput(textBoxDistance, 0, 10000, out distance) &
                 IsValidDoubleInput(textBoxAverSpeed, 0, 400, out averageSpeed) &
                 IsValidDoubleInput(textBoxConsumption, 0, 100, out consumption) &
-                IsValidDoubleInput(textBoxFuelPrice, 0, 1000, out fuelPrice))
+                IsValidDoubleInput(textBoxFuelPrice, 0, 1000, out fuelPrice) &
+                IsValidDataInput(DataPickerFirstData))
             {
                 return true;
             }
@@ -431,6 +432,20 @@ namespace JourneyExpense
                 return false;
             }
         }
+        private bool IsValidDataInput(DatePicker picker)
+        {
+            if (picker.SelectedDate.HasValue)
+            {
+                picker.BorderBrush = Brushes.Gray;
+                return true;
+            }
+            else
+            {
+                picker.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+
         private string FixStr(string input)
         {
             return input.Replace('.', ',');
@@ -441,6 +456,7 @@ namespace JourneyExpense
             GraphForm z = new GraphForm(UserName);
             z.Show();
         }
+
     }
 }
 

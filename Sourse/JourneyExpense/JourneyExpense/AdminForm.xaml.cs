@@ -35,6 +35,12 @@ namespace JourneyExpense
             AddFuelForm fuelForm = new AddFuelForm();
             fuelForm.Show();
         }
+
+        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow adminMain = new MainWindow("Admin");
+            adminMain.Show();
+        }
     }
 }
 
