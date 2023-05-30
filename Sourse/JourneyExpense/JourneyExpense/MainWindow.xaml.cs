@@ -250,6 +250,7 @@ namespace JourneyExpense
                 textBoxFuelPrice.IsReadOnly = false;
             }
         }
+
         public void FuelPrice(string name)
         {
             foreach (var item in PriceList)
@@ -285,7 +286,6 @@ namespace JourneyExpense
                 }
             }
         }
-
         private void comboBoxConsumption_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxConsumption.SelectedIndex != -1 && comboBoxCar.SelectedIndex != -1)
@@ -370,6 +370,7 @@ namespace JourneyExpense
             {
                 string A = comboBoxPointOne.SelectedItem.ToString();
                 string B = comboBoxPointTwo.SelectedItem.ToString();
+                isMessageBoxShowPoint = false;
                 if (A != B)
                 {
                     foreach (var item in AllRoutes)
@@ -377,13 +378,18 @@ namespace JourneyExpense
                         if ((item.PointA == A && item.PointB == B) || (item.PointA == B && item.PointB == A))
                         {
                             this.textBoxDistance.Text = item.Distance.ToString();
-                            isMessageBoxShowPoint = false;
+                            isMessageBoxShowPoint = true;
                             break;
                         }
                     }
+                    if(!isMessageBoxShowPoint)
+                    {
+                        MessageBox.Show("Выбранный маршрут не найден. Повторите попытку.");
+                        comboBoxPointTwo.SelectedIndex = -1;
+                    }
                 }
             }
-            else if (comboBoxPointOne.SelectedIndex != -1 || comboBoxPointTwo.SelectedIndex != -1)
+            else if (comboBoxPointOne.SelectedIndex != -1 || comboBoxPointTwo.SelectedIndex != -1)///
             {
                 MessageBox.Show("Выберите корректное место назначения");
             }

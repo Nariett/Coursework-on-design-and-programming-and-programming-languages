@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JourneyExpense"
         mc:Ignorable="d"
-        Title="Обновление цены на топливо" Height="260" Width="400">
+        Title="Обновление цены на топливо" 
+        Height="260" MinHeight="260"
+        Width="400" MinWidth="400" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>

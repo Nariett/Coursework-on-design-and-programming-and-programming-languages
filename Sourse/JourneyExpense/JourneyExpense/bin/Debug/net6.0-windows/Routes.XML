@@ -160,4 +160,9 @@
     <PointB>Жлобин</PointB>
     <kilometer>499</kilometer>
   </route>
+  <car>
+    <PointA>Минск</PointA>
+    <PointB>Солигорск</PointB>
+    <kilometer>600</kilometer>
+  </car>
 </routes>

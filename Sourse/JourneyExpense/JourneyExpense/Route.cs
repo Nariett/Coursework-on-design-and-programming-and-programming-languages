@@ -18,7 +18,6 @@ namespace JourneyExpense
             PointB = pointB;
             Distance = distance;
         }
-
         public static List<Route> ReadRousteInXML()
         {
             List<Route> Route = new List<Route>();

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JourneyExpense"
         mc:Ignorable="d"
-       Title="Добавление автомобиля" Height="450" Width="800">
+        Title="Добавление автомобиля" 
+        Height="450" MinHeight="450"
+        Width="800" MinWidth="800" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
