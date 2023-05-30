@@ -230,6 +230,7 @@ namespace JourneyExpense
 
         private void ButtonShowAll_Click(object sender, RoutedEventArgs e)
         {
+            canvasGraph.Children.Clear();
             CreateGraph();
             DrawGraph();
         }

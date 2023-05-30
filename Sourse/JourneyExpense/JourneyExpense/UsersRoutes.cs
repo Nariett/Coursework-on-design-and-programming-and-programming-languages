@@ -18,10 +18,11 @@ namespace JourneyExpense
         public double Distance { get; set; }
         public double Price { get; set; }
         public string Date { get; set; }
+        public string FuelType { get; set; }
         public double UsedFuel { get; set; }
         public double AverageSpeed { get; set; }
         public UsersRoutes() { }
-        public UsersRoutes(string user, string car, string pointA, string pointB, double distance, double price,string date, double usedfuel, double averageSpeed)
+        public UsersRoutes(string user, string car, string pointA, string pointB, double distance, double price,string fuelType, string date, double usedfuel, double averageSpeed)
         {
             this.User = user;
             this.Car = car;
@@ -29,6 +30,7 @@ namespace JourneyExpense
             this.PointB = pointB;
             this.Distance = distance;
             this.Price = price;
+            this.FuelType = fuelType;
             this.Date = date;
             this.UsedFuel = usedfuel;
             this.AverageSpeed = averageSpeed;
@@ -44,6 +46,7 @@ namespace JourneyExpense
                 new XElement("PointB", this.PointB),
                 new XElement("Distance", FixStr(this.Distance)),
                 new XElement("Price", FixStr(this.Price)),
+                new XElement("FuelType", this.FuelType),
                 new XElement("Date", this.Date),
                 new XElement("UsedFuel", FixStr(this.UsedFuel)),
                 new XElement("AverageSpeed", FixStr(this.AverageSpeed))
@@ -87,6 +90,10 @@ namespace JourneyExpense
                     if (childnode.Name == "Price")
                     {
                         route.Price = Convert.ToDouble(childnode.InnerText);
+                    }
+                    if (childnode.Name == "FuelType")
+                    {
+                        route.FuelType = childnode.InnerText;
                     }
                     if (childnode.Name == "Date")
                     {

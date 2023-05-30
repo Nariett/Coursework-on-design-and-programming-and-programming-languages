@@ -61,9 +61,8 @@
         <Label Content="Цена топлива" Grid.Column="4" Grid.Row="4" Margin="10,10,10,0" Height="29" VerticalAlignment="Top" FontSize="15"/>
         <TextBox x:Name="textBoxFuelPrice" FontSize="15" Grid.Column="5" Grid.Row="4" Margin="18,10,18,0" Height="27" VerticalAlignment="Top"/>
         <Menu Grid.ColumnSpan="6">
-            <MenuItem Header="Очистить" Height="29" Width="80" Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="Очистить" Height="29"  Width="70" Margin="10,0,0,0" Click="MenuItem_Click"></MenuItem>
             <MenuItem Header="Статистика" Height="29" Width="80" Click="MenuItem_Click_1"></MenuItem>
-            <MenuItem Header="Помощь" Height="29" Width="80"></MenuItem>
         </Menu>
         <Label Content="Использовано топлива" Grid.Column="4" Grid.Row="5" Height="29" VerticalAlignment="Top" FontSize="15" Grid.ColumnSpan="2" Margin="10,10,140,0"/>
         <TextBox x:Name="textBoxUsedFuel" FontSize="15" Grid.Column="5" Grid.Row="5" Margin="18,10,18,0" Height="27" VerticalAlignment="Top"/>

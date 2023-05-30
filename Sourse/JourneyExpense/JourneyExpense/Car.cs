@@ -126,8 +126,8 @@ namespace JourneyExpense
                     new XElement("fuelConsumptionGeneral", FixStr(this.FuelConsumptionGeneral)),
                     new XElement("fuelConsumptionCity", FixStr(this.FuelConsumptionCity)),
                     new XElement("fuelConsumptionHighway", FixStr(this.FuelConsumptionHighway)),
-                    new XElement("enginePower", this.EnginePower),
-                    new XElement("tankSize", this.TankSize)
+                    new XElement("enginePower", FixStr(this.EnginePower)),
+                    new XElement("tankSize", FixStr(this.TankSize))
                 );
                 root.Add(carElement);
                 root.Save("Car.xml");

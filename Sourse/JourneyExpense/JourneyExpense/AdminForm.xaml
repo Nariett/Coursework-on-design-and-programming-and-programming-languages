@@ -19,11 +19,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="AddCarButton" Content="Добавить автомобиль" Margin="40,10,40,0" VerticalAlignment="Top" Height="39" Click="AddCarButton_Click"/>
-        <Button x:Name="AddRoutesButton" Content="Добавить маршрут" Margin="40,10,40,0" VerticalAlignment="Top" Height="39" Click="AddRoutesButton_Click" Grid.Column="1"/>
-        <Button x:Name="EditFuelButton" Content="Обновить цену" Margin="40,10,40,0" VerticalAlignment="Top" Height="39" Click="EditFuelButton_Click" Grid.Column="3"/>
-        <Button x:Name="AddFuelButton" Content="Добавить топливо" Margin="40,10,40,0" VerticalAlignment="Top" Height="39"  Grid.Column="2" Click="AddFuelButton_Click"/>
-        <Button x:Name="CalculateButton" Grid.Column="3" Content="Рассчитать потребление" Margin="40,16,0,0" Click="CalculateButton_Click" HorizontalAlignment="Left" Width="120" Height="39" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button x:Name="AddCarButton" Content="Добавить автомобиль" Margin="40,10,40,0" VerticalAlignment="Top" Height="39" Click="AddCarButton_Click" FontSize="11"/>
+        <Button x:Name="AddRoutesButton" Content="Добавить маршрут" Margin="40,10,40,0" VerticalAlignment="Top" Height="39" Click="AddRoutesButton_Click" Grid.Column="1" FontSize="11"/>
+        <Button x:Name="EditFuelButton" Content="Обновить цену" Margin="40,10,40,0" VerticalAlignment="Top" Height="39" Click="EditFuelButton_Click" Grid.Column="3" FontSize="11"/>
+        <Button x:Name="AddFuelButton" Content="Добавить топливо" Margin="40,10,40,0" VerticalAlignment="Top" Height="39"  Grid.Column="2" Click="AddFuelButton_Click" FontSize="11"/>
+        <Button x:Name="CalculateButton" Grid.Column="3" Content="Рассчитать потребление" Click="CalculateButton_Click" HorizontalAlignment="Center" Width="150" Height="39" VerticalAlignment="Center" Grid.Row="1" FontSize="11"/>
 
     </Grid>
 </Window>

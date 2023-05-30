@@ -162,4 +162,16 @@
     <UsedFuel>34</UsedFuel>
     <AverageSpeed>141</AverageSpeed>
   </route>
+  <route>
+    <User>1</User>
+    <Car>Toyota Camry</Car>
+    <PointA>Минск</PointA>
+    <PointB>Брест</PointB>
+    <Distance>351</Distance>
+    <Price>64,86</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>29.05.2023</Date>
+    <UsedFuel>44</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
 </UsersRoutes>

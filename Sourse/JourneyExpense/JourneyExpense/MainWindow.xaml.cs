@@ -203,6 +203,7 @@ namespace JourneyExpense
                 string car = SetValue(comboBoxCar);
                 string PointA = SetValue(comboBoxPointOne);
                 string PointB = SetValue(comboBoxPointTwo);
+                string fuelType = comboBoxFuelType.SelectedItem.ToString();
                 double dictance = Convert.ToDouble(this.textBoxDistance.Text);
                 double fuelPrice = Convert.ToDouble(this.textBoxFuelPrice.Text);
                 double consimption = Convert.ToDouble(this.textBoxConsumption.Text);
@@ -219,7 +220,7 @@ namespace JourneyExpense
                 this.textBoxUsedFuel.Text = usedFuel.ToString();
                 this.textBoxTime.Text = Math.Round(result, 2).ToString();
                 this.textBoxPrice.Text = fullPrice.ToString();
-                UsersRoutes route = new UsersRoutes(UserName, car, PointA, PointB, dictance, fullPrice, date, usedFuel, averageSpeed);
+                UsersRoutes route = new UsersRoutes(UserName, car, PointA, PointB, dictance, fullPrice,fuelType, date, usedFuel, averageSpeed);
                 if (route.AddRoutesInXML())
                 {
                     MessageBox.Show("Поездка оформлена");

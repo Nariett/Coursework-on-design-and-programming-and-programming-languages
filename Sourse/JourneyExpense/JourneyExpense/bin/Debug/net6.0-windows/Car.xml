@@ -45,4 +45,32 @@
     <enginePower>1022</enginePower>
     <tankSize>54</tankSize>
   </car>
+  <car>
+    <name>Toyota Camry 2023</name>
+    <year>2023</year>
+    <typeCar>Седан</typeCar>
+    <maxSpeed>250</maxSpeed>
+    <seatingCapacity>5</seatingCapacity>
+    <fuel>Бензин</fuel>
+    <fuelOctan>АИ-95</fuelOctan>
+    <fuelConsumptionGeneral>8</fuelConsumptionGeneral>
+    <fuelConsumptionCity>10</fuelConsumptionCity>
+    <fuelConsumptionHighway>7</fuelConsumptionHighway>
+    <enginePower>2,2</enginePower>
+    <tankSize>60</tankSize>
+  </car>
+  <car>
+    <name>1</name>
+    <year>2023</year>
+    <typeCar>Седан</typeCar>
+    <maxSpeed>180</maxSpeed>
+    <seatingCapacity>5</seatingCapacity>
+    <fuel>Бензин</fuel>
+    <fuelOctan>АИ-95</fuelOctan>
+    <fuelConsumptionGeneral>1,5</fuelConsumptionGeneral>
+    <fuelConsumptionCity>1,5</fuelConsumptionCity>
+    <fuelConsumptionHighway>1</fuelConsumptionHighway>
+    <enginePower>10</enginePower>
+    <tankSize>10</tankSize>
+  </car>
 </Cars>
