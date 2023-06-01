@@ -11,4 +11,8 @@
     <None Remove="MainWindow.xaml.cs~RF1ab4c31e.TMP" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DocX" Version="2.4.0" />
+  </ItemGroup>
+
 </Project>

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:JourneyExpense"
         mc:Ignorable="d"
         Title="Регистрация" 
-        Height="450" MinHeight="400"
-        Width="400" MinWidth="400" >
+        Height="450" MinHeight="450" MaxHeight="450"
+        Width="400" MinWidth="400" MaxWidth="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49*"/>
@@ -32,10 +32,10 @@
         <Label Grid.Column="2" Content="Фамилия" Grid.Row="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="18" Margin="0,1,0,0" Height="31" VerticalAlignment="Top"/>
         <Button Grid.Column="1" Content="Зарегистрироваться" Grid.Row="5" Grid.ColumnSpan="4" Height="28" VerticalAlignment="Top" Margin="0,15,0,0" FontSize="18" Click="Button_Click"/>
         <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" TextWrapping="Wrap" Margin="0,40,0,1" FontSize="20"/>
-        <TextBox x:Name="textBoxSurname" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="4" TextWrapping="Wrap" Margin="0,38,0,1" FontSize="15"/>
-        <TextBox x:Name="textBoxPassword" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" TextWrapping="Wrap" Margin="0,40,0,1" FontSize="15"/>
-        <TextBox x:Name="textBoxLogin" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" TextWrapping="Wrap" Margin="0,40,0,1" FontSize="15"/>
-        <TextBox x:Name="textBoxName" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3" TextWrapping="Wrap" Margin="0,39,0,1" FontSize="15"/>
+        <TextBox x:Name="textBoxSurname" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="4" Margin="0,38,0,1" FontSize="15"/>
+        <TextBox x:Name="textBoxPassword" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Margin="0,40,0,1" FontSize="15"/>
+        <TextBox x:Name="textBoxLogin" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Margin="0,40,0,1" FontSize="15"/>
+        <TextBox x:Name="textBoxName" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3" Margin="0,39,0,1" FontSize="15"/>
 
     </Grid>
 </Window>

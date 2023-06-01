@@ -165,4 +165,19 @@
     <PointB>Солигорск</PointB>
     <kilometer>600</kilometer>
   </car>
+  <car>
+    <PointA>Минск</PointA>
+    <PointB>Смоленск</PointB>
+    <kilometer>330</kilometer>
+  </car>
+  <car>
+    <PointA>Минск</PointA>
+    <PointB>Москва</PointB>
+    <kilometer>720,2</kilometer>
+  </car>
+  <car>
+    <PointA>Минск</PointA>
+    <PointB>Варшава</PointB>
+    <kilometer>570,2</kilometer>
+  </car>
 </routes>

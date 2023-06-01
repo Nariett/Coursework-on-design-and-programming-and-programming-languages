@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AddCarForm.xaml.cs">
+    <Compile Update="AddWindows\AddCarForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddFuelForm.xaml.cs">
+    <Compile Update="AddWindows\AddFuelForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddRoutesForm.xaml.cs">
+    <Compile Update="AddWindows\AddRoutesForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AdminForm.xaml.cs">
@@ -22,30 +22,36 @@
     <Compile Update="AuthForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="EditWindows\EditCarForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GraphForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="RegForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UpdatePriceForm.xaml.cs">
+    <Compile Update="EditWindows\UpdatePriceForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddCarForm.xaml">
+    <Page Update="AddWindows\AddCarForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="AddFuelForm.xaml">
+    <Page Update="AddWindows\AddFuelForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="AddRoutesForm.xaml">
+    <Page Update="AddWindows\AddRoutesForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AuthForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditWindows\EditCarForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GraphForm.xaml">
@@ -57,7 +63,7 @@
     <Page Update="RegForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UpdatePriceForm.xaml">
+    <Page Update="EditWindows\UpdatePriceForm.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

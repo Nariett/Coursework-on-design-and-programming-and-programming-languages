@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "RTxOeZEOpEcVhbdPY5SG0sLVW/MpGRiNKCT8inuNAMBZd+XAUFrSbjTVoCclAuyVXOmccnR7yACd96KN4epmVg==",
+  "dgSpecHash": "MNyD5kJiDxtyhlltanZqVbLxoWF9yaDVaO0C+0d2z5DGCGo17CpSI+pivO09bmDAoM+r1zdaJ1xzMExdjkNZXQ==",
   "success": true,
   "projectFilePath": "C:\\GitHub\\Coursework-on-design-and-programming-and-programming-languages\\Sourse\\JourneyExpense\\JourneyExpense\\JourneyExpense.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\samsi\\.nuget\\packages\\docx\\2.4.0\\docx.2.4.0.nupkg.sha512",
+    "C:\\Users\\samsi\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\samsi\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\samsi\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\samsi\\.nuget\\packages\\system.io.packaging\\4.5.0\\system.io.packaging.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

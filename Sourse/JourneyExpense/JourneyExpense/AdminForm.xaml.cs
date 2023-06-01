@@ -38,8 +38,14 @@ namespace JourneyExpense
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow adminMain = new MainWindow("Admin");
+            MainWindow adminMain = new MainWindow("Admin","Admin");
             adminMain.Show();
+        }
+
+        private void EditCarButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditCarForm editCar = new EditCarForm();
+            editCar.Show();
         }
     }
 }

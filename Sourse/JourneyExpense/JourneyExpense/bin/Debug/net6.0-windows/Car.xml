@@ -59,18 +59,4 @@
     <enginePower>2,2</enginePower>
     <tankSize>60</tankSize>
   </car>
-  <car>
-    <name>1</name>
-    <year>2023</year>
-    <typeCar>Седан</typeCar>
-    <maxSpeed>180</maxSpeed>
-    <seatingCapacity>5</seatingCapacity>
-    <fuel>Бензин</fuel>
-    <fuelOctan>АИ-95</fuelOctan>
-    <fuelConsumptionGeneral>1,5</fuelConsumptionGeneral>
-    <fuelConsumptionCity>1,5</fuelConsumptionCity>
-    <fuelConsumptionHighway>1</fuelConsumptionHighway>
-    <enginePower>10</enginePower>
-    <tankSize>10</tankSize>
-  </car>
 </Cars>
