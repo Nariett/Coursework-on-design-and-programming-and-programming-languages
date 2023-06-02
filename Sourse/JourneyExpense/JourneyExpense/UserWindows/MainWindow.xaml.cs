@@ -593,13 +593,7 @@ namespace JourneyExpense
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-/*            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "CHM Files (*.chm)|*.chm";
-            if (openFileDialog.ShowDialog() == true)
-            {
-                string chmFilePath = openFileDialog.FileName;*/
-                Process.Start("hh.exe", "HelpBook.chm");
-            /*}*/
+            Process.Start("hh.exe", "HelpBook.chm");
         }
 
         private void comboBoxFuelType_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
