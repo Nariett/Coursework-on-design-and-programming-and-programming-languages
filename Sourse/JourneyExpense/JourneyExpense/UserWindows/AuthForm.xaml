@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Аутентификация" 
         Height="456" MinHeight="456" MaxHeight="456" 
-        Width="456"  MinWidth="456" MaxWidth="456">
+        Width="456"  MinWidth="456" MaxWidth="456" 
+        Icon="/Icons/Icons.ico">
     
     <Grid>
         <Grid.RowDefinitions>

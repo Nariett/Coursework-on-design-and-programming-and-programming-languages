@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Диаграмма расходов пользователя" 
         Height="480" MinHeight="480" MaxHeight="480"
-        Width="840" MinWidth="840" MaxWidth="840">
+        Width="840" MinWidth="840" MaxWidth="840"
+        Icon="/Icons/Icons.ico">
     <Grid HorizontalAlignment="Center" Width="820">
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>

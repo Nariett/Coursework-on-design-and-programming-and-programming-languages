@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Добавление топлива" 
         Height="260" MinHeight="260" MaxHeight="260"
-        Width="400" MinWidth="400" MaxWidth="400">
+        Width="400" MinWidth="400" MaxWidth="400"
+        Icon="/Icons/Icons.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>

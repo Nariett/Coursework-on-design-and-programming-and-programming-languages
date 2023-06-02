@@ -1,11 +1,15 @@
-﻿using System;
+﻿using JourneyExpense.Classes;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Xml;
-using JourneyExpense.Classes;
+using Xceed.Document.NET;
+using Xceed.Words.NET;
 
 namespace JourneyExpense
 {
@@ -96,7 +100,7 @@ namespace JourneyExpense
                 }
                 CarList.Add(car);
             }
-            CarList  = CarList.OrderBy(car => car.Name).ToList();
+            CarList = CarList.OrderBy(car => car.Name).ToList();
             PriceList.Clear();
             XmlDocument xDocTwo = new XmlDocument();
             xDocTwo.Load("Fuel.xml");
@@ -173,6 +177,7 @@ namespace JourneyExpense
         {
             if (comboBoxFuelType.SelectedIndex != -1)
             {
+                LabelLitr.Content = "Литров";
                 string selectedItem = comboBoxFuelType.SelectedItem.ToString();
                 if (selectedItem == "Бензин")
                 {
@@ -191,6 +196,7 @@ namespace JourneyExpense
                     comboBoxFuelOctan.ToolTip = "Вид зарядки";
                     comboBoxFuelOctan.ItemsSource = GetFuelList("Электричество");
                     LabelConsumption.Content = "Вт-ч";
+                    LabelLitr.Content = "Вт-ч";
                 }
                 comboBoxFuelOctan.SelectedIndex = 1;
             }
@@ -230,7 +236,11 @@ namespace JourneyExpense
                 UsersRoutes route = new UsersRoutes(UserName, car, PointA, PointB, dictance, fullPrice, fuelType, date, usedFuel, averageSpeed);
                 if (route.AddRoutesInXML())
                 {
-                    MessageBox.Show("Поездка оформлена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBoxResult message = MessageBox.Show($"Поездка оформлена. Желаете сохранить данную поезку в docx файле?", "Подтверждение", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    if (message == MessageBoxResult.OK)
+                    {
+                        CreateDocxFile(dateOne, car, PointA, PointB, dictance, fullPrice, fuelType, usedFuel, averageSpeed);
+                    }
                 }
                 else
                 {
@@ -243,7 +253,57 @@ namespace JourneyExpense
                 MessageBox.Show("Заполните все поля корректными значениями", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void CreateDocxFile(DateTime reportDate, string car, string PointA, string PointB, double dictance, double fullPrice, string fuelType, double usedFuel, double AverageSpeed)
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Документ Word (*.docx)|*.docx";
+                saveFileDialog.FileName = $"Отчет о поездке на {reportDate:dd.MM.yyyy}.docx";
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    string fileName = saveFileDialog.FileName;
+                    // Создание документа Word
+                    using (DocX document = DocX.Create(fileName))
+                    {
+                        string reportTitle = $"Отчет о поездке на {reportDate:dd.MM.yyyy}";
+                        document.InsertParagraph(reportTitle).FontSize(12d).Bold().Alignment = Alignment.center;
 
+                        // Добавление информации о средней стоимости, жидком топливе и электричестве
+                        string tripDescription = $"Пользователь {UserName} {Surname} совершил поездку";
+                        if (car != "Неизвестно")
+                        {
+                            tripDescription += $" на {car}";
+                        }
+                        if (PointA != "Неизвестно" && PointB != "Неизвестно")
+                        {
+                            tripDescription += $" из {PointA} - {PointB}";
+                        }
+                        tripDescription += $", дистанция маршрута составила {dictance}.";
+                        document.InsertParagraph(tripDescription).FontSize(12d);
+                        document.InsertParagraph($"Поездка обошлась в {fullPrice:0.00} рублей.").FontSize(12d);
+                        if (fuelType == "Электричесво")
+                        {
+                            document.InsertParagraph($"Во время поездки было потрачено {fuelType} {usedFuel} Киловатт-часов.").FontSize(12d);
+                        }
+                        else
+                        {
+                            document.InsertParagraph($"Во время поездки было потрачено {fuelType} {usedFuel} Литров.").FontSize(12d);
+
+                        }
+                        document.InsertParagraph($"Средняя скорость поездки {AverageSpeed} Км/ч.").FontSize(12d);
+                        document.InsertParagraph($"Дата формирования отчета {DateTime.Now:dd.MM.yyyy}").FontSize(12d).Alignment = Alignment.right;
+                        // Сохранение документа
+                        document.Save();
+                    }
+                    MessageBox.Show("Отчет успешно создан!", "Создание отчета", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (System.IO.IOException ex)
+            {
+                MessageBox.Show("Отчет не создан. Закройте открытый отчет и повторите попытку", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void comboBoxFuelOctan_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxFuelOctan.SelectedIndex != -1)
@@ -493,7 +553,7 @@ namespace JourneyExpense
         }
         private bool IsValidDataInput(DatePicker picker)
         {
-            if (picker.SelectedDate.HasValue)
+            if (picker.SelectedDate.HasValue & picker.SelectedDate < DateTime.Now)
             {
                 picker.BorderBrush = Brushes.Gray;
                 return true;
@@ -529,6 +589,26 @@ namespace JourneyExpense
         private void comboBoxCar_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             comboBoxCar.SelectedIndex = -1;
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+/*            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "CHM Files (*.chm)|*.chm";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string chmFilePath = openFileDialog.FileName;*/
+                Process.Start("hh.exe", "HelpBook.chm");
+            /*}*/
+        }
+
+        private void comboBoxFuelType_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (comboBoxCar.SelectedIndex != -1)
+            {
+                comboBoxFuelType.SelectedIndex = -1;
+                comboBoxFuelOctan.SelectedIndex = -1;
+            }
         }
     }
 }

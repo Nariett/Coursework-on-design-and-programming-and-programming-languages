@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Редактирование маршрута"
         Height="260" MinHeight="260" MaxHeight="280" 
-        Width="400" MinWidth="400" MaxWidth="280" >
+        Width="400" MinWidth="400" MaxWidth="280" 
+        Icon="/Icons/Icons.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
@@ -23,12 +24,13 @@
         </Grid.ColumnDefinitions>
         <Label Content="Точка отправления" Margin="24,0,24,0" Height="29" VerticalAlignment="Center" FontSize="15" Grid.Row="1"/>
         <Label Content="Точка назначения" Margin="24,0,24,0" Height="29" VerticalAlignment="Center" FontSize="15" Grid.Row="2"/>
-        <TextBox x:Name="textBoxDistance" FontSize="15" Margin="10,0,10,0" Height="27" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="textBoxDistance" FontSize="15" Margin="10,0,0,0" Height="27" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Width="145" HorizontalAlignment="Left"/>
         <Label Content="Расстояние" Margin="24,0,24,0" Height="29" VerticalAlignment="Center" FontSize="15" Grid.Row="3"/>
         <Button x:Name="EditRouteButton" Content="Редактировать маршрут" Margin="10,0,10,0" Grid.Row="4" Height="28" VerticalAlignment="Center" Grid.Column="1" Click="EditRouteButton_Click"  />
         <Button x:Name="DeleteRouteButton" Content="Удалить маршрут" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top" Height="21" Width="110" Grid.Column="1" Margin="0,5,0,0" Click="DeleteRouteButton_Click"/>
         <ComboBox x:Name="comboBoxPointOne" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="180" Height="28" SelectionChanged="comboBoxPointOne_SelectionChanged" MouseDoubleClick="comboBoxPointOne_MouseDoubleClick"/>
         <ComboBox x:Name="comboBoxPointTwo" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="180" Height="28" SelectionChanged="comboBoxPointTwo_SelectionChanged" MouseDoubleClick="comboBoxPointTwo_MouseDoubleClick"/>
+        <Label Grid.Column="1" Content="Км" HorizontalAlignment="Left" Margin="160,0,0,0" Grid.Row="3" VerticalAlignment="Center"/>
 
 
     </Grid>

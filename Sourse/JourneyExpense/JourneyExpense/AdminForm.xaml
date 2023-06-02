@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Окно администратора" 
         Height="450" MinHeight="450" MaxHeight="450"
-        Width="800" MinWidth="800" MaxWidth="800">
+        Width="800" MinWidth="800" MaxWidth="800"
+        Icon="/Icons/Icons.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="32*"/>

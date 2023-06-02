@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Регистрация" 
         Height="450" MinHeight="450" MaxHeight="450"
-        Width="400" MinWidth="400" MaxWidth="400">
+        Width="400" MinWidth="400" MaxWidth="400" 
+        Icon="/Icons/Icons.ico" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="49*"/>

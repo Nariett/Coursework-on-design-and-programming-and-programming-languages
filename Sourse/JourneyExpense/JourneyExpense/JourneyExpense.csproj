@@ -8,11 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons.ico" />
     <None Remove="MainWindow.xaml.cs~RF1ab4c31e.TMP" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DocX" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\Icons.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HelpBook\" />
   </ItemGroup>
 
 </Project>

@@ -246,4 +246,64 @@
     <UsedFuel>4</UsedFuel>
     <AverageSpeed>200</AverageSpeed>
   </route>
+  <route>
+    <User>1</User>
+    <Car>Tesla Model S</Car>
+    <PointA>Барановичи</PointA>
+    <PointB>Брест</PointB>
+    <Distance>216</Distance>
+    <Price>10,89</Price>
+    <FuelType>Электричество</FuelType>
+    <Date>01.06.2023</Date>
+    <UsedFuel>15</UsedFuel>
+    <AverageSpeed>140</AverageSpeed>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>1000</Distance>
+    <Price>239</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>01.06.2023</Date>
+    <UsedFuel>100</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>1</User>
+    <Car>Неизвестно</Car>
+    <PointA>Барановичи</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>1</Distance>
+    <Price>0,04</Price>
+    <FuelType>Дизельное топливо</FuelType>
+    <Date>02.06.2023</Date>
+    <UsedFuel>1</UsedFuel>
+    <AverageSpeed>1</AverageSpeed>
+  </route>
+  <route>
+    <User></User>
+    <Car>Tesla Model S</Car>
+    <PointA>Барановичи</PointA>
+    <PointB>Гродно</PointB>
+    <Distance>197</Distance>
+    <Price>9,93</Price>
+    <FuelType>Электричество</FuelType>
+    <Date>01.06.2023</Date>
+    <UsedFuel>14</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>Александр</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>500</Distance>
+    <Price>11,95</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>03.06.2023</Date>
+    <UsedFuel>500</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
 </UsersRoutes>
