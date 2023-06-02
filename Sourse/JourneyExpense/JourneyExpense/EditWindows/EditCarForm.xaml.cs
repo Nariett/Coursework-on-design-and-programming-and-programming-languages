@@ -118,9 +118,7 @@ namespace JourneyExpense
             }
             else
             {
-
                 MessageBox.Show("Ошибка ввода данных. Повторите попытку", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
         }
         private bool СonsumptionСheck()

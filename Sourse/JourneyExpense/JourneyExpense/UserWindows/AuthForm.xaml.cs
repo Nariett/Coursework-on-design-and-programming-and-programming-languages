@@ -17,7 +17,7 @@ namespace JourneyExpense
         }
 
         private List<User> AllUsers = new List<User>();
-        private string surname;
+        private string surname = "";
         private bool Access = false;
         private string AdminLog = "Admin";
         private string AdminPass = "Admin";

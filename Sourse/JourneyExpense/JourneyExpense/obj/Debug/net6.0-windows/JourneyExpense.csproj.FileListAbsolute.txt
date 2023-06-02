@@ -4,13 +4,9 @@ C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\bin\Debug\net6.0-windows\JourneyExpense.dll
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\bin\Debug\net6.0-windows\JourneyExpense.pdb
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\JourneyExpense.csproj.AssemblyReference.cache
-C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AuthForm.g.cs
-C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\App.g.cs
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\JourneyExpense_MarkupCompile.cache
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\JourneyExpense_MarkupCompile.lref
-C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AuthForm.baml
-C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\MainWindow.baml
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\JourneyExpense.g.resources
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\JourneyExpense.GeneratedMSBuildEditorConfig.editorconfig
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\JourneyExpense.AssemblyInfoInputs.cache
@@ -25,8 +21,6 @@ C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\RegForm.baml
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AdminForm.g.cs
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\AdminForm.baml
-C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\GraphForm.g.cs
-C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\GraphForm.baml
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\JourneyExpense.csproj.CopyComplete
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\bin\Debug\net6.0-windows\Xceed.Document.NET5.dll
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\bin\Debug\net6.0-windows\Xceed.Words.NET5.dll
@@ -40,3 +34,11 @@ C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\EditWindows\UpdatePriceForm.g.cs
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\EditWindows\EditCarForm.baml
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\EditWindows\UpdatePriceForm.baml
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\EditWindows\EditRouteForm.g.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UserWindows\AuthForm.g.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UserWindows\GraphForm.g.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UserWindows\MainWindow.g.cs
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\EditWindows\EditRouteForm.baml
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UserWindows\AuthForm.baml
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UserWindows\GraphForm.baml
+C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\obj\Debug\net6.0-windows\UserWindows\MainWindow.baml

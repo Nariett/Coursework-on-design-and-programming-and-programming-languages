@@ -117,7 +117,7 @@ namespace JourneyExpense {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JourneyExpense;V1.0.0.0;component/userwindows/graphform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/JourneyExpense;component/userwindows/graphform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserWindows\GraphForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

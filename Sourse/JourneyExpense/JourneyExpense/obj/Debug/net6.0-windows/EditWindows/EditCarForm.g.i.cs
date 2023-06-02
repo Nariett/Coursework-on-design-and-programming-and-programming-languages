@@ -125,7 +125,7 @@ namespace JourneyExpense {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JourneyExpense;V1.0.0.0;component/editwindows/editcarform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/JourneyExpense;component/editwindows/editcarform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\EditWindows\EditCarForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using JourneyExpense.EditWindows;
+using System.Windows;
 
 namespace JourneyExpense
 {
@@ -46,6 +47,12 @@ namespace JourneyExpense
         {
             EditCarForm editCar = new EditCarForm();
             editCar.Show();
+        }
+
+        private void EditRoutesButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditRouteForm editRoute = new EditRouteForm();
+            editRoute.Show();
         }
     }
 }

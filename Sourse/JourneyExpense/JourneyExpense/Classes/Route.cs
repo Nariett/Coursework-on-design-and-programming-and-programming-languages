@@ -59,7 +59,7 @@ namespace JourneyExpense.Classes
             if (permission)
             {
                 XElement root = XElement.Load("Routes.xml");
-                XElement routesElement = new XElement("car",
+                XElement routesElement = new XElement("route",
                     new XElement("PointA", PointA),
                     new XElement("PointB", PointB),
                     new XElement("kilometer", FixStr(Distance))

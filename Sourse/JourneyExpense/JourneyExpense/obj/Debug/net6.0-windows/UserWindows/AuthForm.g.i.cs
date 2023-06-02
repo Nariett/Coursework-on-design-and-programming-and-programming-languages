@@ -85,7 +85,7 @@ namespace JourneyExpense {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JourneyExpense;V1.0.0.0;component/userwindows/authform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/JourneyExpense;component/userwindows/authform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserWindows\AuthForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

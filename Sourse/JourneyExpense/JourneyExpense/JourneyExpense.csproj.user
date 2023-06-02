@@ -19,13 +19,16 @@
     <Compile Update="AdminForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AuthForm.xaml.cs">
+    <Compile Update="EditWindows\EditRouteForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserWindows\AuthForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EditWindows\EditCarForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GraphForm.xaml.cs">
+    <Compile Update="UserWindows\GraphForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="RegForm.xaml.cs">
@@ -48,16 +51,19 @@
     <Page Update="AdminForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="AuthForm.xaml">
+    <Page Update="EditWindows\EditRouteForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserWindows\AuthForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EditWindows\EditCarForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GraphForm.xaml">
+    <Page Update="UserWindows\GraphForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="UserWindows\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RegForm.xaml">

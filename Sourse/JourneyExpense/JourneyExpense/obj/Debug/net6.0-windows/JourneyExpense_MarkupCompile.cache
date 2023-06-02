@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\GitHub\Coursework-on-design-and-programming-and-programming-languages\Sourse\JourneyExpense\JourneyExpense\App.xaml
-10-1052613277
+111364095524
 
-17708075508
+18-229659967
 197-936060434
-AddWindows\AddCarForm.xaml;AddWindows\AddFuelForm.xaml;AddWindows\AddRoutesForm.xaml;AdminForm.xaml;AuthForm.xaml;EditWindows\EditCarForm.xaml;EditWindows\UpdatePriceForm.xaml;GraphForm.xaml;MainWindow.xaml;RegForm.xaml;
+AddWindows\AddCarForm.xaml;AddWindows\AddFuelForm.xaml;AddWindows\AddRoutesForm.xaml;AdminForm.xaml;EditWindows\EditCarForm.xaml;EditWindows\EditRouteForm.xaml;EditWindows\UpdatePriceForm.xaml;RegForm.xaml;UserWindows\AuthForm.xaml;UserWindows\GraphForm.xaml;UserWindows\MainWindow.xaml;
 
 False
 

@@ -26,7 +26,7 @@
         <Button x:Name="AddFuelButton" Content="Добавить топливо" Margin="20,0,20,0" VerticalAlignment="Center" Height="39"  Grid.Column="2" Click="AddFuelButton_Click" FontSize="11"/>
         <Button x:Name="CalculateButton" Grid.Column="3" Content="Рассчитать потребление" Click="CalculateButton_Click" Height="39" VerticalAlignment="Top" FontSize="11" Margin="20,10,20,0"/>
         <Button x:Name="EditCarButton" Content="Редактировать автомобиль" Margin="20,10,20,0" Height="39" VerticalAlignment="Top" Grid.Row="1" Click="EditCarButton_Click"/>
-        <Button x:Name="EditRoutesButton" Content="Редактировать Маршрут" Margin="20,10,20,0" FontSize="12" Height="39" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+        <Button x:Name="EditRoutesButton" Content="Редактировать Маршрут" Margin="20,10,20,0" FontSize="12" Height="39" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Click="EditRoutesButton_Click"/>
 
     </Grid>
 </Window>

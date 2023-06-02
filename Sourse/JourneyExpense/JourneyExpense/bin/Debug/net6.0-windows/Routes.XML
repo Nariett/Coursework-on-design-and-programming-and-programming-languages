@@ -63,7 +63,7 @@
   <route>
     <PointA>Брест</PointA>
     <PointB>Барановичи</PointB>
-    <kilometer>215</kilometer>
+    <kilometer>216</kilometer>
   </route>
   <route>
     <PointA>Брест</PointA>
@@ -160,24 +160,19 @@
     <PointB>Жлобин</PointB>
     <kilometer>499</kilometer>
   </route>
-  <car>
+  <route>
     <PointA>Минск</PointA>
     <PointB>Солигорск</PointB>
     <kilometer>600</kilometer>
-  </car>
-  <car>
+  </route>
+  <route>
     <PointA>Минск</PointA>
     <PointB>Смоленск</PointB>
     <kilometer>330</kilometer>
-  </car>
-  <car>
+  </route>
+  <route>
     <PointA>Минск</PointA>
     <PointB>Москва</PointB>
     <kilometer>720,2</kilometer>
-  </car>
-  <car>
-    <PointA>Минск</PointA>
-    <PointB>Варшава</PointB>
-    <kilometer>570,2</kilometer>
-  </car>
+  </route>
 </routes>
