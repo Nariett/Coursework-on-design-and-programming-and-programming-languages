@@ -246,10 +246,12 @@ namespace JourneyExpense
             petrolFuel = 0;
             electroFuel = 0;
             averagePrice = 0;
+            int count = 0;
             foreach (var item in list)
             {
                 if (item.User == UserName)
                 {
+                    count++;
                     if (item.FuelType == "Бензин")
                     {
                         petrolFuel += item.UsedFuel;
@@ -265,6 +267,7 @@ namespace JourneyExpense
                     averagePrice += item.Price;
                 }
             }
+            averagePrice = averagePrice / (double)count;
         }
         private void ButtonCreateView_Click_1(object sender, RoutedEventArgs e)
         {
@@ -299,18 +302,18 @@ namespace JourneyExpense
                                                DateTime.ParseExact(item.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture) <= secondDate).ToList();
                             count = filteredList.Count;
                             CalculateFromData(filteredList, out dieselFuel, out petrolFuel, out electroFuel, out averagePrice);
-                            reportTitle = $"Отчет о поездках на дату: {reportDate:dd.MM.yyyy}";
+                            reportTitle = $"Отчет о поездках";
                             document.InsertParagraph(reportTitle).FontSize(14d).Bold().Alignment = Alignment.center;
-                            reportTitle = $"Отчет в период с {firstDate:dd.MM.yy} по {secondDate:dd.MM.yyyy}";
+                            reportTitle = $"в период с {firstDate:dd.MM.yy} по {secondDate:dd.MM.yyyy}";
                             reportTitle += Environment.NewLine;
                         }
                         else
                         {
                             count = UserListRoutes.Count;
                             CalculateFromData(UserListRoutes, out dieselFuel, out petrolFuel, out electroFuel, out averagePrice);
-                            reportTitle = $"Отчет о поездках на дату: {reportDate:dd.MM.yyyy}";
+                            reportTitle = $"Отчет о поездках";
                             document.InsertParagraph(reportTitle).FontSize(14d).Bold().Alignment = Alignment.center;
-                            reportTitle = $"Отчет о поездках по {reportDate:dd.MM.yyyy}";
+                            reportTitle = $"в период по {reportDate:dd.MM.yyyy}";
                             reportTitle += Environment.NewLine;
                         }
 
@@ -318,11 +321,11 @@ namespace JourneyExpense
 
                         // Добавление информации о средней стоимости, жидком топливе и электричестве
                         document.InsertParagraph($"Пользователь {UserName} {Surname} совершил {count} поездок за период.").FontSize(12d);
-                        document.InsertParagraph($"Средняя стоимость поездки: {averagePrice:0.00} рублей").FontSize(12d);
-                        document.InsertParagraph($"Общее кол-во потраченного бензина: {petrolFuel} литров").FontSize(12d);
-                        document.InsertParagraph($"Общее кол-во потраченного дизельного топлива: {dieselFuel} литров").FontSize(12d);
-                        document.InsertParagraph($"Общее кол-во потраченного электрического топлива: {electroFuel} Киловатт-часов").FontSize(12d);
-
+                        document.InsertParagraph($"Средняя стоимость поездки: {averagePrice:0.00} рублей.").FontSize(12d);
+                        document.InsertParagraph($"Общее кол-во потраченного бензина: {petrolFuel} литров.").FontSize(12d);
+                        document.InsertParagraph($"Общее кол-во потраченного дизельного топлива: {dieselFuel} литров.").FontSize(12d);
+                        document.InsertParagraph($"Общее кол-во потраченного электрического топлива: {electroFuel} Киловатт-часов.").FontSize(12d);
+                        document.InsertParagraph($"Дата формирования отчета {reportDate:dd.MM.yyyy}").FontSize(12d).Alignment = Alignment.right;
                         // Сохранение документа
                         document.Save();
                     }
