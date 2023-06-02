@@ -273,7 +273,6 @@ namespace JourneyExpense
         {
             try
             {
-
                 double dieselFuel = 0;
                 double petrolFuel = 0;
                 double electroFuel = 0;
@@ -329,7 +328,6 @@ namespace JourneyExpense
                         // Сохранение документа
                         document.Save();
                     }
-
                     MessageBox.Show("Отчет успешно создан!", "Создание отчета", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }

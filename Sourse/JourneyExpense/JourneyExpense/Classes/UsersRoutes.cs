@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace JourneyExpense.Classes
 {
-    class UsersRoutes
+    public class UsersRoutes
     {
         public string User { get; set; }
         public string Car { get; set; }

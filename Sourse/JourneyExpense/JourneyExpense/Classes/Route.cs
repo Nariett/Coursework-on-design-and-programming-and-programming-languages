@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace JourneyExpense.Classes
 {
-    class Route
+    public class Route
     {
         public string PointA { get; set; }
         public string PointB { get; set; }

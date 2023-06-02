@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace JourneyExpense.Classes
 {
-    class Fuel
+    public class Fuel
     {
         public string name { get; set; }
         public string octaneNumber { get; set; }

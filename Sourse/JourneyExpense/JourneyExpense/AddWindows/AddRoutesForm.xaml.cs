@@ -46,7 +46,6 @@ namespace JourneyExpense
                 box.BorderBrush = Brushes.Red;
                 return false;
             }
-
             bool isNumeric = double.TryParse(FixStr(box.Text), out value);
             if (isNumeric)
             {

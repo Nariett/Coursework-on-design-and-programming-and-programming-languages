@@ -11,16 +11,15 @@ namespace JourneyExpense
     /// </summary>
     public partial class AuthForm : Window
     {
-        public AuthForm()
-        {
-            InitializeComponent();
-        }
-
         private List<User> AllUsers = new List<User>();
         private string surname = "";
         private bool Access = false;
         private string AdminLog = "Admin";
         private string AdminPass = "Admin";
+        public AuthForm()
+        {
+            InitializeComponent();
+        }
         private void AuthButtonClick(object sender, RoutedEventArgs e)
         {
             AllUsers = User.ReadUserInXML();
@@ -58,13 +57,6 @@ namespace JourneyExpense
                 MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль.", "Ошибка", MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
-
-        private void RegButtonClick(object sender, RoutedEventArgs e)
-        {
-            RegForm RegForm = new RegForm();
-            RegForm.ShowDialog();
-        }
-
         public bool AdminAccess()
         {
             if (textBoxLogin.Text == AdminLog && textBoxPassword.Text == AdminPass)
@@ -73,7 +65,6 @@ namespace JourneyExpense
             }
             else return false;
         }
-
         public void ReadUser()
         {
             try
@@ -111,6 +102,11 @@ namespace JourneyExpense
             {
                 MessageBox.Show("Создайте аккаут чтобы зайти", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void RegButtonClick(object sender, RoutedEventArgs e)
+        {
+            RegForm RegForm = new RegForm();
+            RegForm.ShowDialog();
         }
     }
 }

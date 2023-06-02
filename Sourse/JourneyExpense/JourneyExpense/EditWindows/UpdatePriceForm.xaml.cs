@@ -14,13 +14,13 @@ namespace JourneyExpense
     /// </summary>
     public partial class UpdatePriceForm : Window
     {
+        private List<string> FuelType = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
+        private List<Fuel> AllFuel = Fuel.ReadFuelInXML();
         public UpdatePriceForm()
         {
             InitializeComponent();
             InitComboBox();
         }
-        private List<string> FuelType = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
-        private List<Fuel> AllFuel = Fuel.ReadFuelInXML();
         public void InitComboBox()
         {
             foreach (var item in FuelType)
@@ -46,7 +46,6 @@ namespace JourneyExpense
                 MessageBox.Show("Ошибка ввода данных. Повторите попытку", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void comboBoxFuelType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxFuelType.SelectedIndex != -1)
@@ -61,7 +60,6 @@ namespace JourneyExpense
                 }
             }
         }
-
         private void comboBoxFuelOctan_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxFuelOctan.SelectedIndex != -1)
@@ -108,7 +106,6 @@ namespace JourneyExpense
                 return false;
             }
         }
-
         private void DeleteFuelButton_Click(object sender, RoutedEventArgs e)
         {
             if (comboBoxFuelOctan.SelectedIndex != -1 && comboBoxFuelType.SelectedIndex != -1)

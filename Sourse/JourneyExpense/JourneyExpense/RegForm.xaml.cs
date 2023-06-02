@@ -15,7 +15,6 @@ namespace JourneyExpense
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxValid(textBoxLogin) & TextBoxValid(textBoxPassword) & TextBoxValid(textBoxName) & TextBoxValid(textBoxSurname))

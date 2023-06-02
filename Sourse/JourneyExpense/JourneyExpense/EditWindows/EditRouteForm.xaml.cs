@@ -1,5 +1,4 @@
 ﻿using JourneyExpense.Classes;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -26,17 +25,6 @@ namespace JourneyExpense.EditWindows
             ReadData();
             InitComboBox();
         }
-        private void InitComboBox()
-        {
-            foreach (var item in PointA)
-            {
-                comboBoxPointOne.Items.Add(item);
-            }
-            foreach (var item in PointB)
-            {
-                comboBoxPointTwo.Items.Add(item);
-            }
-        }
         private void ReadData()
         {
             AllRoutes = Route.ReadRousteInXML();
@@ -62,6 +50,18 @@ namespace JourneyExpense.EditWindows
             PointA = PointA.OrderBy(item => item).ToList();
             PointB = PointB.OrderBy(item => item).ToList();
         }
+        private void InitComboBox()
+        {
+            foreach (var item in PointA)
+            {
+                comboBoxPointOne.Items.Add(item);
+            }
+            foreach (var item in PointB)
+            {
+                comboBoxPointTwo.Items.Add(item);
+            }
+        }
+
         private void EditRouteButton_Click(object sender, RoutedEventArgs e)
         {
             double distance = 0;

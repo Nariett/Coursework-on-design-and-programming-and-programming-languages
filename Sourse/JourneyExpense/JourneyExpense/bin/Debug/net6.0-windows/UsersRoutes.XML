@@ -210,4 +210,40 @@
     <UsedFuel>18</UsedFuel>
     <AverageSpeed>120</AverageSpeed>
   </route>
+  <route>
+    <User>Александр</User>
+    <Car>Toyota Camry</Car>
+    <PointA>Барановичи</PointA>
+    <PointB>Брест</PointB>
+    <Distance>216</Distance>
+    <Price>39,92</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>02.06.2023</Date>
+    <UsedFuel>27</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>Александр</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>150</Distance>
+    <Price>35,85</Price>
+    <FuelType>Дизельное топливо</FuelType>
+    <Date>02.06.2023</Date>
+    <UsedFuel>15</UsedFuel>
+    <AverageSpeed>100</AverageSpeed>
+  </route>
+  <route>
+    <User>Александр</User>
+    <Car>Неизвестно</Car>
+    <PointA>Неизвестно</PointA>
+    <PointB>Неизвестно</PointB>
+    <Distance>50</Distance>
+    <Price>13,74</Price>
+    <FuelType>Дизельное топливо</FuelType>
+    <Date>01.06.2023</Date>
+    <UsedFuel>4</UsedFuel>
+    <AverageSpeed>200</AverageSpeed>
+  </route>
 </UsersRoutes>
