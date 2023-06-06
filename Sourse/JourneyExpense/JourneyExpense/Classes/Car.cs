@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -37,7 +36,7 @@ namespace JourneyExpense.Classes
             EnginePower = enginePower;
             TankSize = tankSize;
         }
-        public static List<Car> ReadCarInXML()
+        public static List<Car> ReadCarInXML()//чтение автомобилей из XML
         {
             List<Car> Cars = new List<Car>();
             XmlDocument xDoc = new XmlDocument();
@@ -102,7 +101,7 @@ namespace JourneyExpense.Classes
             }
             return Cars;
         }
-        public bool AddCarInXML()
+        public bool AddCarInXML()//добавление атвомомбилей в XML
         {
             bool permission = true;
             foreach (var item in ReadCarInXML())

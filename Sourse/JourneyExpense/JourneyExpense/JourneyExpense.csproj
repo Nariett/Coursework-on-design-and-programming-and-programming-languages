@@ -20,8 +20,4 @@
     <Resource Include="Icons\Icons.ico" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="HelpBook\" />
-  </ItemGroup>
-
 </Project>

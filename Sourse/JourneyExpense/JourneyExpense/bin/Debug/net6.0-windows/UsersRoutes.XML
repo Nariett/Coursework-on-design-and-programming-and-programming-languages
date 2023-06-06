@@ -306,4 +306,28 @@
     <UsedFuel>500</UsedFuel>
     <AverageSpeed>100</AverageSpeed>
   </route>
+  <route>
+    <User>Admin</User>
+    <Car>Audi A4</Car>
+    <PointA>Барановичи</PointA>
+    <PointB>Брест</PointB>
+    <Distance>209</Distance>
+    <Price>28,47</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>01.06.2023</Date>
+    <UsedFuel>37</UsedFuel>
+    <AverageSpeed>140</AverageSpeed>
+  </route>
+  <route>
+    <User>Admin</User>
+    <Car>Audi A4</Car>
+    <PointA>Барановичи</PointA>
+    <PointB>Брест</PointB>
+    <Distance>209</Distance>
+    <Price>28,47</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>01.06.2023</Date>
+    <UsedFuel>37</UsedFuel>
+    <AverageSpeed>140</AverageSpeed>
+  </route>
 </UsersRoutes>

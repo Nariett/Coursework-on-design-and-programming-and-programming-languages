@@ -23,11 +23,11 @@
             <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="180*"/>
+            <ColumnDefinition Width="227*"/>
+            <ColumnDefinition Width="187*"/>
+            <ColumnDefinition Width="181"/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="textBoxName" FontSize="15" Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" Height="27" VerticalAlignment="Center"/>
         <Label Content="Марка автомобиля" Grid.Column="1" Grid.Row="1" Margin="10,10,10,0" Height="29" VerticalAlignment="Top" FontSize="15"/>
@@ -39,17 +39,17 @@
         <Label x:Name="LabelTypeFuel" Content="Вид топлива" Grid.Column="1" Grid.Row="6" Margin="10,0,10,0" Height="29" VerticalAlignment="Center" FontSize="15"/>
         <Label x:Name="OctanLabel" Content="Октановое число" Grid.Column="1" Grid.Row="7" Margin="10,0,10,0" Height="29" VerticalAlignment="Center" FontSize="15"/>
         <Label Content="Расход топлива" Grid.Column="1" Grid.Row="8" Margin="10,0,10,0" Height="29" VerticalAlignment="Center" FontSize="15"/>
-        <TextBox x:Name="textBoxFuelConsumptionGeneral" Grid.Column="2" Margin="10,10,0,10" Grid.Row="8" TextWrapping="Wrap" FontSize="15" HorizontalAlignment="Left" Width="55">
+        <TextBox x:Name="textBoxFuelConsumptionGeneral" Grid.Column="2" Margin="10,10,0,10" Grid.Row="8" FontSize="15" HorizontalAlignment="Left" Width="55">
             <TextBox.ToolTip>
                 Смешанный расход
             </TextBox.ToolTip>
         </TextBox>
-        <TextBox x:Name="textBoxFuelConsumptionCity" Grid.Column="2" Grid.Row="8" TextWrapping="Wrap" FontSize="15" Margin="85,10,0,10" HorizontalAlignment="Left" Width="55">
+        <TextBox x:Name="textBoxFuelConsumptionCity" Grid.Column="2" Grid.Row="8" FontSize="15" Margin="85,10,0,10" HorizontalAlignment="Left" Width="55">
             <TextBox.ToolTip>
                 Расход в городе
             </TextBox.ToolTip>
         </TextBox>
-        <TextBox x:Name="textBoxFuelConsumptionHighway" Grid.Column="2" Grid.Row="8" TextWrapping="Wrap" FontSize="15" Margin="160,10,0,10" HorizontalAlignment="Left" Width="55">
+        <TextBox x:Name="textBoxFuelConsumptionHighway" Grid.Column="2" Grid.Row="8" FontSize="15" Margin="160,10,0,10" HorizontalAlignment="Left" Width="55">
             <TextBox.ToolTip>
                 Расход за городом
             </TextBox.ToolTip>

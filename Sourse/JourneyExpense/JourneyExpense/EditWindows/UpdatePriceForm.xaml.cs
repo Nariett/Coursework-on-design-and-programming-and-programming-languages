@@ -14,6 +14,7 @@ namespace JourneyExpense
     /// </summary>
     public partial class UpdatePriceForm : Window
     {
+        //
         private List<string> FuelType = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
         private List<Fuel> AllFuel = Fuel.ReadFuelInXML();
         public UpdatePriceForm()

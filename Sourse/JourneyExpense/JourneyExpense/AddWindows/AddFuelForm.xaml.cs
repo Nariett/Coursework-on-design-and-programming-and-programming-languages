@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -18,14 +17,14 @@ namespace JourneyExpense
             InitComboBox();
         }
         private List<string> FuelType = new List<string>() { "Бензин", "Дизельное топливо", "Электричество" };
-        public void InitComboBox()
+        public void InitComboBox()// инициализацтя comboBox
         {
             foreach (var item in FuelType)
             {
                 comboBoxFuelType.Items.Add(item);
             }
         }
-        private void UpdatePriceButton_Click(object sender, RoutedEventArgs e)
+        private void UpdatePriceButton_Click(object sender, RoutedEventArgs e)//обновление цена на топливо
         {
             double price = 0;
             if (comboBoxFuelType.SelectedIndex != -1 & TextBoxValid(textBoxFuelOctan) & IsValidDoubleInput(textBoxPrice, 0, 100, out price))
@@ -48,7 +47,7 @@ namespace JourneyExpense
             }
         }
 
-        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)
+        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)//проверка корректности ввода вещественного значения
         {
             if (box.Text == "")
             {
@@ -77,11 +76,11 @@ namespace JourneyExpense
                 return false;
             }
         }
-        private string FixStr(string input)
+        private string FixStr(string input)// замена . на ,
         {
             return input.Replace('.', ',');
         }
-        private bool TextBoxValid(TextBox text)
+        private bool TextBoxValid(TextBox text)// проверка корректности textBox
         {
             if (text.Text == "")
             {

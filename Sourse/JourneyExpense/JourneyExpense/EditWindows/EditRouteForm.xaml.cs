@@ -25,8 +25,9 @@ namespace JourneyExpense.EditWindows
             ReadData();
             InitComboBox();
         }
-        private void ReadData()
+        private void ReadData()//инициализация списка 
         {
+            AllRoutes.Clear();
             AllRoutes = Route.ReadRousteInXML();
             foreach (var item in AllRoutes)
             {
@@ -50,8 +51,10 @@ namespace JourneyExpense.EditWindows
             PointA = PointA.OrderBy(item => item).ToList();
             PointB = PointB.OrderBy(item => item).ToList();
         }
-        private void InitComboBox()
+        private void InitComboBox()//иницилия combBox
         {
+            comboBoxPointOne.Items.Clear();
+            comboBoxPointTwo.Items.Clear();
             foreach (var item in PointA)
             {
                 comboBoxPointOne.Items.Add(item);
@@ -62,7 +65,7 @@ namespace JourneyExpense.EditWindows
             }
         }
 
-        private void EditRouteButton_Click(object sender, RoutedEventArgs e)
+        private void EditRouteButton_Click(object sender, RoutedEventArgs e)//редактировать данные в маршрутах 
         {
             double distance = 0;
             if (comboBoxPointOne.SelectedIndex != -1 && comboBoxPointTwo.SelectedIndex != -1 && IsValidDoubleInput(textBoxDistance, 0, 10000, out distance))
@@ -75,7 +78,7 @@ namespace JourneyExpense.EditWindows
                 XmlNode carNode = xmlDoc.SelectSingleNode($"//route[(PointA='{pointA}' and PointB='{pointB}') or (PointA='{pointB}' and PointB='{pointA}')]");
                 carNode.SelectSingleNode("kilometer").InnerText = distanceStr;
                 xmlDoc.Save("Routes.xml");
-                MessageBox.Show($"Дистанция маршрута {pointA} - {pointB} обновлены.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Дистанция маршрута {pointA} - {pointB} обновлена.", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
@@ -84,7 +87,7 @@ namespace JourneyExpense.EditWindows
         }
 
 
-        private void DeleteRouteButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteRouteButton_Click(object sender, RoutedEventArgs e)//удалить маршрут 
         {
             if (comboBoxPointOne.SelectedIndex != -1 && comboBoxPointTwo.SelectedIndex != -1)
             {
@@ -118,6 +121,9 @@ namespace JourneyExpense.EditWindows
             {
                 MessageBox.Show("Маршрут не выбран. Повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            ReadData();
+            InitComboBox();
+            textBoxDistance.Clear();
         }
 
         private void comboBoxPointOne_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -142,6 +148,7 @@ namespace JourneyExpense.EditWindows
                     {
                         MessageBox.Show("Выбранный маршрут не найден. Повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         comboBoxPointOne.SelectedIndex = -1;
+                        textBoxDistance.Clear();
                     }
                 }
             }
@@ -153,6 +160,7 @@ namespace JourneyExpense.EditWindows
             {
                 MessageBox.Show("Выберите корректное место назначения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 comboBoxPointOne.SelectedIndex = -1;
+                textBoxDistance.Clear();
             }
         }
         private void comboBoxPointTwo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -177,6 +185,7 @@ namespace JourneyExpense.EditWindows
                     {
                         MessageBox.Show("Выбранный маршрут не найден. Повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         comboBoxPointTwo.SelectedIndex = -1;
+                        textBoxDistance.Clear();
                     }
                 }
             }
@@ -188,19 +197,20 @@ namespace JourneyExpense.EditWindows
             {
                 MessageBox.Show("Выберите корректное место назначения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 comboBoxPointTwo.SelectedIndex = -1;
+                textBoxDistance.Clear();
             }
         }
 
-        private void comboBoxPointOne_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void comboBoxPointOne_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)//очистка значений из coomboBox
         {
             comboBoxPointOne.SelectedIndex = -1;
         }
 
-        private void comboBoxPointTwo_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void comboBoxPointTwo_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)//очистка значений из coomboBox
         {
             comboBoxPointTwo.SelectedIndex = -1;
         }
-        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)
+        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)//проверка корректности вещественных значений 
         {
             value = 0;
             if (box.Text == "")
@@ -230,7 +240,7 @@ namespace JourneyExpense.EditWindows
                 return false;
             }
         }
-        private string FixStr(string input)
+        private string FixStr(string input)//замена . на ,
         {
             return input.Replace('.', ',');
         }

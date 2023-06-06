@@ -26,42 +26,56 @@ namespace JourneyExpense.Classes
         {
             try
             {
+                // Читаем список пользователей из XML файла
                 List<User> list = ReadUserInXML();
+
+                // Проверяем, если уже существует пользователь с таким же логином
                 foreach (var item in list)
                 {
                     if (login == item.login)
                     {
-                        MessageBox.Show("Данный логин уже занят. Повторите попытку.", "Ошикбка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Данный логин уже занят. Повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
                 }
+
+                // Загружаем корневой элемент из XML файла
                 XElement root = XElement.Load("User.xml");
-                XElement carElement = new XElement("user",
+
+                // Создаем новый элемент "user" с данными о новом пользователе
+                XElement userElement = new XElement("user",
                     new XElement("login", login),
                     new XElement("password", password),
                     new XElement("name", name),
                     new XElement("surname", surname)
                 );
-                root.Add(carElement);
+
+                // Добавляем новый элемент "user" в корневой элемент
+                root.Add(userElement);
+
+                // Сохраняем изменения в XML файле
                 root.Save("User.xml");
+
                 return true;
             }
             catch (FileNotFoundException ex)
             {
+                // Если файл User.xml не найден, создаем новый XML файл и сохраняем в него данные о пользователе
                 XDocument xdoc = new XDocument();
-                XElement User = new XElement("user",
+                XElement user = new XElement("user",
                     new XElement("login", login),
                     new XElement("password", password),
                     new XElement("name", name),
                     new XElement("surname", surname)
                 );
-                XElement users = new XElement("users", User);
+                XElement users = new XElement("users", user);
                 xdoc.Add(users);
                 xdoc.Save("User.xml");
                 return true;
             }
             catch (Exception ex)
             {
+                // В случае возникновения других исключений, возвращаем false
                 return false;
             }
         }

@@ -35,7 +35,7 @@ namespace JourneyExpense.Classes
             UsedFuel = usedfuel;
             AverageSpeed = averageSpeed;
         }
-        public bool AddRoutesInXML()
+        public bool AddRoutesInXML()//добавить поездку в XML 
         {
 
             XElement root = XElement.Load("UsersRoutes.xml");
@@ -56,7 +56,7 @@ namespace JourneyExpense.Classes
             return true;
 
         }
-        public static List<UsersRoutes> ReadUsersRoutesInXML()
+        public static List<UsersRoutes> ReadUsersRoutesInXML()//добавить поездку в XML 
         {
             List<UsersRoutes> Route = new List<UsersRoutes>();
             XmlDocument xDoc = new XmlDocument();

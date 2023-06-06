@@ -18,7 +18,7 @@ namespace JourneyExpense.Classes
             this.octaneNumber = octaneNumber;
             this.price = price;
         }
-        public static List<Fuel> ReadFuelInXML()
+        public static List<Fuel> ReadFuelInXML()//читать топливо из XML
         {
             List<Fuel> Fuel = new List<Fuel>();
             XmlDocument xDoc = new XmlDocument();
@@ -47,7 +47,7 @@ namespace JourneyExpense.Classes
             }
             return Fuel;
         }
-        public bool AddFuelInXML()
+        public bool AddFuelInXML()//добавить топливо в XML
         {
             bool permission = true;
             foreach (var item in ReadFuelInXML())

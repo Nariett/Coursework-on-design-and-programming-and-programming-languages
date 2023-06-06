@@ -15,7 +15,7 @@ namespace JourneyExpense
             InitializeComponent();
         }
 
-        private void ButtonCalculate_Click(object sender, RoutedEventArgs e)
+        private void ButtonAddRoute_Click(object sender, RoutedEventArgs e)//добавление маршурта
         {
             string pointA = textBoxPointA.Text.TrimEnd();
             string pointB = textBoxPointB.Text.TrimEnd();
@@ -38,7 +38,7 @@ namespace JourneyExpense
                 MessageBox.Show("Ошибка в маршруте, проверьте маршрут и повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)
+        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)//проверка вещественных значений 
         {
             if (box.Text == "")
             {
@@ -66,7 +66,7 @@ namespace JourneyExpense
                 return false;
             }
         }
-        private bool TextBoxValid(TextBox text)
+        private bool TextBoxValid(TextBox text)//проверка кооректносоти данных в textBox
         {
             if (text.Text == "")
             {
@@ -79,7 +79,7 @@ namespace JourneyExpense
                 return true;
             }
         }
-        private string FixStr(string input)
+        private string FixStr(string input)//замена . на ,
         {
             return input.Replace('.', ',');
         }

@@ -23,20 +23,20 @@ namespace JourneyExpense
             ReadData();
             InitComboBox();
         }
-        private void ReadData()
+        private void ReadData()//инициализация списков 
         {
             AllCar = Car.ReadCarInXML();
             AllCar = AllCar.OrderBy(car => car.Name).ToList();
             AllFuel = Fuel.ReadFuelInXML();
         }
-        private void InitComboBox()
+        private void InitComboBox()//инициализация comboBox 
         {
             foreach (var item in AllCar)
             {
                 comboBoxCar.Items.Add(item.Name);
             }
         }
-        private void comboBoxCar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void comboBoxCar_SelectionChanged(object sender, SelectionChangedEventArgs e)//обработчик изменения элементов в comboBox
         {
             if (comboBoxCar.SelectedIndex != -1)
             {
@@ -84,7 +84,7 @@ namespace JourneyExpense
             }
         }
 
-        private void UpdateCarButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateCarButton_Click(object sender, RoutedEventArgs e)//обновленение характеритик автомобиля 
         {
             if (IsValidComboBox(comboBoxOctan) & СonsumptionСheck())
             {
@@ -121,7 +121,7 @@ namespace JourneyExpense
                 MessageBox.Show("Ошибка ввода данных. Повторите попытку", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private bool СonsumptionСheck()
+        private bool СonsumptionСheck()//проверка значений
         {
             double ConsumptionGeneral, ConsumptionCity, ConsumptionHighway, power;
             bool isNumericOne = IsValidDoubleInput(textBoxFuelConsumptionGeneral, 0, 100, out ConsumptionGeneral);
@@ -137,7 +137,7 @@ namespace JourneyExpense
                 return false;
             }
         }
-        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)
+        private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)//проверка вещественных значений 
         {
             value = 0;
             if (box.Text == "")
@@ -167,7 +167,7 @@ namespace JourneyExpense
                 return false;
             }
         }
-        private bool IsValidComboBox(ComboBox box)
+        private bool IsValidComboBox(ComboBox box)//проверка корретконсти знначений в comboBox
         {
             if (box.SelectedIndex == -1)
             {
@@ -182,12 +182,12 @@ namespace JourneyExpense
                 return true;
             }
         }
-        private string FixStr(string input)
+        private string FixStr(string input)//замена . на ,
         {
             return input.Replace('.', ',');
         }
 
-        private void DeleteCarButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteCarButton_Click(object sender, RoutedEventArgs e)// удаление автомобиля
         {
             if (comboBoxCar.SelectedIndex != -1)
             {

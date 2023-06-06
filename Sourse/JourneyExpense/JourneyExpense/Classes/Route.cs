@@ -17,7 +17,7 @@ namespace JourneyExpense.Classes
             PointB = pointB;
             Distance = distance;
         }
-        public static List<Route> ReadRousteInXML()
+        public static List<Route> ReadRousteInXML()//прочитать данные о поездках из XML
         {
             List<Route> Route = new List<Route>();
             XmlDocument xDoc = new XmlDocument();
@@ -46,7 +46,7 @@ namespace JourneyExpense.Classes
             }
             return Route;
         }
-        public bool AddRoutesInXML()
+        public bool AddRoutesInXML()//добавить маршрут в XML
         {
             bool permission = true;
             foreach (var item in ReadRousteInXML())

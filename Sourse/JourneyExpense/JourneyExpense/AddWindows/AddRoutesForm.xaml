@@ -28,7 +28,7 @@
         <Label Content="Точка назначения" Margin="24,0,24,0" Height="29" VerticalAlignment="Center" FontSize="15" Grid.Row="2"/>
         <TextBox x:Name="textBoxDistance" FontSize="15" Margin="10,0,0,0" Height="27" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Width="145" HorizontalAlignment="Left"/>
         <Label Content="Расстояние" Margin="24,0,24,0" Height="29" VerticalAlignment="Center" FontSize="15" Grid.Row="3"/>
-        <Button x:Name="ButtonCalculate" Content="Добавить маршрут" Margin="18,0,18,0" Click="ButtonCalculate_Click" Grid.Row="4" Height="28" VerticalAlignment="Center"  />
+        <Button x:Name="ButtonAddRoute" Content="Добавить маршрут" Margin="18,0,18,0" Click="ButtonAddRoute_Click" Grid.Row="4" Height="28" VerticalAlignment="Center"  />
         <Label Grid.Column="1" Content="Км" HorizontalAlignment="Left" Margin="160,0,0,0" Grid.Row="3" VerticalAlignment="Center"/>
 
     </Grid>

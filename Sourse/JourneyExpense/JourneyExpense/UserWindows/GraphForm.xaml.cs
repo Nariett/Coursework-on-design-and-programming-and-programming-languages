@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -32,7 +31,7 @@ namespace JourneyExpense
             CreateGraph();
             DrawGraph();
         }
-        private void ButtonShow_Click(object sender, RoutedEventArgs e)
+        private void ButtonShow_Click(object sender, RoutedEventArgs e)//обработчик нажатия на клавишу для потсрания графика по датам 
         {
             if (DataPickerFirstData.SelectedDate.HasValue && DataPickerSecondData.SelectedDate.HasValue)
             {
@@ -57,7 +56,7 @@ namespace JourneyExpense
                 MessageBox.Show("Заполните все поля","Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        public void ReadData()
+        public void ReadData() // инициализаиця списка все поездок
         {
             foreach (var route in AllRoutes)
             {
@@ -67,12 +66,12 @@ namespace JourneyExpense
                 }
             }
         }
-        private void CreateGraph()
+        private void CreateGraph() // создание графика 
         {
             DrawHorizontalLine();
             DrawVerticalLine();
         }
-        private void DrawVerticalLine()
+        private void DrawVerticalLine() // создание вертикальный леиний в графике
         {
             int left = 0;
             int step = 10;
@@ -94,7 +93,7 @@ namespace JourneyExpense
                 left += step;
             }
         }
-        private void DrawHorizontalLine()
+        private void DrawHorizontalLine()// создание горизонтальных  леиний в графике
         {
             int top = 380;
             int step = 10;
@@ -115,7 +114,7 @@ namespace JourneyExpense
                 top -= step;
             }
         }
-        private void DrawGraph()
+        private void DrawGraph() // создание общего графика за весь период
         {
             if (UserListRoutes.Count != 0)
             {
@@ -151,7 +150,7 @@ namespace JourneyExpense
                 MessageBox.Show("Создайте первую поездку и повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void DrawGraphInDate(string dateOne, string dateTwo)
+        private void DrawGraphInDate(string dateOne, string dateTwo) // создания графика в диапазоне дат
         {
             DateTime fromDate = DateTime.ParseExact(dateOne, "dd.MM.yyyy", CultureInfo.InvariantCulture);
             DateTime toDate = DateTime.ParseExact(dateTwo, "dd.MM.yyyy", CultureInfo.InvariantCulture);
@@ -195,7 +194,7 @@ namespace JourneyExpense
                 MessageBox.Show("Поезкди в данный период времени не обнаружены.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void AddAxis(int i, double x, double y)
+        private void AddAxis(int i, double x, double y) // добавить размернуб сетку x
         {
             TextBlock textBlock = new TextBlock();
             textBlock.FontSize = 10;
@@ -203,7 +202,7 @@ namespace JourneyExpense
             textBlock.Margin = new Thickness(x, y, 0, 0);
             canvasGraph.Children.Add(textBlock);
         }
-        private void AddAxisY(double i, double x, double y)
+        private void AddAxisY(double i, double x, double y)// добавить размернуб сетку y
         {
             TextBlock textBlock = new TextBlock();
             textBlock.FontSize = 10;
@@ -212,7 +211,7 @@ namespace JourneyExpense
 
             canvasGraph.Children.Add(textBlock);
         }
-        private void AddPoint(double stepX, double stepY, int i, List<UsersRoutes> list)
+        private void AddPoint(double stepX, double stepY, int i, List<UsersRoutes> list) // создание вершины маршрута 
         {
             Ellipse redPoint = new Ellipse();
             redPoint.Width = 6;
@@ -221,7 +220,7 @@ namespace JourneyExpense
             redPoint.Margin = new Thickness(i * stepX - 2, 380 - (list[i].Price * stepY) - 2, 0, 0);
             canvasGraph.Children.Add(redPoint);
         }
-        private void AddTextBlock(List<UsersRoutes> list, int i, double x, double y)
+        private void AddTextBlock(List<UsersRoutes> list, int i, double x, double y) // создание значенрий у каждой точки
         {
             TextBlock textBlock = new TextBlock();
             textBlock.Text = list[i].Price.ToString();
@@ -229,12 +228,12 @@ namespace JourneyExpense
             canvasGraph.Children.Add(textBlock);
         }
 
-        private void ButtonClear_Click(object sender, RoutedEventArgs e)
+        private void ButtonClear_Click(object sender, RoutedEventArgs e) // очистить значение 
         {
             canvasGraph.Children.Clear();
         }
 
-        private void ButtonShowAll_Click(object sender, RoutedEventArgs e)
+        private void ButtonShowAll_Click(object sender, RoutedEventArgs e) // показать поезкди за все даты 
         {
             canvasGraph.Children.Clear();
             CreateGraph();
@@ -269,7 +268,7 @@ namespace JourneyExpense
             }
             averagePrice = averagePrice / (double)count;
         }
-        private void ButtonCreateView_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonCreateView_Click_1(object sender, RoutedEventArgs e) // создание отчета
         {
             try
             {

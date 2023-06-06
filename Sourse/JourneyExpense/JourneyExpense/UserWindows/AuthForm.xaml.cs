@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Xml;
 using JourneyExpense.Classes;
 
 namespace JourneyExpense
@@ -22,42 +20,42 @@ namespace JourneyExpense
         }
         private void AuthButtonClick(object sender, RoutedEventArgs e)
         {
-            AllUsers = User.ReadUserInXML();
-            if(AllUsers.Count == 0)
+            AllUsers = User.ReadUserInXML(); // инициализация списка AllUser данными из XML файла, путем вызова метода ReadUserInXML
+            if(AllUsers.Count == 0) // Проверка на наличие пользователей в системе
             {
-                MessageBox.Show("Зарегистрируйтесь в систему.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Зарегистрируйтесь в систему.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); // вывод сообщения
                 return;
             }
-            string login = textBoxLogin.Text;
-            string password = textBoxPassword.Text;
-            string userName = "";
-            if (AdminAccess())
+            string login = textBoxLogin.Text; // декларация и инициализация переменной
+            string password = textBoxPassword.Text;// декларация и инициализация переменной
+            string userName = "";// декларация и инициализация переменной
+            if (AdminAccess()) // проверка на вход администратора
             {
-                AdminForm adminForm = new AdminForm();
-                adminForm.ShowDialog();
+                AdminForm adminForm = new AdminForm(); // создание  экземпляра класса 
+                adminForm.ShowDialog(); // отображение окна 
                 return;
             }
-            foreach (var user in AllUsers)
+            foreach (var user in AllUsers) 
             {
-                if (user.login == login && user.password == password)
+                if (user.login == login && user.password == password) // проверка логина и пароля в списке 
                 {
                     userName = user.name;
                     surname = user.surname;
-                    Access = true;
+                    Access = true; 
                     break;
                 }
             }
             if (Access)
             {
-                MainWindow mainForm = new MainWindow(userName,surname);
-                mainForm.ShowDialog();
+                MainWindow mainForm = new MainWindow(userName,surname); // создайние экземпляра класса 
+                mainForm.ShowDialog();// открытие окна mainForm
             }
             else
             {
-                MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль.", "Ошибка", MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Ошибка ввода данных. Проверьте логин или пароль.", "Ошибка", MessageBoxButton.OK,MessageBoxImage.Error);// вывод сообщения 
             }
         }
-        public bool AdminAccess()
+        public bool AdminAccess() // проверка на вход администратора
         {
             if (textBoxLogin.Text == AdminLog && textBoxPassword.Text == AdminPass)
             {
@@ -65,45 +63,7 @@ namespace JourneyExpense
             }
             else return false;
         }
-        public void ReadUser()
-        {
-            try
-            {
-                XmlDocument xDoc = new XmlDocument();
-                xDoc.Load("User.xml");
-                XmlElement xRoot = xDoc.DocumentElement;
-                foreach (XmlNode xnode in xRoot)
-                {
-                    User user = new User();
-                    foreach (XmlNode childnode in xnode.ChildNodes)
-                    {
-                        if (childnode.Name == "login")
-                        {
-                            user.login = childnode.InnerText;
-                        }
-                        if (childnode.Name == "password")
-                        {
-                            user.password = childnode.InnerText;
-                        }
-
-                        if (childnode.Name == "name")
-                        {
-                            user.name = childnode.InnerText;
-                        }
-                        if (childnode.Name == "surname")
-                        {
-                            user.surname = childnode.InnerText;
-                        }
-                    }
-                    AllUsers.Add(user);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Создайте аккаут чтобы зайти", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void RegButtonClick(object sender, RoutedEventArgs e)
+        private void RegButtonClick(object sender, RoutedEventArgs e)//обработчик нажатия на кнопку для открытия формы регисрации
         {
             RegForm RegForm = new RegForm();
             RegForm.ShowDialog();

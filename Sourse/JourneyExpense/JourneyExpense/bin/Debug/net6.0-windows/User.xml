@@ -7,27 +7,21 @@
     <surname>Тараскевич</surname>
   </user>
   <user>
-    <login>Samsik</login>
-    <password>123123</password>
-    <name>Sasha</name>
-    <surname>Samoilov</surname>
-  </user>
-  <user>
     <login>1</login>
     <password>1</password>
-    <name>1</name>
-    <surname>1</surname>
-  </user>
-  <user>
-    <login>2</login>
-    <password>2</password>
-    <name>Саша</name>
-    <surname>Самойлов</surname>
+    <name>Петр</name>
+    <surname>Сеницин</surname>
   </user>
   <user>
     <login>Samsik09</login>
     <password>230374</password>
     <name>Александр</name>
+    <surname>Самойлов</surname>
+  </user>
+  <user>
+    <login>Samsik</login>
+    <password>123123</password>
+    <name>Саша</name>
     <surname>Самойлов</surname>
   </user>
 </users>
