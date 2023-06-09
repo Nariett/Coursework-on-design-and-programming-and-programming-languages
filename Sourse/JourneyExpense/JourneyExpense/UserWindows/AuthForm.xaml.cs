@@ -27,7 +27,7 @@ namespace JourneyExpense
                 return;
             }
             string login = textBoxLogin.Text; // декларация и инициализация переменной
-            string password = textBoxPassword.Text;// декларация и инициализация переменной
+            string password = textBoxPassword.Password;// декларация и инициализация переменной
             string userName = "";// декларация и инициализация переменной
             if (AdminAccess()) // проверка на вход администратора
             {
@@ -57,7 +57,7 @@ namespace JourneyExpense
         }
         public bool AdminAccess() // проверка на вход администратора
         {
-            if (textBoxLogin.Text == AdminLog && textBoxPassword.Text == AdminPass)
+            if (textBoxLogin.Text == AdminLog && textBoxPassword.Password == AdminPass)
             {
                 return true;
             }

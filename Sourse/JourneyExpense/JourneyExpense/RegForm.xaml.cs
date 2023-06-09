@@ -18,10 +18,10 @@ namespace JourneyExpense
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Проверка валидности текстовых полей textBoxLogin, textBoxPassword, textBoxName, textBoxSurname
-            if (TextBoxValid(textBoxLogin) & TextBoxValid(textBoxPassword) & TextBoxValid(textBoxName) & TextBoxValid(textBoxSurname))
+            if (TextBoxValid(textBoxLogin) & PasswordValid(textBoxPassword) & TextBoxValid(textBoxName) & TextBoxValid(textBoxSurname))
             {
                 // Создание нового объекта User с данными из текстовых полей
-                User user = new User(textBoxLogin.Text, textBoxPassword.Text, textBoxName.Text, textBoxSurname.Text);
+                User user = new User(textBoxLogin.Text, textBoxPassword.Password, textBoxName.Text, textBoxSurname.Text);
 
                 // Добавление пользователя в XML файл и проверка успешности операции
                 if (user.AddUserInXML())
@@ -41,6 +41,19 @@ namespace JourneyExpense
         private bool TextBoxValid(TextBox text)
         {
             if (text.Text != "" & Regex.IsMatch(text.Text, @"^[a-zA-Zа-яА-Я\s\d\-_]+$") & text.Text.Length > 3 & text.Text != "Admin")
+            {
+                text.BorderBrush = Brushes.Gray;
+                return true;
+            }
+            else
+            {
+                text.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+        private bool PasswordValid(PasswordBox text)
+        {
+            if (text.Password != "" & Regex.IsMatch(text.Password, @"^[a-zA-Zа-яА-Я\s\d\-_]+$") & text.Password.Length > 3 & text.Password != "Admin")
             {
                 text.BorderBrush = Brushes.Gray;
                 return true;

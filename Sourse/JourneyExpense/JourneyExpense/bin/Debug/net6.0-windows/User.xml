@@ -24,4 +24,10 @@
     <name>Саша</name>
     <surname>Самойлов</surname>
   </user>
+  <user>
+    <login>123123</login>
+    <password>123123</password>
+    <name>Паша</name>
+    <surname>Тихонов</surname>
+  </user>
 </users>

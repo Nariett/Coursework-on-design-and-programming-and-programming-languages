@@ -26,6 +26,7 @@ namespace JourneyExpense
             InitList();
             InitComboBox();
         }
+
         private string UserName;
         private string Surname;
         private bool isMessageBoxShown = false;
@@ -148,6 +149,7 @@ namespace JourneyExpense
             PointA = PointA.OrderBy(item => item).ToList();
             PointB = PointB.OrderBy(item => item).ToList();
         }
+
         public void InitComboBox() // инициализация comboBox
         {
             foreach (var item in FuelList)
@@ -183,13 +185,13 @@ namespace JourneyExpense
                 {
                     comboBoxFuelOctan.ToolTip = "Октановое число";
                     comboBoxFuelOctan.ItemsSource = GetFuelList("Бензин");
-                    LabelConsumption.Content = "Литр";
+                    LabelConsumption.Content = "Литров";
                 }
                 else if (selectedItem == "Дизельное топливо")
                 {
                     comboBoxFuelOctan.ToolTip = "Октановое число";
                     comboBoxFuelOctan.ItemsSource = GetFuelList("Дизельное топливо");
-                    LabelConsumption.Content = "Литр";
+                    LabelConsumption.Content = "Литров";
                 }
                 else if (selectedItem == "Электричество")
                 {
@@ -201,6 +203,7 @@ namespace JourneyExpense
                 comboBoxFuelOctan.SelectedIndex = 1;
             }
         }
+
         private string SetValue(ComboBox comboBox)//установка значений 
         {
             if (comboBox.SelectedIndex != -1)
@@ -209,6 +212,7 @@ namespace JourneyExpense
             }
             else { return "Неизвестно"; }
         }
+
         private void ButtonCalculate_Click(object sender, RoutedEventArgs e)//обработчик нажатия на клавишу для начала расчета
         {
             if (ValidValue())
@@ -237,9 +241,12 @@ namespace JourneyExpense
                 DateTime dateOne = DataPickerFirstData.SelectedDate.Value;
                 string date = dateOne.ToString("dd.MM.yyyy");
                 // Выводим результаты в соответствующие текстовые поля
-                this.textBoxUsedFuel.Text = usedFuel.ToString();
-                this.textBoxTime.Text = Math.Round(result, 2).ToString();
-                this.textBoxPrice.Text = fullPrice.ToString();
+                textBoxUsedFuel.Text = usedFuel.ToString();
+                textBoxUsedFuel.BorderBrush = Brushes.Green;
+                textBoxTime.Text = Math.Round(result, 2).ToString();
+                textBoxTime.BorderBrush = Brushes.Green;
+                textBoxPrice.Text = fullPrice.ToString();
+                textBoxPrice.BorderBrush = Brushes.Green;
                 // Создаем объект UsersRoutes и добавляем маршрут в XML
                 UsersRoutes route = new UsersRoutes(UserName, car, PointA, PointB, dictance, fullPrice, fuelType, date, usedFuel, averageSpeed);
                 if (route.AddRoutesInXML())
@@ -313,6 +320,7 @@ namespace JourneyExpense
                 MessageBox.Show("Отчет не создан. Закройте открытый отчет и повторите попытку", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void comboBoxFuelOctan_SelectionChanged(object sender, SelectionChangedEventArgs e)// проверка выбора в comboBoxFuelOctan
         {
             if (comboBoxFuelOctan.SelectedIndex != -1)
@@ -323,6 +331,7 @@ namespace JourneyExpense
             }
             else
             {
+                //textBoxFuelPrice.BorderBrush = Brushes.Gray;
                 textBoxFuelPrice.IsReadOnly = false;
             }
         }
@@ -334,10 +343,13 @@ namespace JourneyExpense
                 if (item.octaneNumber == name)
                 {
                     textBoxFuelPrice.Text = item.price.ToString();
+                    textBoxFuelPrice.BorderBrush = Brushes.Green;
                     break;
                 }
             }
+
         }
+
         public void ConsumptionCar(string text, string type)//выбор типа потребления топлива
         {
             foreach (var item in CarList)
@@ -362,6 +374,7 @@ namespace JourneyExpense
                 }
             }
         }
+
         private void comboBoxConsumption_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxConsumption.SelectedIndex != -1 && comboBoxCar.SelectedIndex != -1)
@@ -373,7 +386,7 @@ namespace JourneyExpense
             {
                 if (!isMessageBoxShown)
                 {
-                    MessageBox.Show("Выберите автомобиль или не используйте данное поле", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Выберите автомобиль или не используйте данное поле", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
                     isMessageBoxShown = true;
                 }
                 comboBoxConsumption.SelectedIndex = -1;
@@ -389,6 +402,7 @@ namespace JourneyExpense
                     if (item.Name == comboBoxCar.SelectedItem.ToString())
                     {
                         textBoxConsumption.Text = item.FuelConsumptionGeneral.ToString();
+                        textBoxConsumption.BorderBrush = Brushes.Green;
                         comboBoxConsumption.SelectedIndex = 2;
                         comboBoxFuelType.SelectedIndex = FuelList.IndexOf(item.Fuel);
                         comboBoxFuelOctan.SelectedIndex = comboBoxFuelOctan.Items.IndexOf(item.FuelOctan);
@@ -403,6 +417,8 @@ namespace JourneyExpense
                 comboBoxConsumption.IsEnabled = false;
                 textBoxConsumption.Clear();
                 textBoxFuelPrice.Clear();
+                textBoxFuelPrice.BorderBrush = Brushes.Gray;
+                textBoxConsumption.BorderBrush = Brushes.Gray;
                 comboBoxConsumption.SelectedIndex = -1;
                 comboBoxFuelType.SelectedIndex = -1;
                 comboBoxFuelOctan.SelectedIndex = -1;
@@ -419,6 +435,9 @@ namespace JourneyExpense
             textBoxPrice.Clear();
             textBoxFuelPrice.Clear();
             textBoxUsedFuel.Clear();
+            textBoxDistance.BorderBrush = Brushes.Gray;
+            textBoxFuelPrice.BorderBrush = Brushes.Gray;
+            textBoxConsumption.BorderBrush = Brushes.Gray;
             comboBoxFuelType.SelectedIndex = -1;
             comboBoxFuelOctan.SelectedIndex = -1;
             comboBoxCar.SelectedIndex = -1;
@@ -444,6 +463,7 @@ namespace JourneyExpense
             }
             return Fuel;
         }
+
         private void comboBoxPointOne_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxPointOne.SelectedIndex != -1 && comboBoxPointTwo.SelectedIndex != -1 && comboBoxPointOne.SelectedItem != comboBoxPointTwo.SelectedItem)
@@ -458,7 +478,9 @@ namespace JourneyExpense
                         if ((item.PointA == A && item.PointB == B) || (item.PointA == B && item.PointB == A))
                         {
                             this.textBoxDistance.Text = item.Distance.ToString();
+                            textBoxDistance.BorderBrush = Brushes.Green;//
                             isMessageBoxShowPoint = true;
+                            textBoxDistance.IsReadOnly = true;////
                             break;
                         }
                     }
@@ -467,12 +489,16 @@ namespace JourneyExpense
                         MessageBox.Show("Выбранный маршрут не найден. Повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         comboBoxPointOne.SelectedIndex = -1;
                         textBoxDistance.Clear();
+                        textBoxDistance.IsReadOnly = false;////
+
                     }
                 }
             }
             else if (comboBoxPointOne.SelectedIndex == -1 || comboBoxPointTwo.SelectedIndex == -1)
             {
-
+                textBoxDistance.Clear();
+                textBoxDistance.BorderBrush = Brushes.Gray;
+                textBoxDistance.IsReadOnly = false;////
             }
             else if (comboBoxPointOne.SelectedIndex != -1 || comboBoxPointTwo.SelectedIndex != -1)
             {
@@ -481,6 +507,7 @@ namespace JourneyExpense
                 textBoxDistance.Clear();
             }
         }
+
         private void comboBoxPointTwo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBoxPointOne.SelectedIndex != -1 && comboBoxPointTwo.SelectedIndex != -1 && comboBoxPointOne.SelectedItem != comboBoxPointTwo.SelectedItem)
@@ -494,8 +521,10 @@ namespace JourneyExpense
                     {
                         if ((item.PointA == A && item.PointB == B) || (item.PointA == B && item.PointB == A))
                         {
-                            this.textBoxDistance.Text = item.Distance.ToString();
+                            textBoxDistance.Text = item.Distance.ToString();
+                            textBoxDistance.BorderBrush = Brushes.Green;
                             isMessageBoxShowPoint = true;
+                            textBoxDistance.IsReadOnly = true;///
                             break;
                         }
                     }
@@ -504,12 +533,15 @@ namespace JourneyExpense
                         MessageBox.Show("Выбранный маршрут не найден. Повторите попытку.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         comboBoxPointTwo.SelectedIndex = -1;
                         textBoxDistance.Clear();
+                        textBoxDistance.IsReadOnly = false;////
                     }
                 }
             }
             else if (comboBoxPointOne.SelectedIndex == -1 || comboBoxPointTwo.SelectedIndex == -1)
             {
-
+                textBoxDistance.Clear();
+                textBoxDistance.BorderBrush = Brushes.Gray;
+                textBoxDistance.IsReadOnly = false;////
             }
             else if (comboBoxPointOne.SelectedIndex != -1 || comboBoxPointTwo.SelectedIndex != -1)
             {
@@ -519,6 +551,7 @@ namespace JourneyExpense
             }
 
         }
+
         private bool ValidValue()//проверка значений
         {
             double distance, averageSpeed, consumption, fuelPrice;
@@ -535,6 +568,7 @@ namespace JourneyExpense
                 return false;
             }
         }
+
         private bool IsValidDoubleInput(TextBox box, int min, int max, out double value)//проверка корректности вещественного значения в textBox
         {
             if (box.Text == "")
@@ -611,11 +645,16 @@ namespace JourneyExpense
 
         private void comboBoxFuelType_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)//очистка comboBox двойным нажатием
         {
-            if (comboBoxCar.SelectedIndex != -1)
+            if (comboBoxCar.SelectedIndex == -1)
             {
                 comboBoxFuelType.SelectedIndex = -1;
                 comboBoxFuelOctan.SelectedIndex = -1;
+                textBoxFuelPrice.Clear();
+                textBoxFuelPrice.BorderBrush = Brushes.Gray;
+                LabelLitr.Content = "Литров";
+                LabelConsumption.Content = "Литров";
             }
+
         }
     }
 }

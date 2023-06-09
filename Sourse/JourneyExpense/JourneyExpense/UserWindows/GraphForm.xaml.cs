@@ -125,14 +125,17 @@ namespace JourneyExpense
                 double price = UserListRoutes.Max(item => item.Price);
                 double stepX = 600 / count;//поездки
                 double stepY = 380 / price;//цена поездки
+                double totalPrice = 0;
                 for (int i = 0; i < count; i++)
                 {
+                    totalPrice += UserListRoutes[i].Price;
                     double x = i * stepX;
                     double y = 380 - (UserListRoutes[i].Price * stepY);
                     polyline.Points.Add(new Point(x, y));
                     AddPoint(stepX, stepY, i, UserListRoutes);
                     AddTextBlock(UserListRoutes, i, x, y);
-                    AddAxis(i + 1, 0 + (stepX * i), 380);
+                    AddAxis(UserListRoutes[i].Date, 0 + (stepX * i), 380);
+
                 }
                 double step = price / 30;
                 for (double i = 0; i <= price; i += step)
@@ -144,6 +147,8 @@ namespace JourneyExpense
                     panel.Children.Remove(polyline);
                 }
                 canvasGraph.Children.Add(polyline);
+                TotalPrice.Content = "Итог за выбранный срок: \n" + Math.Round(totalPrice, 2).ToString() + " Рублей";
+
             }
             else
             {
@@ -175,7 +180,7 @@ namespace JourneyExpense
                     polyline.Points.Add(new Point(x, y));
                     AddPoint(stepX, stepY, i, filteredList);
                     AddTextBlock(filteredList, i, x, y);
-                    AddAxis(i + 1, 0 + (stepX * i), 380);
+                    AddAxis(filteredList[i].Date, 0 + (stepX * i), 380);
                 }
                 double step = price / 30;
                 for (double i = 0; i <= price; i += step)
@@ -194,11 +199,11 @@ namespace JourneyExpense
                 MessageBox.Show("Поезкди в данный период времени не обнаружены.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void AddAxis(int i, double x, double y) // добавить размернуб сетку x
+        private void AddAxis(string i, double x, double y)
         {
             TextBlock textBlock = new TextBlock();
             textBlock.FontSize = 10;
-            textBlock.Text = i.ToString();
+            textBlock.Text = i;
             textBlock.Margin = new Thickness(x, y, 0, 0);
             canvasGraph.Children.Add(textBlock);
         }
@@ -231,6 +236,8 @@ namespace JourneyExpense
         private void ButtonClear_Click(object sender, RoutedEventArgs e) // очистить значение 
         {
             canvasGraph.Children.Clear();
+            TotalPrice.Content = "";
+            CreateGraph();
         }
 
         private void ButtonShowAll_Click(object sender, RoutedEventArgs e) // показать поезкди за все даты 

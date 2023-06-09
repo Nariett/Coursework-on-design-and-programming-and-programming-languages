@@ -340,4 +340,9 @@
     <PointB>Сочи</PointB>
     <kilometer>2660</kilometer>
   </route>
+  <route>
+    <PointA>Минск</PointA>
+    <PointB>Саратор</PointB>
+    <kilometer>1500</kilometer>
+  </route>
 </routes>
