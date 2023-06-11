@@ -98,4 +98,18 @@
     <enginePower>150</enginePower>
     <tankSize>50</tankSize>
   </car>
+  <car>
+    <name>Lada Vesta</name>
+    <year>2023</year>
+    <typeCar>Универсал</typeCar>
+    <maxSpeed>170</maxSpeed>
+    <seatingCapacity>5</seatingCapacity>
+    <fuel>Бензин</fuel>
+    <fuelOctan>АИ-92</fuelOctan>
+    <fuelConsumptionGeneral>6,9</fuelConsumptionGeneral>
+    <fuelConsumptionCity>9,3</fuelConsumptionCity>
+    <fuelConsumptionHighway>5,5</fuelConsumptionHighway>
+    <enginePower>90</enginePower>
+    <tankSize>55</tankSize>
+  </car>
 </Cars>
