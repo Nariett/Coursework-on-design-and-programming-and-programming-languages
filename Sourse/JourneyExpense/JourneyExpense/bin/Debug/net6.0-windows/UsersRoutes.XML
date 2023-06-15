@@ -462,4 +462,40 @@
     <UsedFuel>111</UsedFuel>
     <AverageSpeed>100</AverageSpeed>
   </route>
+  <route>
+    <User>Петр</User>
+    <Car>Volswagen Polo</Car>
+    <PointA>Минск</PointA>
+    <PointB>Сочи</PointB>
+    <Distance>2660</Distance>
+    <Price>572,17</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>13.06.2023</Date>
+    <UsedFuel>296</UsedFuel>
+    <AverageSpeed>120</AverageSpeed>
+  </route>
+  <route>
+    <User>Петр</User>
+    <Car>Volswagen Polo</Car>
+    <PointA>Минск</PointA>
+    <PointB>Сочи</PointB>
+    <Distance>2660</Distance>
+    <Price>572,17</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>13.06.2023</Date>
+    <UsedFuel>296</UsedFuel>
+    <AverageSpeed>120</AverageSpeed>
+  </route>
+  <route>
+    <User>Петр</User>
+    <Car>Volswagen Polo</Car>
+    <PointA>Минск</PointA>
+    <PointB>Сочи</PointB>
+    <Distance>2660</Distance>
+    <Price>635,74</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>01.06.2023</Date>
+    <UsedFuel>266</UsedFuel>
+    <AverageSpeed>120</AverageSpeed>
+  </route>
 </UsersRoutes>

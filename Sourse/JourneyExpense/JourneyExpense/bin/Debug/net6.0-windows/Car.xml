@@ -112,4 +112,18 @@
     <enginePower>90</enginePower>
     <tankSize>55</tankSize>
   </car>
+  <car>
+    <name>Volswagen Polo</name>
+    <year>2017</year>
+    <typeCar>Седан</typeCar>
+    <maxSpeed>120</maxSpeed>
+    <seatingCapacity>5</seatingCapacity>
+    <fuel>Бензин</fuel>
+    <fuelOctan>АИ-95</fuelOctan>
+    <fuelConsumptionGeneral>12</fuelConsumptionGeneral>
+    <fuelConsumptionCity>10</fuelConsumptionCity>
+    <fuelConsumptionHighway>8</fuelConsumptionHighway>
+    <enginePower>110</enginePower>
+    <tankSize>40</tankSize>
+  </car>
 </Cars>
