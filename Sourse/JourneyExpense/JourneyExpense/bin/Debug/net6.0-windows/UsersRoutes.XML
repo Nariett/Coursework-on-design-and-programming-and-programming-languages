@@ -498,4 +498,16 @@
     <UsedFuel>266</UsedFuel>
     <AverageSpeed>120</AverageSpeed>
   </route>
+  <route>
+    <User>Петр</User>
+    <Car>Honda Civic</Car>
+    <PointA>Барановичи</PointA>
+    <PointB>Жлобин</PointB>
+    <Distance>350</Distance>
+    <Price>50,19</Price>
+    <FuelType>Бензин</FuelType>
+    <Date>17.06.2023</Date>
+    <UsedFuel>58</UsedFuel>
+    <AverageSpeed>140</AverageSpeed>
+  </route>
 </UsersRoutes>
